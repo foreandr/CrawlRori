@@ -1,0 +1,3 @@
+hyperSel
+pillow
+pytesseract
