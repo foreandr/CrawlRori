@@ -63,7 +63,7 @@ def sign_in():
     print("\nSIGN IN")
     try:
         # 1. open driver
-        driver = hyperSel.selenium_utilities.open_site_selenium(site='https://www.youtube.com/live/sJ8ib7vlNbI', show_browser=True)
+        driver = hyperSel.selenium_utilities.open_site_selenium(site='https://www.youtube.com/live/lPF49sMQkvI?feature=share', show_browser=True)
         hyperSel.selenium_utilities.maximize_the_window(driver)
         
         click_play(driver)
@@ -107,6 +107,7 @@ def sign_in():
         second_url = driver.current_url
 
         if second_url != current_url:
+            print("we win")
             return driver
         else:
             print(current_url)
