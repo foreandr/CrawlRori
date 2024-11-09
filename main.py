@@ -7,6 +7,7 @@ import hyperSel.soup_utilities
 import func
 import time
 import re
+import custom_log
 
 print("NEED SOME KIND OF KEY SYSTEM, SO THAT WHEN I SEND THE EXE, ITS JUST FINITE")
 def extract_numbers_from_string(text):
@@ -85,7 +86,7 @@ def get_all_head_sliders(driver):
 
 def algemeen_scrape(driver, url):
     try:
-        # print("\nExecuting Algemeen scrape")
+        print("\nExecuting Algemeen scrape")
         hyperSel.selenium_utilities.go_to_site(driver, url)
         time.sleep(2)
         hyperSel.selenium_utilities.default_scroll_to_buttom(driver)
@@ -150,24 +151,78 @@ def algemeen_scrape(driver, url):
         print(e)
         input("SINGLE STOPPAGE")
 
-    '''
-    print("FULL OBJECTS")
-    for item in all_questions:
-        for key,value in item.items():
-            print("key  :", key)
-            print("value:", value)
-    '''
-
     return all_questions
-    # hyperSel.log_utilities.log_data(all_questions)
-    # print("")
-    # input("WE JUST DOINGT HIS algemeen_scrap ONE")
+
 
 def omgevingskenmerken_scrape(driver, url):
-    print("\nExecuting Omgevingskenmerken scrape")
-    hyperSel.selenium_utilities.go_to_site(driver, url)
-    # Add your scraping logic for Omgevingskenmerken here
-    # driver.get(...)
+    print("\nomgevingskenmerken_scrape")
+    try:
+        # print("\nExecuting Algemeen scrape")
+        hyperSel.selenium_utilities.go_to_site(driver, url)
+        time.sleep(4)
+        hyperSel.selenium_utilities.default_scroll_to_buttom(driver)
+
+        for i in range(0, 10):# 100 IS OVERKILL but just gets em all
+            try:
+                #         /html/body/div/div[1]/div/div[2]/div[2]/div[2]/div/div/div/div[1]
+                xpath = f'/html/body/div/div[1]/div/div[2]/div[2]/div[2]/div/div/div/div[{i}]/div'
+                # /html/body/div/div[1]/div/div[2]/div[2]/div[2]/div/div/div/div[6]
+                
+                hyperSel.selenium_utilities.click_button(driver, xpath, time=0.001)
+                # hyperSel.colors_utilities.c_print(i, "blue")
+            except Exception as e:
+                # hyperSel.colors_utilities.c_print(i, "red")
+                pass
+            finally:
+                time.sleep(2)
+                continue
+
+        # print("DONE HERE")
+        soup = hyperSel.selenium_utilities.get_driver_soup(driver)
+
+        question_soups = soup.find_all("div", class_="question relative")
+        all_questions = []
+        for question_tag in question_soups:
+            try:
+                # print("question_tag:", question_tag)
+        
+                # results 
+                radio_button_status = {}
+                # print(1)
+                # Find all radio button containers and extract label and selection status
+                for container in question_tag.find_all("div", class_="radio-input-container"):
+                    # print(2)
+                    # Get the label text
+                    label = container.find("label").text.strip()
+                    
+                    # Get the selection status from 'aria-checked' attribute in the input tag
+                    input_tag = container.find("input", type="radio")
+                    is_selected = input_tag.get("aria-checked") == "true"
+                    
+                    # Add to dictionary
+                    radio_button_status[label] = is_selected
+
+                # print("radio_button_status:", radio_button_status)
+
+                if radio_button_status == {}:
+                    continue
+
+                question_name = question_tag.find("span", class_="question__name").text
+                # print("\nquestion", question_name)
+
+                # print("=====\n\n")
+                full_object = {
+                    question_name:radio_button_status
+                }
+                all_questions.append(full_object)
+            except Exception as e:
+                hyperSel.colors_utilities.c_print("internal break of some kind", "green")
+            
+    except Exception as e:
+        print(e)
+        input("SINGLE STOPPAGE")
+
+    return all_questions
 
 def gebouwen_scrape(driver, url):
     print("\nExecuting Gebouwen scrape")
@@ -202,36 +257,67 @@ def samenvatting_scrape(driver, url):
 # Dispatcher function to handle different URLs
 def handle_url(driver, url):
     if "algemeen" in url:
-        return algemeen_scrape(driver, url)
-    elif "omgevingskenmerken" in url:
-        omgevingskenmerken_scrape(driver, url)
-    elif "gebouwen" in url:
-        gebouwen_scrape(driver, url)
-    elif "ruimtes" in url:
-        ruimtes_scrape(driver, url)
-    elif "schades" in url:
-        schades_scrape(driver, url)
-    elif "bijlagen" in url:
-        bijlagen_scrape(driver, url)
-    elif "samenvatting" in url:
-        samenvatting_scrape(driver, url)
-    else:
-        print("No matching function for this URL:", url)
+        data = algemeen_scrape(driver, url)
+        tab_type = "algemeen"
 
+    elif "omgevingskenmerken" in url:
+        data = omgevingskenmerken_scrape(driver, url)
+        tab_type = "omgevingskenmerken"
+        
+    elif "gebouwen" in url:
+        tab_type = "gebouwen"
+        data = gebouwen_scrape(driver, url)
+
+    elif "ruimtes" in url:
+        tab_type = "ruimtes"
+        data = ruimtes_scrape(driver, url)
+        
+    elif "schades" in url:
+        tab_type = "schades"
+        data = schades_scrape(driver, url)
+    
+    elif "bijlagen" in url:
+        data = bijlagen_scrape(driver, url)
+        tab_type = "bijlagen"
+ 
+    elif "samenvatting" in url:
+        data = samenvatting_scrape(driver, url)
+        tab_type = "samenvatting"
+    try:
+        full_data = {
+            'data':data,
+            'url':url,
+            'tab_type':tab_type
+        }
+        return full_data
+    except Exception as e:
+        print(e)
+        print(url)
+        input("GOOBER FUCK UP")
+        
 # Main function to iterate over URLs and call the dispatcher
 def got_inside_yellow_button_click(driver):
     urls = get_all_head_sliders(driver)  # This should return your list of URLs
     all_data = []
-    for url in urls:
-        # print("HANDLING URL", url)
-        data = handle_url(driver, url)
-        for item in data:
-            all_data.append(item)
-        hyperSel.colors_utilities.c_print("ONLY DOING FIRST TAB", color='yellow')
+    for url in urls[6:]:
+        print('11111111url:', url)
+        try:
+            hyperSel.colors_utilities.c_print(text="FOR ANY OF THESE, IF DATA IS NONE, RUN AGAIN TO ATTEMPT, GIVE N ATTEMPTS", color="cyan")
+            data = handle_url(driver, url)
+            all_data.append(data)
+            # print("data:", data)
+            # input("I AM TRYING TO DO THE SECOND TAB")
+        except Exception as e:
+            print("URL FIALED:", url)
+            print(e)
+            input("WHAT WENT WRONG?")
+
         break
-        time.sleep(2)
-        print("Processed:", url)
-        
+    input("SINGLE BUILDING DONE, GUNNA EXIT")
+    print("all_data", all_data)
+    for i in all_data:
+        print(i)
+    # input("--lajhdflkjahlkajhd")
     return all_data
 
 def single_dossier_iteration(driver):
@@ -245,30 +331,31 @@ def single_dossier_iteration(driver):
         # print("RETURN TRUESKI:", data)
         return data
     except Exception as e:
-        # print(e)
+        print(e)
         print("RETURN FALSE")
         return False
    
 def iterate_through_main_data(driver, data):    
-    print("\n[2]: iterate_through_main_data")
+    # print("\n[2]: iterate_through_main_data")
     for item in data:
+        #NEED TO BE RELOAIDNG THE DATA, CHECK THE SV
+        # IF THE SV IS IN THERE, THEN WE just update the values of that sv
         url = item['dossier_url']
         print("url:", url)
         time.sleep(10)
 
         hyperSel.selenium_utilities.go_to_site(driver, url)
-        local_url_data = single_dossier_iteration(driver)
-
+        tab_data = single_dossier_iteration(driver)
         combined_data = {}
-        combined_item = {**item, "local_url_data": local_url_data}  # Combines all keys in `item` and adds `local_url_data`
+        combined_item = {**item, "tab_data": tab_data}  # Combines all keys in `item` and adds `tab_data`
         combined_item.pop("dossier", None)
         dossier_key = item['dossier']  
         combined_data[dossier_key] = combined_item
 
         print("combined_data:", combined_data)
-        hyperSel.log_utilities.log_function(log_string=combined_data)
         print("=====-----"*3)
-        # print("\n\n\n\n")
+        custom_log.log_to_file(combined_data, file_path="./logs/crawl_data.json")# hyperSel.log_utilities.log_data(combined_data)
+        
 
 def iterate_through_items(driver):
     print("\n\niterate_through_items")
@@ -293,6 +380,11 @@ def iterate_through_items(driver):
         all_data = get_content_from_page(driver)
         iterate_through_main_data(driver, all_data)
 
+        print("BACK TO ROOT PAGE")
+        print("THEN I HAVE TO PAGINATE N times actually, NTO JUST ONCE SO THIS NEEDS OT BE FIXED")
+        site = "https://productie.deatabix.nl/login?redirect=/dashboard"
+        hyperSel.selenium_utilities.go_to_site(driver, site)
+
         try:
             time.sleep(1)
             elements = hyperSel.selenium_utilities.select_multiple_elements_by_class(driver, "v-pagination__navigation")
@@ -311,7 +403,7 @@ def iterate_through_items(driver):
         time.sleep(4)
         print("---")
 
-    input("SSTROPPPP")
+    #input("SSTROPPPP")
     hyperSel.selenium_utilities.close_driver(driver)    
     print("DONE")
 
