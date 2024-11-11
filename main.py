@@ -8,6 +8,10 @@ import func
 import time
 import re
 import custom_log
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 print("NEED SOME KIND OF KEY SYSTEM, SO THAT WHEN I SEND THE EXE, ITS JUST FINITE")
 def extract_numbers_from_string(text):
@@ -148,7 +152,9 @@ def algemeen_scrape(driver, url):
                 hyperSel.colors_utilities.c_print("internal break of some kind", "green")
             
     except Exception as e:
+        hyperSel.colors_utilities.c_print(f"algemeen_scrap ERROR", "red")
         print(e)
+        
         input("SINGLE STOPPAGE")
 
     return all_questions
@@ -157,7 +163,6 @@ def algemeen_scrape(driver, url):
 def omgevingskenmerken_scrape(driver, url):
     print("\nomgevingskenmerken_scrape")
     try:
-        # print("\nExecuting Algemeen scrape")
         hyperSel.selenium_utilities.go_to_site(driver, url)
         time.sleep(4)
         hyperSel.selenium_utilities.default_scroll_to_buttom(driver)
@@ -220,21 +225,127 @@ def omgevingskenmerken_scrape(driver, url):
             
     except Exception as e:
         print(e)
+        hyperSel.colors_utilities.c_print(f"mgevingskenmerke ERROR", "red")
         input("SINGLE STOPPAGE")
 
     return all_questions
 
+def get_all_individual_building_data(driver, building_url):
+
+    hyperSel.selenium_utilities.go_to_site(driver, building_url)
+
+    time.sleep(2)
+
+
+    question_xpath = ".//div[contains(@class, 'question') and contains(@class, 'flex') and contains(@class, 'items-center')]"
+
+    questions = hyperSel.selenium_utilities.select_multiple_elements_by_xpath(driver, question_xpath)
+    for i in questions:
+        try:
+            driver.execute_script("arguments[0].scrollIntoView(true);", i)
+        except Exception as e:
+            print(1)
+            print(e)
+        
+        try:
+            i.click()
+        except Exception as e:
+            print(2)
+            print(e)
+
+        
+    time.sleep(2)
+    full_soup = hyperSel.selenium_utilities.get_driver_soup(driver)
+    questions_data = extract_building_question_data(full_soup)
+ 
+
+
+    return questions_data
+
+def extract_image_urls(soup):
+    image_urls = []
+
+    # Find all img tags and extract the src attribute
+    for img_tag in soup.find_all("img"):
+        img_url = img_tag.get("src")
+        if img_url:
+            image_urls.append(img_url)
+
+    return image_urls
+
 def gebouwen_scrape(driver, url):
-    print("\nExecuting Gebouwen scrape")
+    print("\nExecuting Gebouwen scrape [BUILDINGS]")
     hyperSel.selenium_utilities.go_to_site(driver, url)
-    # Add your scraping logic for Gebouwen here
-    # driver.get(...)
+    time.sleep(2)
+
+    soup = hyperSel.selenium_utilities.get_driver_soup(driver)
+
+    # GET THE DIV THE BUILDINGS WOULD BE IN
+    # print("\n")
+    root_building_tag = soup.find("div", class_="atabix-side-menu-draggable__items")
+    # print("root_building_tag;", len(root_building_tag))
+
+    if len(root_building_tag) == 0:
+        print("NO BUILDINGS HERE, RETURN EMPTY ARR")
+        return  []
+
+    all_building_data = []
+    for building in root_building_tag:
+        # print(building)
+        
+        try:
+            building_title = building.find("span", class_="atabix-side-menu-draggable__item--title").text
+        except Exception as e:
+            hyperSel.colors_utilities.c_print("FAILED TO GET BUILDING TITLE")
+            building_title = ""
+
+        #print("\nbuilding_title:", building_title)
+
+        building_url = f"https://productie.deatabix.nl{building.find('a')['href']}" 
+        #print("building_url:", building_url)
+        
+        questions_data = get_all_individual_building_data(driver, building_url)
+        #for i in questions_data:
+        #    print(i)
+        #    print("======")
+
+        # get images
+        hyperSel.selenium_utilities.go_to_site(driver, building_url+'afbeeldingen')
+        time.sleep(3)
+        soup = hyperSel.selenium_utilities.get_driver_soup(driver)
+        images = extract_image_urls(soup)
+
+        full_object = {
+            "building_title":building_title,
+            "building_url":building_url,
+            "questions_data":questions_data,
+            "images":images
+        }
+        all_building_data.append(full_object)
+        
+        #print("WENT TO BUILDING URL")
+        #print("===="*3)
+        time.sleep(3)
+
+    return all_building_data
 
 def ruimtes_scrape(driver, url):
     print("\nExecuting Ruimtes scrape")
     hyperSel.selenium_utilities.go_to_site(driver, url)
-    # Add your scraping logic for Ruimtes here
-    # driver.get(...)
+    
+    class_name = 'atabix-side-menu-draggable__item'
+    spaces = hyperSel.selenium_utilities.select_multiple_elements_by_class(driver, class_name=class_name)
+    print("spaces", len(spaces))
+    if len(spaces) == 0:
+        return []
+    
+    for i in spaces:
+        print(i)
+        i.click()
+        time.sleep(2)
+
+
+    input("STOP HERE TO SHOW WE GOT IN")
 
 def schades_scrape(driver, url):
     print("\nExecuting Schades scrape")
@@ -251,8 +362,23 @@ def bijlagen_scrape(driver, url):
 def samenvatting_scrape(driver, url):
     print("\nExecuting Samenvatting scrape")
     hyperSel.selenium_utilities.go_to_site(driver, url)
-    # Add your scraping logic for Samenvatting here
-    # driver.get(...)
+    time.sleep(5)
+    soup = hyperSel.selenium_utilities.get_driver_soup(driver)
+    hyperSel.log_utilities.log_function(soup)
+
+    data = {}
+    section_soup = soup.find("div", class_="conclusion-card-content")
+    for item in section_soup.find_all("div", class_="label-value"):
+        # Extract label text
+        label = item.find("div", class_="label-value__label").text.strip()
+        
+        # Extract value text
+        value = item.find("div", class_="label-value__value").text.strip()
+        
+        # Add to dictionary
+        data[label] = value
+
+    return data
 
 # Dispatcher function to handle different URLs
 def handle_url(driver, url):
@@ -289,9 +415,10 @@ def handle_url(driver, url):
             'url':url,
             'tab_type':tab_type
         }
+        # print("full_data:", full_data)
         return full_data
     except Exception as e:
-        print(e)
+        hyperSel.colors_utilities.c_print(f"handle_url ERROR", "red")
         print(url)
         input("GOOBER FUCK UP")
         
@@ -299,10 +426,11 @@ def handle_url(driver, url):
 def got_inside_yellow_button_click(driver):
     urls = get_all_head_sliders(driver)  # This should return your list of URLs
     all_data = []
-    for url in urls[6:]:
+    starting_url_index = 3
+    for url in urls[starting_url_index:]:
         print('11111111url:', url)
         try:
-            hyperSel.colors_utilities.c_print(text="FOR ANY OF THESE, IF DATA IS NONE, RUN AGAIN TO ATTEMPT, GIVE N ATTEMPTS", color="cyan")
+            # hyperSel.colors_utilities.c_print(text="FOR ANY OF THESE, IF DATA IS NONE, RUN AGAIN TO ATTEMPT, GIVE N ATTEMPTS", color="cyan")
             data = handle_url(driver, url)
             all_data.append(data)
             # print("data:", data)
@@ -312,12 +440,20 @@ def got_inside_yellow_button_click(driver):
             print(e)
             input("WHAT WENT WRONG?")
 
-        break
-    input("SINGLE BUILDING DONE, GUNNA EXIT")
-    print("all_data", all_data)
-    for i in all_data:
-        print(i)
-    # input("--lajhdflkjahlkajhd")
+        if starting_url_index != 0:
+            print("ONLY DOING ONE ITER, BRAK")
+            break
+
+    # input("SINGLE BUILDING DONE, GUNNA EXIT")
+    #print("all_data", all_data)
+    '''
+    if starting_url_index != 0:
+        print("PRINTING DATA")
+        for i in all_data:
+            print(i)
+    '''
+        # input("--lajhdflkjahlkajhd")
+
     return all_data
 
 def single_dossier_iteration(driver):
@@ -331,7 +467,8 @@ def single_dossier_iteration(driver):
         # print("RETURN TRUESKI:", data)
         return data
     except Exception as e:
-        print(e)
+        hyperSel.colors_utilities.c_print(f"single_dossier_iterati ERROR", "red")
+        hyperSel.colors_utilities.c_print(f"handle_url ERROR", "red")
         print("RETURN FALSE")
         return False
    
@@ -352,8 +489,8 @@ def iterate_through_main_data(driver, data):
         dossier_key = item['dossier']  
         combined_data[dossier_key] = combined_item
 
-        print("combined_data:", combined_data)
-        print("=====-----"*3)
+        #print("combined_data:", combined_data)
+        #print("=====-----"*3)
         custom_log.log_to_file(combined_data, file_path="./logs/crawl_data.json")# hyperSel.log_utilities.log_data(combined_data)
         
 
@@ -391,7 +528,9 @@ def iterate_through_items(driver):
             last_button = elements[1]
             last_button.click()
         except Exception as e:
-            #print("ISSUE WITH NEXT BUUTTON?")
+            hyperSel.colors_utilities.c_print(F"I FAILED TO PAGINATE [{num_pages_done}]", "Red")
+            print("ISSUE WITH NEXT BUUTTON?")
+            input("JUST FOR DEBUGING")
             #print(e)
             #input("STOP")
             break
@@ -419,6 +558,49 @@ def main():
 
     input("END MAIN")
 
+def extract_building_question_data(soup):
+    all_questions = []
+
+    # Loop through each div with class 'flex flex-col'
+    for tag in soup.find_all("div", class_="flex flex-col"):
+        try:
+            # Extract question name
+            question_name_tag = tag.find("span", class_="question__name")
+            if question_name_tag:
+                question_name = question_name_tag.text.strip()
+            else:
+                continue  # Skip if there's no question name
+
+            # Initialize a dictionary to store answer statuses
+            radio_button_status = {}
+
+            # Find all radio button containers within this question's tag
+            for container in tag.find_all("div", class_="radio-input-container"):
+                # Extract the label and selection status
+                label_tag = container.find("label")
+                input_tag = container.find("input", type="radio")
+                
+                # Ensure label and input are found
+                if label_tag and input_tag:
+                    label = label_tag.text.strip()
+                    is_selected = input_tag.get("aria-checked") == "true"
+                    # Store in the dictionary
+                    radio_button_status[label] = is_selected
+
+            # If no radio buttons were found, skip this question
+            if not radio_button_status:
+                continue
+
+            # Append question and answers to the result list
+            all_questions.append({
+                "question": question_name,
+                "answers": radio_button_status
+            })
+
+        except Exception as e:
+            print("Error processing question:", e)
+
+    return all_questions
 
 if __name__ == '__main__':
     main()
