@@ -297,7 +297,14 @@ def gebouwen_scrape(driver, url):
 
     all_building_data = []
     for building in root_building_tag:
-        # print(building)
+        try:
+            xpath = '/html/body/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div[3]/div[2]/div/div/div[2]/div/div[2]/div[1]/div[5]/aside/div[1]/div/div[1]/div[2]/div/div[2]/div/button'
+            hyperSel.selenium_utilities.click_button(driver, xpath=xpath, time=0.0001)
+            # print("WEIRD THING APPEARED")
+            time.sleep(0.01)
+        except Exception as e:
+            pass
+
         
         try:
             building_title = building.find("span", class_="atabix-side-menu-draggable__item--title").text
