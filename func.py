@@ -107,7 +107,7 @@ def sign_in():
         second_url = driver.current_url
 
         if second_url != current_url:
-            print("we win")
+            print("we in")
             return driver
         else:
             print(current_url)

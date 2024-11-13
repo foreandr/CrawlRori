@@ -242,6 +242,14 @@ def get_all_individual_building_data(driver, building_url):
     questions = hyperSel.selenium_utilities.select_multiple_elements_by_xpath(driver, question_xpath)
     for i in questions:
         try:
+            xpath = '/html/body/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div[3]/div[2]/div/div/div[2]/div/div[2]/div[1]/div[5]/aside/div[1]/div/div[1]/div[2]/div/div[2]/div/button'
+            hyperSel.selenium_utilities.click_button(driver, xpath=xpath, time=0.0001)
+            # print("WEIRD THING APPEARED")
+            time.sleep(0.001)
+        except Exception as e:
+            pass
+
+        try:
             driver.execute_script("arguments[0].scrollIntoView(true);", i)
         except Exception as e:
             print(1)
@@ -256,9 +264,7 @@ def get_all_individual_building_data(driver, building_url):
         
     time.sleep(2)
     full_soup = hyperSel.selenium_utilities.get_driver_soup(driver)
-    questions_data = extract_building_question_data(full_soup)
- 
-
+    questions_data = extract_question_data(full_soup)
 
     return questions_data
 
@@ -332,39 +338,161 @@ def gebouwen_scrape(driver, url):
 def ruimtes_scrape(driver, url):
     print("\nExecuting Ruimtes scrape")
     hyperSel.selenium_utilities.go_to_site(driver, url)
+    time.sleep(2)
     
     class_name = 'atabix-side-menu-draggable__item'
     spaces = hyperSel.selenium_utilities.select_multiple_elements_by_class(driver, class_name=class_name)
-    print("spaces", len(spaces))
+    # print("spaces", len(spaces))
     if len(spaces) == 0:
         return []
     
+    all_space_data = []
+
     for i in spaces:
-        print(i)
-        i.click()
+        try:
+            xpath = '/html/body/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div[3]/div[2]/div/div/div[2]/div/div[2]/div[1]/div[5]/aside/div[1]/div/div[1]/div[2]/div/div[2]/div/button'
+            hyperSel.selenium_utilities.click_button(driver, xpath=xpath, time=0.0001)
+            # print("WEIRD THING APPEARED")
+            time.sleep(0.001)
+        except Exception as e:
+            pass
+
+        # print("[1]1[]1[]1[]i:", i)
+        try:
+            driver.execute_script("arguments[0].scrollIntoView(true);", i)
+        except Exception as e:
+            print(1)
+            print(e)
+
+
+        try:
+            i.click()
+            time.sleep(0.01)
+        except Exception as e:
+            print(2)
+            print(e)
+
+        try:
+            xpath = '/html/body/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div[3]/div[2]/div/div/div[2]/div/div[2]/div[1]/div[5]/aside/div[1]/div/div[1]/div[2]/div/div[2]/div/button'
+            hyperSel.selenium_utilities.click_button(driver, xpath=xpath, time=0.0001)
+            # print("WEIRD THING APPEARED")
+            time.sleep(0.001)
+        except Exception as e:
+            pass
+
         time.sleep(2)
 
+        data = get_individual_space_data_after_click(driver)
+        all_space_data.append(data)
+        hyperSel.log_utilities.checkpoint()
+        time.sleep(1)
+        # print("======"
 
-    input("STOP HERE TO SHOW WE GOT IN")
+    return all_space_data
+
+def get_individual_space_data_after_click(driver):
+    soup = hyperSel.selenium_utilities.get_driver_soup(driver)
+    full_object = {}
+
+    images = extract_image_urls(soup)
+    full_object['images'] = images
+    # print("images:", images)
+
+    space_title = soup.find("h2",class_="atabix-title").text
+    # print("space_title:", space_title)
+    full_object['title'] = space_title
+
+    try:
+        elements = WebDriverWait(driver, 10).until(
+            EC.presence_of_all_elements_located((By.XPATH, "//div[@data-v-b8e230b8]"))
+        )
+
+        # print("elements:",len(elements))
+        # Click each element
+        for element in elements:
+            try:
+                driver.execute_script("arguments[0].scrollIntoView(true);", element)
+                element.click()
+                time.sleep(0.01)
+            except Exception as e:
+                #print(1)
+                #print(e)
+                pass
+
+            try:
+                xpath = '/html/body/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div[3]/div[2]/div/div/div[2]/div/div[2]/div[1]/div[5]/aside/div[1]/div/div[1]/div[2]/div/div[2]/div/button'
+                hyperSel.selenium_utilities.click_button(driver, xpath=xpath, time=0.0001)
+                # print("WEIRD THING APPEARED")
+                time.sleep(0.01)
+            except Exception as e:
+                pass
+                
+        time.sleep(2)
+        soup = hyperSel.selenium_utilities.get_driver_soup(driver)
+        questionaaire_data = extract_question_data(soup)
+        full_object["questionaire_data"] = questionaaire_data
+
+    except Exception as e:
+        print(e)
+        input("WHAT THE FUCK")
+
+    return full_object    
 
 def schades_scrape(driver, url):
     print("\nExecuting Schades scrape")
     hyperSel.selenium_utilities.go_to_site(driver, url)
-    # Add your scraping logic for Schades here
-    # driver.get(...)
+    time.sleep(2)
+
+    class_name = 'atabix-side-menu-draggable__item'
+    damages = hyperSel.selenium_utilities.select_multiple_elements_by_class(driver, class_name=class_name)
+    print("damages", len(damages))
+    if len(damages) == 0:
+        return []
+    
+    all_damages = []
+
+    for i in damages:
+        try:
+            driver.execute_script("arguments[0].scrollIntoView(true);", i)
+        except Exception as e:
+            print(1)
+            print(e)
+
+        try:
+            i.click()
+            
+        except Exception as e:
+            print(2)
+            print(e)
+        
+        time.sleep(2.5)
+
+        try:
+            xpath = '/html/body/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div[3]/div[2]/div/div/div[2]/div/div[2]/div[1]/div[5]/aside/div[1]/div/div[1]/div[2]/div/div[2]/div/button'
+            hyperSel.selenium_utilities.click_button(driver, xpath=xpath, time=0.0001)
+            # print("WEIRD THING APPEARED")
+            time.sleep(0.01)
+        except Exception as e:
+            pass
+
+        full_object = get_individual_space_data_after_click(driver)
+        all_damages.append(full_object)
+
+    return all_damages
 
 def bijlagen_scrape(driver, url):
     print("\nExecuting Bijlagen scrape")
     hyperSel.selenium_utilities.go_to_site(driver, url)
-    # Add your scraping logic for Bijlagen here
-    # driver.get(...)
+    time.sleep(2)
+    print("ATTACHMENTS IS WEIRD")
+    return [ ]
 
 def samenvatting_scrape(driver, url):
     print("\nExecuting Samenvatting scrape")
     hyperSel.selenium_utilities.go_to_site(driver, url)
     time.sleep(5)
     soup = hyperSel.selenium_utilities.get_driver_soup(driver)
-    hyperSel.log_utilities.log_function(soup)
+    # hyperSel.log_utilities.log_function(soup)
 
     data = {}
     section_soup = soup.find("div", class_="conclusion-card-content")
@@ -377,6 +505,9 @@ def samenvatting_scrape(driver, url):
         
         # Add to dictionary
         data[label] = value
+
+    if data == {}:
+        input("EMPTY SAMEN DATA")
 
     return data
 
@@ -426,9 +557,9 @@ def handle_url(driver, url):
 def got_inside_yellow_button_click(driver):
     urls = get_all_head_sliders(driver)  # This should return your list of URLs
     all_data = []
-    starting_url_index = 3
+    starting_url_index = 0
     for url in urls[starting_url_index:]:
-        print('11111111url:', url)
+        # print('11111111url:', url)
         try:
             # hyperSel.colors_utilities.c_print(text="FOR ANY OF THESE, IF DATA IS NONE, RUN AGAIN TO ATTEMPT, GIVE N ATTEMPTS", color="cyan")
             data = handle_url(driver, url)
@@ -443,16 +574,6 @@ def got_inside_yellow_button_click(driver):
         if starting_url_index != 0:
             print("ONLY DOING ONE ITER, BRAK")
             break
-
-    # input("SINGLE BUILDING DONE, GUNNA EXIT")
-    #print("all_data", all_data)
-    '''
-    if starting_url_index != 0:
-        print("PRINTING DATA")
-        for i in all_data:
-            print(i)
-    '''
-        # input("--lajhdflkjahlkajhd")
 
     return all_data
 
@@ -479,9 +600,11 @@ def iterate_through_main_data(driver, data):
         # IF THE SV IS IN THERE, THEN WE just update the values of that sv
         url = item['dossier_url']
         print("url:", url)
-        time.sleep(10)
+        time.sleep(4)
 
         hyperSel.selenium_utilities.go_to_site(driver, url)
+        time.sleep(2)
+
         tab_data = single_dossier_iteration(driver)
         combined_data = {}
         combined_item = {**item, "tab_data": tab_data}  # Combines all keys in `item` and adds `tab_data`
@@ -492,7 +615,8 @@ def iterate_through_main_data(driver, data):
         #print("combined_data:", combined_data)
         #print("=====-----"*3)
         custom_log.log_to_file(combined_data, file_path="./logs/crawl_data.json")# hyperSel.log_utilities.log_data(combined_data)
-        
+
+    print("DONE") 
 
 def iterate_through_items(driver):
     print("\n\niterate_through_items")
@@ -521,28 +645,28 @@ def iterate_through_items(driver):
         print("THEN I HAVE TO PAGINATE N times actually, NTO JUST ONCE SO THIS NEEDS OT BE FIXED")
         site = "https://productie.deatabix.nl/login?redirect=/dashboard"
         hyperSel.selenium_utilities.go_to_site(driver, site)
+        time.sleep(2)
 
         try:
             time.sleep(1)
             elements = hyperSel.selenium_utilities.select_multiple_elements_by_class(driver, "v-pagination__navigation")
             last_button = elements[1]
+            driver.execute_script("arguments[0].scrollIntoView(true);", last_button)
             last_button.click()
         except Exception as e:
-            hyperSel.colors_utilities.c_print(F"I FAILED TO PAGINATE [{num_pages_done}]", "Red")
+            hyperSel.colors_utilities.c_print(F"I FAILED TO PAGINATE [{num_pages_done}]", "red")
             print("ISSUE WITH NEXT BUUTTON?")
-            input("JUST FOR DEBUGING")
-            #print(e)
-            #input("STOP")
-            break
-            
+            print("SIGN IN AGAIN")
+            hyperSel.selenium_utilities.close_driver(driver)
+
+            driver = func.sign_in()
+
         num_pages_done += 1
-    
-        input('ONE ITER')
+        hyperSel.colors_utilities.c_print("DONE, GOING TO NEXT PAGE", 'green')
 
         time.sleep(4)
         print("---")
 
-    #input("SSTROPPPP")
     hyperSel.selenium_utilities.close_driver(driver)    
     print("DONE")
 
@@ -556,9 +680,9 @@ def main():
     iterate_through_items(driver)
     
 
-    input("END MAIN")
+    # input("END MAIN")
 
-def extract_building_question_data(soup):
+def extract_question_data(soup):
     all_questions = []
 
     # Loop through each div with class 'flex flex-col'

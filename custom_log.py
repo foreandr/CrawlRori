@@ -2,7 +2,8 @@ import json
 import os
 
 def log_to_file(data, file_path):
-    # Ensure the file exists; create if not
+    # Ensure directory and file existence
+    ensure_directory_exists(file_path)
     if not os.path.exists(file_path):
         with open(file_path, 'w') as file:
             json.dump([], file)
@@ -20,6 +21,12 @@ def log_to_file(data, file_path):
     # Write updated data back to file
     with open(file_path, 'w') as file:
         json.dump(current_data, file, indent=4)
+
+def ensure_directory_exists(file_path):
+    # Ensure the directory for the file exists; create if not
+    dir_name = os.path.dirname(file_path)
+    if not os.path.exists(dir_name) and dir_name != '':
+        os.makedirs(dir_name)
 
 def process_entry(data, current_data):
     # Extract the main key from the data to log
