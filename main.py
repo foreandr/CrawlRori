@@ -155,7 +155,7 @@ def algemeen_scrape(driver, url):
         hyperSel.colors_utilities.c_print(f"algemeen_scrap ERROR", "red")
         print(e)
         
-        input("SINGLE STOPPAGE")
+        # input("SINGLE STOPPAGE")
 
     return all_questions
 
@@ -226,7 +226,7 @@ def omgevingskenmerken_scrape(driver, url):
     except Exception as e:
         print(e)
         hyperSel.colors_utilities.c_print(f"mgevingskenmerke ERROR", "red")
-        input("SINGLE STOPPAGE")
+        # input("SINGLE STOPPAGE")
 
     return all_questions
 
@@ -441,7 +441,6 @@ def get_individual_space_data_after_click(driver):
 
     except Exception as e:
         print(e)
-        input("WHAT THE FUCK")
 
     return full_object    
 
@@ -514,7 +513,8 @@ def samenvatting_scrape(driver, url):
         data[label] = value
 
     if data == {}:
-        input("EMPTY SAMEN DATA")
+        # input("EMPTY SAMEN DATA")
+        pass
 
     return data
 
@@ -558,7 +558,7 @@ def handle_url(driver, url):
     except Exception as e:
         hyperSel.colors_utilities.c_print(f"handle_url ERROR", "red")
         print(url)
-        input("GOOBER FUCK UP")
+        # input("GOOBER mess UP")
         
 # Main function to iterate over URLs and call the dispatcher
 def got_inside_yellow_button_click(driver):
@@ -576,7 +576,7 @@ def got_inside_yellow_button_click(driver):
         except Exception as e:
             print("URL FIALED:", url)
             print(e)
-            input("WHAT WENT WRONG?")
+            # input("WHAT WENT WRONG?")
 
         if starting_url_index != 0:
             print("ONLY DOING ONE ITER, BRAK")
