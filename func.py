@@ -116,12 +116,23 @@ def sign_in():
             hyperSel.selenium_utilities.close_driver(driver)
             main()
 
-
-        input("CHECK IF i HAVE SWAPPED URLS")
-
     except Exception as e:
         hyperSel.selenium_utilities.close_driver(driver)
         print("I HAD TO DO A GLOBAL RESET")
         main()
     
+    return driver
+
+def ui_real_sign_in():
+    driver = hyperSel.selenium_utilities.open_site_selenium(site='https://productie.deatabix.nl/login?redirect=/dashboard', show_browser=True)
+    hyperSel.selenium_utilities.maximize_the_window(driver)
+    print("**"*10)
+    options = ['y', 'yes']
+    while True:
+        
+        result = input("\n\nenter y/yes AND PRESS ENTER IF YOU HAVE SIGNED INTO THE SITE\n")
+        if result.lower() in options:
+            break
+    print("**"*10)
+    print("USER HAS SIGNED IN, BEGIN CRAWL")
     return driver

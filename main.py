@@ -13,6 +13,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+TEST=False
+
 print("NEED SOME KIND OF KEY SYSTEM, SO THAT WHEN I SEND THE EXE, ITS JUST FINITE")
 def extract_numbers_from_string(text):
     """
@@ -679,7 +681,13 @@ def iterate_through_items(driver):
 
 def main():
     print("\nMAIN")
-    driver = func.sign_in()
+    print("TEST:", TEST)
+
+    if TEST:
+        driver = func.sign_in()
+    else:
+        driver = func.ui_real_sign_in()
+
     print("SIGNED IN")
     time.sleep(5)
 
