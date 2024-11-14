@@ -2,3 +2,4 @@ hyperSel
 pillow
 pytesseract
 pyinstaller
+customtkinter

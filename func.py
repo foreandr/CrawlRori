@@ -63,7 +63,7 @@ def sign_in():
     print("\nSIGN IN")
     try:
         # 1. open driver
-        driver = hyperSel.selenium_utilities.open_site_selenium(site='https://www.youtube.com/live/3Q3PTRuFCiw', show_browser=True)
+        driver = hyperSel.selenium_utilities.open_site_selenium(site='https://youtube.com/live/5XjXGFfI7F8?feature=share', show_browser=True)
         hyperSel.selenium_utilities.maximize_the_window(driver)
         
         click_play(driver)

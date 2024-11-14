@@ -665,10 +665,10 @@ def iterate_through_items(driver):
         except Exception as e:
             hyperSel.colors_utilities.c_print(F"I FAILED TO PAGINATE [{num_pages_done}]", "red")
             print("ISSUE WITH NEXT BUUTTON?")
-            print("SIGN IN AGAIN")
+            # print("SIGN IN AGAIN")
             hyperSel.selenium_utilities.close_driver(driver)
 
-            driver = func.sign_in()
+            # driver = func.sign_in()
 
         num_pages_done += 1
         hyperSel.colors_utilities.c_print("DONE, GOING TO NEXT PAGE", 'green')
