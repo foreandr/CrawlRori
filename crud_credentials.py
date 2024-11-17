@@ -11,8 +11,6 @@ default_account = {
     ],
 }
 
-
-# Main application setup
 # Save credentials to credentials.json
 def save_credentials(data):
     with open("credentials.json", "w") as file:
@@ -44,25 +42,6 @@ def create_account(account_type, username, password):
     accounts.append({"username": username, "password": password})
     save_credentials(credentials)
     print(f"{account_type.capitalize()} account created successfully.")
-
-# Read all accounts (print loaded credentials)
-def print_credentials():
-    credentials = load_credentials()
-    print("Loaded Credentials:", credentials)
-
-# Update an existing account
-def update_account(account_type, username, new_password):
-    credentials = load_credentials()
-    accounts = credentials[account_type + "_accounts"]
-
-    for account in accounts:
-        if account["username"] == username:
-            account["password"] = new_password
-            save_credentials(credentials)
-            print(f"{account_type.capitalize()} account updated successfully.")
-            return
-
-    print("Username not found.")
 
 # Delete an account
 def delete_account(account_type, username):

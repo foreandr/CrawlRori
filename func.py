@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import re
-from main import main
+from main import main_loop
 # Preload EasyOCR model
 reader = easyocr.Reader(['en'], gpu=False)  # Set gpu=True if you have a CUDA-compatible GPU and installed drivers
 
@@ -63,7 +63,7 @@ def sign_in():
     print("\nSIGN IN")
     try:
         # 1. open driver
-        driver = hyperSel.selenium_utilities.open_site_selenium(site='https://youtube.com/live/5XjXGFfI7F8?feature=share', show_browser=True)
+        driver = hyperSel.selenium_utilities.open_site_selenium(site='https://www.youtube.com/live/VMpduJ-tC9I', show_browser=True)
         hyperSel.selenium_utilities.maximize_the_window(driver)
         
         click_play(driver)
@@ -79,7 +79,7 @@ def sign_in():
                 if i >= 9:
                     hyperSel.selenium_utilities.close_driver(driver)
                     print("MFA FAILURE: I HAD TO DO A LOOP RESET")
-                    main()
+                    sign_in()
                 continue   
 
         # print("GOT SCREENSHOT")
@@ -114,12 +114,12 @@ def sign_in():
             print(second_url)
             print("DDINT LOGIN CORRECTLY, PAGE CHANGE FAILED, RESTART")
             hyperSel.selenium_utilities.close_driver(driver)
-            main()
+            sign_in()
 
     except Exception as e:
         hyperSel.selenium_utilities.close_driver(driver)
         print("I HAD TO DO A GLOBAL RESET")
-        main()
+        sign_in()
     
     return driver
 

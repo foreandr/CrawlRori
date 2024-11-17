@@ -1,7 +1,17 @@
 import customtkinter as ctk
 from tkinter import messagebox
 import json
+
+import hyperSel.colors_utilities
+import hyperSel.selenium_utilities
 import crud_credentials
+import custom_log
+import hyperSel
+import validation_rules
+import tkinter as tk
+from tkinter import ttk
+from difflib import SequenceMatcher
+import customtkinter as ctk
 
 # Test mode flag to skip login
 test_mode = True
@@ -25,12 +35,48 @@ def validate_login(username, password, root, credentials):
     messagebox.showerror("Login Failed", "Incorrect username or password.")
 
 # Separate function to add the Search tab
+# Function to display the fetched data in the search tab
+def display_data(data, parent):
+    # Clear any previous content
+    for widget in parent.winfo_children():
+        widget.destroy()
+
+    # Display data in a scrollable text widget
+    text_widget = ctk.CTkTextbox(parent, wrap="none", width=500, height=300)
+    text_widget.insert("1.0", json.dumps(data, indent=4))  # Pretty print JSON
+    text_widget.pack(pady=10, padx=10, fill="both", expand=True)
+
+
+# Function to handle search button click
+def handle_search(url_entry, display_frame):
+    url = url_entry.get()
+    if url:  # Simulate fetching data
+        data = fake_fetch_data(url)
+        display_data(data, display_frame)
+
+
+# Separate function to add the Search tab
 def add_search_tab(tabview):
     search_tab = tabview.add("Search")
-    search_label = ctk.CTkLabel(search_tab, text="Search Functionality Here", font=("Arial", 16))
-    search_label.pack(pady=20)
-    # Additional search functionality can go here
+    # Input field for URL
+    url_label = ctk.CTkLabel(search_tab, text="Enter URL:", font=("Arial", 14))
+    url_label.pack(pady=5)
+    url_entry = ctk.CTkEntry(search_tab, placeholder_text="https://example.com")
+    url_entry.pack(pady=5)
 
+    # Button to trigger search
+    search_button = ctk.CTkButton(search_tab, text="Search", command=lambda: handle_search(url_entry, display_frame))
+    search_button.pack(pady=10)
+
+    # Frame to display fetched data
+    display_frame = ctk.CTkFrame(search_tab, width=500, height=300)
+    display_frame.pack(pady=10, fill="both", expand=True)
+
+def fake_fetch_data(url):
+    print("url;", url)
+    # Simulated JSON data
+    data = custom_log.read_from_file("./logs/crawl_data.json")[0]
+    return data
 
 def credentials_crud(admin_frame):
     credentials_label = ctk.CTkLabel(admin_frame, text="Credentials Management", font=("Arial", 16))
@@ -139,22 +185,12 @@ def save_new_account(username, password, is_admin):
     
     # Check if username already exists
     if any(account["username"] == username for account in credentials[account_type + "_accounts"]):
-        print("Username already exists.")
+        # print("Username already exists.")
         return
 
     credentials[account_type + "_accounts"].append({"username": username, "password": password})
     crud_credentials.save_credentials(credentials)
-    print(f"{account_type.capitalize()} account created successfully.")
-
-# Function to handle Validation Rules section
-def validation_rules(admin_frame):
-    # Validation Rules Label
-    validation_label = ctk.CTkLabel(admin_frame, text="Validation Rules", font=("Arial", 16))
-    validation_label.grid(row=2, column=0, pady=20, padx=10, sticky="w")
-    
-    # Placeholder for validation rules functionality
-    validation_placeholder = ctk.CTkLabel(admin_frame, text="No rules defined yet.", font=("Arial", 14))
-    validation_placeholder.grid(row=3, column=0, pady=10, padx=10)
+    # print(f"{account_type.capitalize()} account created successfully.")
 
 def add_validation_rules_tab(tabview):
     validation_rules_tab = tabview.add("Validation Rules")
@@ -164,7 +200,54 @@ def add_validation_rules_tab(tabview):
     validation_rules_frame.pack(pady=20, padx=20, fill="both", expand=True)
 
     # Call the validation_rules function
-    validation_rules(validation_rules_frame)
+    validation_rules_framing(validation_rules_frame)
+
+def validation_rules_framing(admin_frame):
+    import custom_log
+
+    # Load data
+    data = custom_log.read_from_file("./logs/crawl_data.json")
+    
+    # Extract all unique questions
+    all_questions = []
+    for item in data:
+        extracted_questions = validation_rules.extract_question_answer_pairs(item)
+        for question in extracted_questions:
+            if question['question'] not in all_questions:
+                all_questions.append(question['question'])
+    
+    # Display a table-like layout
+    for idx, question_text in enumerate(all_questions):
+        # Display the question
+        question_label = ctk.CTkLabel(admin_frame, text=question_text, font=("Arial", 12))
+        question_label.grid(row=idx, column=0, pady=5, padx=10, sticky="w")
+        
+        # Add "Select" button
+        select_button = ctk.CTkButton(
+            admin_frame, text="Select", 
+            command=lambda q=question_text: handle_question_selection(q, admin_frame)
+        )
+        select_button.grid(row=idx, column=1, pady=5, padx=10, sticky="e")
+
+
+def handle_question_selection(question_text, admin_frame):
+    # Clear the frame for the new selection
+    for widget in admin_frame.winfo_children():
+        widget.destroy()
+
+    # Display the selected question
+    question_label = ctk.CTkLabel(admin_frame, text=question_text, font=("Arial", 16))
+    question_label.grid(row=0, column=0, pady=20, padx=10, sticky="w")
+
+    # Add True/False buttons
+    def submit_answer(value):
+        print(f"Question: {question_text}, Answer: {value}")
+
+    true_button = ctk.CTkButton(admin_frame, text="True", command=lambda: submit_answer(True))
+    true_button.grid(row=1, column=0, pady=10, padx=10, sticky="w")
+
+    false_button = ctk.CTkButton(admin_frame, text="False", command=lambda: submit_answer(False))
+    false_button.grid(row=1, column=1, pady=10, padx=10, sticky="e")
 
 # Modify the original add_admin_tab function to call the two new functions
 def add_admin_tab(tabview):
@@ -197,14 +280,15 @@ def open_main_window(root, is_admin):
 
 def main():
     credentials = crud_credentials.load_credentials()
-    print(credentials)
+    # print(credentials)
 
     # Initialize the main window
     root = ctk.CTk()
-    root.geometry("800x800")
+    root.geometry("1200x800")
     root.title("Login Screen")
 
     if test_mode:
+        hyperSel.colors_utilities.c_print("GUI TESTING MODE", "blue")
         # In test mode, skip login and open main window as admin
         open_main_window(root, is_admin=True)
     else:

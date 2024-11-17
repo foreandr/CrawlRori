@@ -13,7 +13,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-TEST=False
+TEST=True
 
 print("NEED SOME KIND OF KEY SYSTEM, SO THAT WHEN I SEND THE EXE, ITS JUST FINITE")
 def extract_numbers_from_string(text):
@@ -147,7 +147,8 @@ def algemeen_scrape(driver, url):
 
                 # print("=====\n\n")
                 full_object = {
-                    question_name:radio_button_status
+                    "question": question_name,
+                    "answers": radio_button_status
                 }
                 all_questions.append(full_object)
             except Exception as e:
@@ -219,8 +220,10 @@ def omgevingskenmerken_scrape(driver, url):
 
                 # print("=====\n\n")
                 full_object = {
-                    question_name:radio_button_status
+                    "question": question_name,
+                    "answers": radio_button_status
                 }
+
                 all_questions.append(full_object)
             except Exception as e:
                 hyperSel.colors_utilities.c_print("internal break of some kind", "green")
@@ -679,23 +682,31 @@ def iterate_through_items(driver):
     hyperSel.selenium_utilities.close_driver(driver)    
     print("DONE")
 
-def main():
-    print("\nMAIN")
-    print("TEST:", TEST)
-
+def full_sign_in():
     if TEST:
         driver = func.sign_in()
     else:
         driver = func.ui_real_sign_in()
+    return driver
+
+def main_loop():
+    print("\nMAIN")
+    print("TEST:", TEST)
 
     print("SIGNED IN")
     time.sleep(5)
 
-    # get content
+    driver = full_sign_in()
     iterate_through_items(driver)
+    # get_single_data_from_url(driver, url)
+    
+def main_single(url):
+    print("url:", url)
+    driver = full_sign_in()
     
 
-    # input("END MAIN")
+    input("DOING MAIN SINGLE")
+    # https://productie.deatabix.nl/dossiers/9d3c20bc-c2a9-4818-a1aa-5e6efe82f501/overzicht
 
 def extract_question_data(soup):
     all_questions = []
@@ -742,4 +753,5 @@ def extract_question_data(soup):
     return all_questions
 
 if __name__ == '__main__':
-    main()
+    url = 'https://productie.deatabix.nl/dossiers/9d3c20bc-c2a9-4818-a1aa-5e6efe82f501/overzicht'
+    main_single(url)
