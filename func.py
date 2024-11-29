@@ -62,8 +62,9 @@ def screenshot(driver, path):
 def sign_in():
     print("\nSIGN IN")
     try:
+        current_url = "https://www.youtube.com/live/QNwtpu_eLvc"
         # 1. open driver
-        driver = hyperSel.selenium_utilities.open_site_selenium(site='https://www.youtube.com/live/VMpduJ-tC9I', show_browser=True)
+        driver = hyperSel.selenium_utilities.open_site_selenium(site=current_url, show_browser=True)
         hyperSel.selenium_utilities.maximize_the_window(driver)
         
         click_play(driver)

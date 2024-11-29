@@ -50,18 +50,21 @@ def display_data(data, parent):
 # Function to handle search button click
 def handle_search(url_entry, display_frame):
     url = url_entry.get()
-    if url:  # Simulate fetching data
-        data = fake_fetch_data(url)
-        display_data(data, display_frame)
+    url = 'https://productie.deatabix.nl/dossiers/9d8686f8-8b86-43f2-ae2c-cfb9202d86e1/overzicht'
+    print("url:", url)
+    import single_url_crawl
+    data = single_url_crawl.single_crawler(url=url)
+    display_data(data, display_frame)
 
 
 # Separate function to add the Search tab
 def add_search_tab(tabview):
     search_tab = tabview.add("Search")
+    
     # Input field for URL
     url_label = ctk.CTkLabel(search_tab, text="Enter URL:", font=("Arial", 14))
     url_label.pack(pady=5)
-    url_entry = ctk.CTkEntry(search_tab, placeholder_text="https://example.com")
+    url_entry = ctk.CTkEntry(search_tab, placeholder_text="", width=300)  # Adjusted width for larger input field
     url_entry.pack(pady=5)
 
     # Button to trigger search
@@ -200,7 +203,7 @@ def add_validation_rules_tab(tabview):
     validation_rules_frame.pack(pady=20, padx=20, fill="both", expand=True)
 
     # Call the validation_rules function
-    validation_rules_framing(validation_rules_frame)
+    #svalidation_rules_framing(validation_rules_frame)
 
 def validation_rules_framing(admin_frame):
     import custom_log

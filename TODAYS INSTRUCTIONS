@@ -1,0 +1,5 @@
+1. write the crawler to take in a url and crawl 1
+    it needs to also be getting the numerical data, rn is missing
+2. it has to do S ONES, and SV ones
+3. the data is searched, the gui needs to update to reflect the WEBSITE ui type
+    4. for each question in each thing, we need to be able to create rule chains

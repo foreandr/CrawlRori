@@ -1,3 +1,4 @@
+'''
 import hyperSel
 import hyperSel.log_utilities
 import custom_log
@@ -5,8 +6,8 @@ import custom_log
 data = custom_log.read_from_file("./logs/crawl_data.json")
 #print(data)
 item = data[0]
-print(item.keys())
-print("=================")
+#print(item.keys())
+#print("=================")
 # print(item)
 
 def extract_question_answer_pairs(data):
@@ -39,5 +40,6 @@ def extract_question_answer_pairs(data):
 
 list_of_questions = extract_question_answer_pairs(item)
 
-for i, data in enumerate(list_of_questions):
-    print(i, data)
+#for i, data in enumerate(list_of_questions):
+#    print(i, data)
+'''
