@@ -40,12 +40,10 @@ def single_crawler(url):
             # TRY RECORDING TOOL DATA  
             hyperSel.selenium_utilities.go_to_site(driver, url)
             final_data['recording_tool'] = recording_tool.recording_tool_crawl(driver, url)     
-            # custom_log.log_to_file(data, "./data.json")
             
             # RESET BACK TO OG PAGE
-            #hyperSel.selenium_utilities.go_to_site(driver, url)
-            #final_data['recording_tool'] = control_tool.control_tool_crawl(driver, url)
-            #print("FINISHED DOING CONTROL TOOL")
+            hyperSel.selenium_utilities.go_to_site(driver, url)
+            final_data['control_tool'] = control_tool.control_tool_crawl(driver, url)
         else:
             hyperSel.selenium_utilities.go_to_site(driver, url)
             print("JUST RECORDING TOOL")   
@@ -54,8 +52,7 @@ def single_crawler(url):
     except Exception as e:
         print("E", e)
         input("E STOP")
-    
-    hyperSel.log_utilities.log_function(final_data)
+
     return final_data
 
 def is_s_version(title):
@@ -87,8 +84,13 @@ def t1():
         print(f"{title}: {is_s_version(title)}")
 
 if __name__ == '__main__':
-    url = 'https://productie.deatabix.nl/dossiers/9d8686f8-8b86-43f2-ae2c-cfb9202d86e1/overzicht'
+    start= time.time()
+    url = 'https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/overzicht'
     data = single_crawler(url=url)
+    hyperSel.log_utilities.log_function(data)
+    custom_log.log_to_file(data)
+    print("DONE IN", time.time()-start)
+    print("OUT OF THE FUNCTION")
     
 
     

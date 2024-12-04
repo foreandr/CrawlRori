@@ -38,15 +38,16 @@ def got_inside_yellow_button_click(driver):
     starting_url_index = 0
     for url in urls[starting_url_index:]:
         #print('11111111url:', url)
-        '''TESTING'''
+        '''TESTING
         if "ruimtes".lower() in url.lower():
             print("GOT THE ruimtes URL")
             data = handle_url(driver, url)
-            hyperSel.log_utilities.log_function(data)
+            # hyperSel.log_utilities.log_function(data)
             custom_log.log_to_file(data)
             input("IN THE ruimtes")
         else:
             continue
+        '''
         
         
         try:
@@ -237,13 +238,19 @@ def extract_numeric_answers(soup):
     for div in question_divs:
         question_name = div.get('label')  # Extract the question text
         radio_button_status = div.get('value')  # Extract the answer
-        
-        # Check if the answer is numeric
-        if radio_button_status.isdigit():  # Ensures the answer is numeric
+
+        # Check if the answer is numeric (handles integers and floats)
+        try:
+            # Attempt to convert the value to a float
+            numeric_value = float(radio_button_status)
             all_questions.append({
                 "question": question_name,
-                "answers": f"{radio_button_status}"  # Convert the numeric answer to an integer
+                "answers": f"{numeric_value}"  # Store the numeric value as a string
             })
+        except ValueError:
+            # If not numeric, skip or handle as needed
+            # print(f"Non-numeric value encountered: {radio_button_status}")
+            pass
     
     return all_questions
 
@@ -315,33 +322,58 @@ def extract_exclusive_radio_button_answers(soup):
     return all_radio_answers
 
 
-def extract_question_data(soup):
+def extract_question_data(soup, verbose=False):
+    
+    # hyperSel.log_utilities.log_function(soup)
+
 
     """Main function to orchestrate question and answer extraction."""
     all_questions = []
 
     # Extract questions without data
     questions_found_without_data = extract_questions_without_data(soup)
+    if verbose:
+        print("questions_found_without_data", len(questions_found_without_data))
+        
+        #for i in questions_found_without_data:
+        #    print(i)
 
     # Extract label-based questions with answers
     label_questions = extract_label_questions_with_answers(soup)
+    if verbose:
+        print("label_questions", len(label_questions))
+        for i in label_questions:
+            print(i)
     all_questions.extend(label_questions)
+
 
     # Extract numeric answers
     numeric_answers = extract_numeric_answers(soup)
+    if verbose:
+        print("numeric_answers", len(numeric_answers))
+        for i in numeric_answers:
+            print(i)
     all_questions.extend(numeric_answers)
 
     # Add questions without data
     all_questions = add_questions_without_answers(
         questions_found_without_data, numeric_answers, all_questions
     )
+    if verbose:
+        print("questions_without_answers", len(all_questions))
+        for i in all_questions:
+            print(i)
 
     # Extract radio button answers
     radio_button_answers = extract_exclusive_radio_button_answers(soup)
+    if verbose:
+        print("radio_button_answers", len(radio_button_answers))
     all_questions.extend(radio_button_answers)
 
     # Extract radio button answers2
     exlusive_radio_buttons =  extract_inclusive_radio_button_answers(soup)
+    if verbose:
+        print("exlusive_radio_buttons", len(exlusive_radio_buttons))
     all_questions.extend(exlusive_radio_buttons)
 
     return all_questions
@@ -435,12 +467,19 @@ def ruimtes_scrape(driver, url):
         time.sleep(2)
 
         data = get_individual_space_data_after_click(driver)
+        #custom_log.log_to_file(data)
         all_space_data.append(data)
+
+        # print(data)
+        # custom_log.log_to_file(data)
+        # input("SINGLE SPACE CHECK")
         # hyperSel.log_utilities.checkpoint()
         time.sleep(1)
         # print("======"
-        input("DID A SINGLE SPACE?")
+        #input("DID A SINGLE SPACE?")
 
+    #custom_log.log_to_file(all_space_data)
+    #input("DONE A WHOLE SPACE")
     return all_space_data
 
 def get_individual_space_data_after_click(driver):
@@ -456,34 +495,28 @@ def get_individual_space_data_after_click(driver):
     full_object['title'] = space_title
 
     try:
-        elements = WebDriverWait(driver, 10).until(
-            EC.presence_of_all_elements_located((By.XPATH, "//div[@data-v-b8e230b8]"))
-        )
+        question_xpath = ".//div[contains(@class, 'question') and contains(@class, 'flex') and contains(@class, 'items-center')]"
 
-        # print("elements:",len(elements))
-        # Click each element
-        for element in elements:
+        questions = hyperSel.selenium_utilities.select_multiple_elements_by_xpath(driver, question_xpath)
+
+        for element in questions:
             try:
                 driver.execute_script("arguments[0].scrollIntoView(true);", element)
                 element.click()
                 time.sleep(0.2)
             except Exception as e:
-                #print(1)
-                #print(e)
                 pass
-            #print(element)
-            #MFA ATTEMPinput("-STOP THE FIRST SHOULD HAVE BEEN CLICKED")
-
+            
             try:
                 xpath = '/html/body/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div[3]/div[2]/div/div/div[2]/div/div[2]/div[1]/div[5]/aside/div[1]/div/div[1]/div[2]/div/div[2]/div/button'
                 hyperSel.selenium_utilities.click_button(driver, xpath=xpath, time=0.0001)
-                # print("WEIRD THING APPEARED")
                 time.sleep(0.01)
             except Exception as e:
                 pass
                 
         time.sleep(2)
         soup = hyperSel.selenium_utilities.get_driver_soup(driver)
+        # hyperSel.log_utilities.log_function(soup)
         questionaaire_data = extract_question_data(soup)
         full_object["questionaire_data"] = questionaaire_data
 
@@ -538,7 +571,7 @@ def bijlagen_scrape(driver, url):
     print("\nExecuting Bijlagen scrape")
     hyperSel.selenium_utilities.go_to_site(driver, url)
     time.sleep(2)
-    print("ATTACHMENTS IS WEIRD")
+    # print("ATTACHMENTS IS WEIRD")
     return [ ]
 
 def samenvatting_scrape(driver, url):
@@ -712,4 +745,6 @@ def omgevingskenmerken_scrape(driver, url):
     return all_questions
 
 if __name__ == '__main__':
-    pass
+    soup = hyperSel.log_utilities.load_file_as_soup("./logs/2024/12/03/2024-12-03.txt")
+    questionaaire_data = extract_question_data(soup, verbose=True)
+    custom_log.log_to_file(questionaaire_data)

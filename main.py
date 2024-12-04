@@ -105,8 +105,7 @@ def iterate_through_main_data(driver, data):
 
         #print("combined_data:", combined_data)
         #print("=====-----"*3)
-        custom_log.log_to_file(combined_data, file_path="./logs/crawl_data.json")# hyperSel.log_utilities.log_data(combined_data)
-
+        
     print("DONE") 
 
 def iterate_through_items(driver):
