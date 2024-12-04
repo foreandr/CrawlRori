@@ -8,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import re
 from main import main_loop
+import json
 # Preload EasyOCR model
 reader = easyocr.Reader(['en'], gpu=False)  # Set gpu=True if you have a CUDA-compatible GPU and installed drivers
 
@@ -139,3 +140,25 @@ def ui_real_sign_in():
     print("**"*10)
     print("USER HAS SIGNED IN, BEGIN CRAWL")
     return driver
+
+def load_json(file_path):
+    """
+    Loads JSON data from a file.
+
+    Args:
+        file_path (str): The path to the JSON file.
+
+    Returns:
+        dict or list: Parsed JSON data.
+    """
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+        # print("JSON data loaded successfully.")
+        return data
+    except FileNotFoundError:
+        print(f"Error: File not found at {file_path}")
+    except json.JSONDecodeError as e:
+        print(f"Error: Failed to decode JSON. {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")

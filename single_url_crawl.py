@@ -85,7 +85,7 @@ def t1():
 
 if __name__ == '__main__':
     start= time.time()
-    url = 'https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/overzicht'
+    url = 'https://productie.deatabix.nl/dossiers/9da27ba2-126f-447d-b477-0f79e7eea00d/overzicht'
     data = single_crawler(url=url)
     hyperSel.log_utilities.log_function(data)
     custom_log.log_to_file(data)

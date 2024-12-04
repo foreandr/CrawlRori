@@ -1,8 +1,9 @@
 import customtkinter as ctk
 from tkinter import messagebox
 import json
-
+import func
 import hyperSel.colors_utilities
+import hyperSel.log_utilities
 import hyperSel.selenium_utilities
 import crud_credentials
 import custom_log
@@ -38,37 +39,100 @@ def validate_login(username, password, root, credentials):
     messagebox.showerror("Login Failed", "Incorrect username or password.")
 
 # Separate function to add the Search tab
-# Function to display the fetched data in the search tab
 def display_data(data, parent):
+    recording_tool_data = data["recording_tool"]
+    control_tool_data = data["control_tool"]
+
     # Clear any previous content
     for widget in parent.winfo_children():
         widget.destroy()
 
-    # Display data in a scrollable text widget
-    text_widget = ctk.CTkTextbox(parent, wrap="none", width=500, height=300)
-    text_widget.insert("1.0", json.dumps(data, indent=4))  # Pretty print JSON
-    text_widget.pack(pady=10, padx=10, fill="both", expand=True)
+    # Create the main Tabview widget
+    main_tabview = ctk.CTkTabview(parent)
+    main_tabview.pack(pady=10, padx=10, fill="both", expand=True)
 
+    # Add main tabs: Recording Tool and Control Tool
+    recording_tool_tab = main_tabview.add("Recording Tool")
+    control_tool_tab = main_tabview.add("Control Tool")
+
+    # Add sub-tabs for Recording Tool
+    recording_tool_sub_tabview = ctk.CTkTabview(recording_tool_tab)
+    recording_tool_sub_tabview.pack(pady=10, padx=10, fill="both", expand=True)
+
+    tab_algemeen = recording_tool_sub_tabview.add("Algemeen")  # General
+    tab_omgevingskenmerken = recording_tool_sub_tabview.add("Omgevingskenmerken")  # Environmental Features
+    tab_gebouwen = recording_tool_sub_tabview.add("Gebouwen")  # Buildings
+    tab_ruimtes = recording_tool_sub_tabview.add("Ruimtes")  # Spaces
+    tab_schades = recording_tool_sub_tabview.add("Schades")  # Damages
+    tab_bijlagen = recording_tool_sub_tabview.add("Bijlagen")  # Attachments
+    tab_samenvatting = recording_tool_sub_tabview.add("Samenvatting")  # Summary
+
+    # Add content to each sub-tab for Recording Tool
+    label_algemeen = ctk.CTkLabel(tab_algemeen, text="Content for Algemeen")
+    label_algemeen.pack(pady=20)
+
+    label_omgevingskenmerken = ctk.CTkLabel(tab_omgevingskenmerken, text="Content for Omgevingskenmerken")
+    label_omgevingskenmerken.pack(pady=20)
+
+    label_gebouwen = ctk.CTkLabel(tab_gebouwen, text="Content for Gebouwen")
+    label_gebouwen.pack(pady=20)
+
+    label_ruimtes = ctk.CTkLabel(tab_ruimtes, text="Content for Ruimtes")
+    label_ruimtes.pack(pady=20)
+
+    label_schades = ctk.CTkLabel(tab_schades, text="Content for Schades")
+    label_schades.pack(pady=20)
+
+    label_bijlagen = ctk.CTkLabel(tab_bijlagen, text="Content for Bijlagen")
+    label_bijlagen.pack(pady=20)
+
+    label_samenvatting = ctk.CTkLabel(tab_samenvatting, text="Content for Samenvatting")
+    label_samenvatting.pack(pady=20)
+
+    # Add sub-tabs for Control Tool
+    control_tool_sub_tabview = ctk.CTkTabview(control_tool_tab)
+    control_tool_sub_tabview.pack(pady=10, padx=10, fill="both", expand=True)
+
+    tab_informatie = control_tool_sub_tabview.add("Informatie")  # Information
+    tab_calculatie = control_tool_sub_tabview.add("Calculatie")  # Calculation
+
+    # Add content to each sub-tab for Control Tool
+    label_informatie = ctk.CTkLabel(tab_informatie, text="Content for Informatie")
+    label_informatie.pack(pady=20)
+
+    label_calculatie = ctk.CTkLabel(tab_calculatie, text="Content for Calculatie")
+    label_calculatie.pack(pady=20)
 
 def FAKE_DATA_FUNC(url):
     """Simulate a long-running operation with a delay."""
     print(f"Fetching data for URL: {url}")
-    time.sleep(10)  # Simulate delay (10 seconds)
-    return f"Data fetched for URL: {url}"
+    time.sleep(2)  # Simulate delay (10 seconds)
+    print("sleep for 2 seocnds to simulate crawl")
+    return func.load_json("./data.json")
 
 def handle_search(url_entry, display_frame):
     print("IN THE GUI")
     url = url_entry.get()
-    # For testing, you can override the URL if needed:
-    # url = 'https://productie.deatabix.nl/dossiers/9d4219a3-961d-41cc-aafa-fd19444c43fa/overzicht'
     print("url:", url)
+
+    # Add a status label to indicate the fetching process
+    status_label = ctk.CTkLabel(display_frame, text="Data is being fetched, please wait...", anchor="center")
+    status_label.pack(pady=10)
 
     # Define the worker function to run in a separate thread
     def worker():
         # Replace `single_crawler` with `FAKE_DATA_FUNC` for testing
         data = FAKE_DATA_FUNC(url)
-        # Use tkinter's `after` method to update the GUI on the main thread
-        display_frame.after(0, display_data, data, display_frame)
+        
+        # Update the UI after fetching the data
+        def update_ui():
+            # Update status label
+            status_label.configure(text="Crawl complete!")
+            # Display the fetched data
+            display_data(data, display_frame)
+
+        # Call update_ui on the main thread
+        display_frame.after(0, update_ui)
 
     # Start the worker function in a new thread
     threading.Thread(target=worker, daemon=True).start()
@@ -229,29 +293,36 @@ def add_admin_tab(tabview):
 def open_main_window(root, is_admin):
     root.withdraw()  # Hide the login window
     main_window = ctk.CTkToplevel()
-    main_window.geometry("1200x800")
+    
+    # Maximize the main window to fill the screen
+    main_window.geometry(f"{main_window.winfo_screenwidth()}x{main_window.winfo_screenheight()}")
     main_window.title("Main Page")
 
-    # Create a Tabview widget
-    tabview = ctk.CTkTabview(main_window, width=700, height=700)
-    tabview.pack(pady=20, padx=20, expand=True)
+    # Create a Tabview widget that dynamically adjusts to the window size
+    tabview = ctk.CTkTabview(main_window)
+    tabview.pack(pady=0, padx=0, expand=True, fill="both")  # Remove padding for full coverage
 
     # Add tabs
     add_search_tab(tabview)  # Add the Search tab for all users
     if is_admin:
         add_admin_tab(tabview)  # Add the Admin tab only for admins
     if is_admin:
-        add_validation_rules_tab(tabview)  # Add the Admin tab only for admins
+        add_validation_rules_tab(tabview)  # Add the Validation Rules tab only for admins
+
 
 def main():
     credentials = crud_credentials.load_credentials()
     # print(credentials)
 
     # Initialize the main window
+    # Initialize the main window
     root = ctk.CTk()
-    root.geometry("1200x800")
     root.title("Login Screen")
+    root.geometry(f"{root.winfo_screenwidth()}x{root.winfo_screenheight()}")  # Set to full screen size
 
+
+    
+    
     if test_mode:
         hyperSel.colors_utilities.c_print("GUI TESTING MODE", "blue")
         # In test mode, skip login and open main window as admin
@@ -279,8 +350,10 @@ def main():
         )
         login_button.pack(pady=40)
 
+    
     # Run the application
     root.mainloop()
+
 
 if __name__ == '__main__':
     main()
