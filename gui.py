@@ -13,7 +13,8 @@ from tkinter import ttk
 from difflib import SequenceMatcher
 import customtkinter as ctk
 import single_url_crawl
-
+import threading
+import time
 
 # Test mode flag to skip login
 test_mode = True
@@ -49,15 +50,28 @@ def display_data(data, parent):
     text_widget.pack(pady=10, padx=10, fill="both", expand=True)
 
 
-# Function to handle search button click
+def FAKE_DATA_FUNC(url):
+    """Simulate a long-running operation with a delay."""
+    print(f"Fetching data for URL: {url}")
+    time.sleep(10)  # Simulate delay (10 seconds)
+    return f"Data fetched for URL: {url}"
+
 def handle_search(url_entry, display_frame):
     print("IN THE GUI")
     url = url_entry.get()
-    url = 'https://productie.deatabix.nl/dossiers/9d4219a3-961d-41cc-aafa-fd19444c43fa/overzicht'
+    # For testing, you can override the URL if needed:
+    # url = 'https://productie.deatabix.nl/dossiers/9d4219a3-961d-41cc-aafa-fd19444c43fa/overzicht'
     print("url:", url)
-    
-    data = single_url_crawl.single_crawler(url)
-    display_data(data, display_frame)
+
+    # Define the worker function to run in a separate thread
+    def worker():
+        # Replace `single_crawler` with `FAKE_DATA_FUNC` for testing
+        data = FAKE_DATA_FUNC(url)
+        # Use tkinter's `after` method to update the GUI on the main thread
+        display_frame.after(0, display_data, data, display_frame)
+
+    # Start the worker function in a new thread
+    threading.Thread(target=worker, daemon=True).start()
 
 
 # Separate function to add the Search tab
