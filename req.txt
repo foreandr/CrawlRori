@@ -3,3 +3,5 @@ pillow
 pytesseract
 pyinstaller
 customtkinter
+pandas
+tabulate

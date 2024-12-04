@@ -4,6 +4,8 @@ import hyperSel
 import hyperSel.selenium_utilities
 import recording_tool
 import time
+import custom_log
+import control_tool
 
 TEST=True
 
@@ -28,28 +30,65 @@ def single_crawler(url):
         hyperSel.selenium_utilities.go_to_site(driver, url)
         time.sleep(3)
 
-        title = get_title(driver)
+        title = get_title(driver).strip()
         print("title:", title)
 
-        # TRY RECORDING TOOL DATA
-        data = recording_tool.recording_tool_crawl(driver, url)
-        print("DATA;", data)
-        return data
-    
-        # RESET BACK TO OG PAGE
-        hyperSel.selenium_utilities.go_to_site(driver, url)
+        final_data = {}
 
-        # TRY CONTROL TOOL DATA
-        #try
+        if is_s_version(title):
+            print("FULL WITH CONTROL TOOL")
+            # TRY RECORDING TOOL DATA  
+            hyperSel.selenium_utilities.go_to_site(driver, url)
+            final_data['recording_tool'] = recording_tool.recording_tool_crawl(driver, url)     
+            # custom_log.log_to_file(data, "./data.json")
+            
+            # RESET BACK TO OG PAGE
+            #hyperSel.selenium_utilities.go_to_site(driver, url)
+            #final_data['recording_tool'] = control_tool.control_tool_crawl(driver, url)
+            #print("FINISHED DOING CONTROL TOOL")
+        else:
+            hyperSel.selenium_utilities.go_to_site(driver, url)
+            print("JUST RECORDING TOOL")   
+            final_data['recording_tool'] = recording_tool.recording_tool_crawl(driver, url)
 
-        input("WENT TO SITE")
     except Exception as e:
         print("E", e)
         input("E STOP")
     
-    return data
+    hyperSel.log_utilities.log_function(final_data)
+    return final_data
+
+def is_s_version(title):
+    """
+    Checks if the given string starts with 'S-' (case-sensitive).
+    
+    Args:
+        title (str): The title to check.
+
+    Returns:
+        bool: True if the title starts with 'S-', otherwise False.
+    """
+    return title.startswith("S-")
+
+def t1():
+    test_titles = [
+        "S-4002145 | V1",  # True
+        "S-4862205 | V1",  # True
+        "SV-1437124 | V1", # False
+        "SV-1423102 | V1", # False
+        "FS-1004 | V1",    # False
+        "S-1476001 | V1",  # True
+        "S-1468023 | V1",  # True
+        "R-12345 | V2",    # False
+    ]
+
+    # Test the function
+    for title in test_titles:
+        print(f"{title}: {is_s_version(title)}")
 
 if __name__ == '__main__':
     url = 'https://productie.deatabix.nl/dossiers/9d8686f8-8b86-43f2-ae2c-cfb9202d86e1/overzicht'
     data = single_crawler(url=url)
+    
 
+    

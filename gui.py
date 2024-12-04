@@ -12,6 +12,8 @@ import tkinter as tk
 from tkinter import ttk
 from difflib import SequenceMatcher
 import customtkinter as ctk
+import single_url_crawl
+
 
 # Test mode flag to skip login
 test_mode = True
@@ -49,11 +51,12 @@ def display_data(data, parent):
 
 # Function to handle search button click
 def handle_search(url_entry, display_frame):
+    print("IN THE GUI")
     url = url_entry.get()
-    url = 'https://productie.deatabix.nl/dossiers/9d8686f8-8b86-43f2-ae2c-cfb9202d86e1/overzicht'
+    url = 'https://productie.deatabix.nl/dossiers/9d4219a3-961d-41cc-aafa-fd19444c43fa/overzicht'
     print("url:", url)
-    import single_url_crawl
-    data = single_url_crawl.single_crawler(url=url)
+    
+    data = single_url_crawl.single_crawler(url)
     display_data(data, display_frame)
 
 
@@ -74,12 +77,6 @@ def add_search_tab(tabview):
     # Frame to display fetched data
     display_frame = ctk.CTkFrame(search_tab, width=500, height=300)
     display_frame.pack(pady=10, fill="both", expand=True)
-
-def fake_fetch_data(url):
-    print("url;", url)
-    # Simulated JSON data
-    data = custom_log.read_from_file("./logs/crawl_data.json")[0]
-    return data
 
 def credentials_crud(admin_frame):
     credentials_label = ctk.CTkLabel(admin_frame, text="Credentials Management", font=("Arial", 16))
@@ -202,55 +199,6 @@ def add_validation_rules_tab(tabview):
     validation_rules_frame = ctk.CTkFrame(validation_rules_tab)
     validation_rules_frame.pack(pady=20, padx=20, fill="both", expand=True)
 
-    # Call the validation_rules function
-    #svalidation_rules_framing(validation_rules_frame)
-
-def validation_rules_framing(admin_frame):
-    import custom_log
-
-    # Load data
-    data = custom_log.read_from_file("./logs/crawl_data.json")
-    
-    # Extract all unique questions
-    all_questions = []
-    for item in data:
-        extracted_questions = validation_rules.extract_question_answer_pairs(item)
-        for question in extracted_questions:
-            if question['question'] not in all_questions:
-                all_questions.append(question['question'])
-    
-    # Display a table-like layout
-    for idx, question_text in enumerate(all_questions):
-        # Display the question
-        question_label = ctk.CTkLabel(admin_frame, text=question_text, font=("Arial", 12))
-        question_label.grid(row=idx, column=0, pady=5, padx=10, sticky="w")
-        
-        # Add "Select" button
-        select_button = ctk.CTkButton(
-            admin_frame, text="Select", 
-            command=lambda q=question_text: handle_question_selection(q, admin_frame)
-        )
-        select_button.grid(row=idx, column=1, pady=5, padx=10, sticky="e")
-
-
-def handle_question_selection(question_text, admin_frame):
-    # Clear the frame for the new selection
-    for widget in admin_frame.winfo_children():
-        widget.destroy()
-
-    # Display the selected question
-    question_label = ctk.CTkLabel(admin_frame, text=question_text, font=("Arial", 16))
-    question_label.grid(row=0, column=0, pady=20, padx=10, sticky="w")
-
-    # Add True/False buttons
-    def submit_answer(value):
-        print(f"Question: {question_text}, Answer: {value}")
-
-    true_button = ctk.CTkButton(admin_frame, text="True", command=lambda: submit_answer(True))
-    true_button.grid(row=1, column=0, pady=10, padx=10, sticky="w")
-
-    false_button = ctk.CTkButton(admin_frame, text="False", command=lambda: submit_answer(False))
-    false_button.grid(row=1, column=1, pady=10, padx=10, sticky="e")
 
 # Modify the original add_admin_tab function to call the two new functions
 def add_admin_tab(tabview):

@@ -1,12 +1,1018 @@
 [
     {
-        "data": {
-            "Zijn er omgevingskenmerken die op ongelijke zetting wijzen?": "-",
-            "Aantal gebouwen": "0",
-            "Aantal ruimtes met schades": "0",
-            "Aantal schades": "0"
-        },
-        "url": "https://productie.deatabix.nl/dossiers/9d8686f8-8b86-43f2-ae2c-cfb9202d86e1/editors/deskundige/algemeen",
-        "tab_type": "algemeen"
+        "data": [
+            {
+                "images": [
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee",
+                    "https://www.gravatar.com/avatar/e1537c6a2f81cf9aac64d1362b2a93b3?d=identicon&s=128",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/39f80989-bd91-4927-9a99-a54f9d08f783/conversions/image_picker_d3d5a32c-0bfc-454a-863f-ea32def3dcee-618-0000029ecf5a4de5-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022406Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=2eb6835e316baa1e88e13e1820cb1ac47b2686a5b164de29ade232f8ab5d5d52",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/a25575a6-6463-4311-ac3e-1e56e42ef830/conversions/image_picker_3aaa9106-7287-481e-b370-aed400f0eedf-618-0000029ed99ad1ec-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022406Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=d06064bcf8c36789fe9e3f263a90bd48d72eba7578398d636aa53ee0d8c0c01d",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee"
+                ],
+                "title": "G1.B2.R1. Zolder",
+                "questionaire_data": [
+                    {
+                        "question": "Wil je een ruimte aan de binnenkant of buitenkant aanmaken?",
+                        "answers": {
+                            "Buitenkant gebouw": false,
+                            "Binnenkant gebouw": true
+                        }
+                    },
+                    {
+                        "question": "Op welke bouwlaag bevind zich de ruimte?",
+                        "answers": {
+                            "Bouwlaag -1": false,
+                            "Bouwlaag 0": false,
+                            "Bouwlaag 0,5": false,
+                            "Bouwlaag 1": false,
+                            "Bouwlaag 2": true,
+                            "Bouwlaag 3": false,
+                            "Bouwlaag 4": false,
+                            "Bouwlaag 5": false,
+                            "Bouwlaag 6": false,
+                            "Insteek": false
+                        }
+                    },
+                    {
+                        "question": "Nummer van de ruimte?",
+                        "answers": {
+                            "Ruimte 1": true,
+                            "Ruimte 2": false,
+                            "Ruimte 3": false,
+                            "Ruimte 4": false,
+                            "Ruimte 5": false,
+                            "Ruimte 6": false,
+                            "Ruimte 7": false,
+                            "Ruimte 8": false,
+                            "Ruimte 9": false,
+                            "Ruimte 10": false,
+                            "Anders": false
+                        }
+                    },
+                    {
+                        "question": "Wat is de functie van de ruimte?",
+                        "answers": {
+                            "Badkamer": false,
+                            "Berging": false,
+                            "Bijkeuken": false,
+                            "CV ruimte": false,
+                            "Hal": false,
+                            "Eetkamer": false,
+                            "Garage": false,
+                            "Hobbykamer": false,
+                            "Kelder": false,
+                            "Keuken": false,
+                            "Logeerkamer": false,
+                            "Meterkast": false,
+                            "Overloop": false,
+                            "Schuur": false,
+                            "Serre": false,
+                            "Slaapkamer": false,
+                            "Toilet": false,
+                            "Trapopgang": false,
+                            "Vide": false,
+                            "Wasruimte": false,
+                            "Werkkamer": false,
+                            "Woonkamer": false,
+                            "Zolder": true,
+                            "Anders": false,
+                            "Woonkamer-keuken": false
+                        }
+                    },
+                    {
+                        "question": "Is er schade in deze ruimte geconstateerd?",
+                        "answers": {
+                            "Ja": false,
+                            "Nee": true
+                        }
+                    },
+                    {
+                        "question": "Is er sprake van een zelfstandige werkruimte?",
+                        "answers": {
+                            "Ja": false,
+                            "Nee": true
+                        }
+                    },
+                    {
+                        "question": "Welke attributen zijn er in de ruimte aanwezig?",
+                        "answers": {
+                            "CV-ketel": false,
+                            "Ornament": false,
+                            "Plafondplinten": false,
+                            "Vloerplinten": false,
+                            "Gordijnrails": false,
+                            "Radiatoren/leidingen": true,
+                            "Vensterbank": false,
+                            "Plafondarmaturen": false,
+                            "Sanitair (wasbak/toilet)": false,
+                            "Trap opgang/vide": true,
+                            "Trapleuning": false,
+                            "Wasmachine/droger": false,
+                            "Schoorsteen (schouw/kanaal)": false,
+                            "Anders": false
+                        }
+                    }
+                ]
+            },
+            {
+                "images": [
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee",
+                    "https://www.gravatar.com/avatar/e1537c6a2f81cf9aac64d1362b2a93b3?d=identicon&s=128",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/bbcc8514-9cbf-4446-b439-d3a38cfe3d98/conversions/image_picker_4dcfcfd8-cd2d-4cff-b030-b789b17fd6a8-618-000002a28e64c176-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022431Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=be668c60bff88039221e68bc1e256ce337abae2b993b89a513a4df3cc01078dd",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/643fcc9c-f303-444a-94ce-d62502196b79/conversions/643fcc9c-f303-444a-94ce-d62502196b79-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022431Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=c36c7b7eb8b4086e6590b7ca2beb6db6f1b0eb4c04e8a40c330454dc408c1f90",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee"
+                ],
+                "title": "G1.B1.R1. Overloop",
+                "questionaire_data": [
+                    {
+                        "question": "Wil je een ruimte aan de binnenkant of buitenkant aanmaken?",
+                        "answers": {
+                            "Buitenkant gebouw": false,
+                            "Binnenkant gebouw": true
+                        }
+                    },
+                    {
+                        "question": "Op welke bouwlaag bevind zich de ruimte?",
+                        "answers": {
+                            "Bouwlaag -1": false,
+                            "Bouwlaag 0": false,
+                            "Bouwlaag 0,5": false,
+                            "Bouwlaag 1": true,
+                            "Bouwlaag 2": false,
+                            "Bouwlaag 3": false,
+                            "Bouwlaag 4": false,
+                            "Bouwlaag 5": false,
+                            "Bouwlaag 6": false,
+                            "Insteek": false
+                        }
+                    },
+                    {
+                        "question": "Nummer van de ruimte?",
+                        "answers": {
+                            "Ruimte 1": true,
+                            "Ruimte 2": false,
+                            "Ruimte 3": false,
+                            "Ruimte 4": false,
+                            "Ruimte 5": false,
+                            "Ruimte 6": false,
+                            "Ruimte 7": false,
+                            "Ruimte 8": false,
+                            "Ruimte 9": false,
+                            "Ruimte 10": false,
+                            "Anders": false
+                        }
+                    },
+                    {
+                        "question": "Wat is de functie van de ruimte?",
+                        "answers": {
+                            "Badkamer": false,
+                            "Berging": false,
+                            "Bijkeuken": false,
+                            "CV ruimte": false,
+                            "Hal": false,
+                            "Eetkamer": false,
+                            "Garage": false,
+                            "Hobbykamer": false,
+                            "Kelder": false,
+                            "Keuken": false,
+                            "Logeerkamer": false,
+                            "Meterkast": false,
+                            "Overloop": true,
+                            "Schuur": false,
+                            "Serre": false,
+                            "Slaapkamer": false,
+                            "Toilet": false,
+                            "Trapopgang": false,
+                            "Vide": false,
+                            "Wasruimte": false,
+                            "Werkkamer": false,
+                            "Woonkamer": false,
+                            "Zolder": false,
+                            "Anders": false,
+                            "Woonkamer-keuken": false
+                        }
+                    },
+                    {
+                        "question": "Is er schade in deze ruimte geconstateerd?",
+                        "answers": {
+                            "Ja": true,
+                            "Nee": false
+                        }
+                    },
+                    {
+                        "question": "Is er sprake van een zelfstandige werkruimte?",
+                        "answers": {
+                            "Ja": false,
+                            "Nee": true
+                        }
+                    },
+                    {
+                        "question": "Welke attributen zijn er in de ruimte aanwezig?",
+                        "answers": {
+                            "CV-ketel": false,
+                            "Ornament": false,
+                            "Plafondplinten": true,
+                            "Vloerplinten": false,
+                            "Gordijnrails": false,
+                            "Radiatoren/leidingen": false,
+                            "Vensterbank": false,
+                            "Plafondarmaturen": false,
+                            "Sanitair (wasbak/toilet)": false,
+                            "Trap opgang/vide": true,
+                            "Trapleuning": true,
+                            "Wasmachine/droger": false,
+                            "Schoorsteen (schouw/kanaal)": false,
+                            "Anders": false
+                        }
+                    }
+                ]
+            },
+            {
+                "images": [
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee",
+                    "https://www.gravatar.com/avatar/e1537c6a2f81cf9aac64d1362b2a93b3?d=identicon&s=128",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/619576bb-2d7d-4724-b579-f058ff966f90/conversions/image_picker_4c7d59cb-0f3a-465a-87e9-d60a6c627bed-618-000002ac1eac14e1-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022459Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=7e710e1007ce0fc4e47d675e2e25262e82627c78d59d707f113edf63fb882102",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/39f9cd54-fd37-4b2f-8057-7a87dec300f3/conversions/image_picker_e8545e36-bd42-46bd-aa50-b18dd7a04023-618-000002ac2e544b9e-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022459Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=58a871146a0969cd754c9eab9b7ac20c873de3550c9a8f73a603dc68ceadab9c",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee"
+                ],
+                "title": "G1.B1.R2. Slaapkamer",
+                "questionaire_data": [
+                    {
+                        "question": "Wil je een ruimte aan de binnenkant of buitenkant aanmaken?",
+                        "answers": {
+                            "Buitenkant gebouw": false,
+                            "Binnenkant gebouw": true
+                        }
+                    },
+                    {
+                        "question": "Op welke bouwlaag bevind zich de ruimte?",
+                        "answers": {
+                            "Bouwlaag -1": false,
+                            "Bouwlaag 0": false,
+                            "Bouwlaag 0,5": false,
+                            "Bouwlaag 1": true,
+                            "Bouwlaag 2": false,
+                            "Bouwlaag 3": false,
+                            "Bouwlaag 4": false,
+                            "Bouwlaag 5": false,
+                            "Bouwlaag 6": false,
+                            "Insteek": false
+                        }
+                    },
+                    {
+                        "question": "Nummer van de ruimte?",
+                        "answers": {
+                            "Ruimte 1": false,
+                            "Ruimte 2": true,
+                            "Ruimte 3": false,
+                            "Ruimte 4": false,
+                            "Ruimte 5": false,
+                            "Ruimte 6": false,
+                            "Ruimte 7": false,
+                            "Ruimte 8": false,
+                            "Ruimte 9": false,
+                            "Ruimte 10": false,
+                            "Anders": false
+                        }
+                    },
+                    {
+                        "question": "Wat is de functie van de ruimte?",
+                        "answers": {
+                            "Badkamer": false,
+                            "Berging": false,
+                            "Bijkeuken": false,
+                            "CV ruimte": false,
+                            "Hal": false,
+                            "Eetkamer": false,
+                            "Garage": false,
+                            "Hobbykamer": false,
+                            "Kelder": false,
+                            "Keuken": false,
+                            "Logeerkamer": false,
+                            "Meterkast": false,
+                            "Overloop": false,
+                            "Schuur": false,
+                            "Serre": false,
+                            "Slaapkamer": true,
+                            "Toilet": false,
+                            "Trapopgang": false,
+                            "Vide": false,
+                            "Wasruimte": false,
+                            "Werkkamer": false,
+                            "Woonkamer": false,
+                            "Zolder": false,
+                            "Anders": false,
+                            "Woonkamer-keuken": false
+                        }
+                    },
+                    {
+                        "question": "Is er schade in deze ruimte geconstateerd?",
+                        "answers": {
+                            "Ja": true,
+                            "Nee": false
+                        }
+                    },
+                    {
+                        "question": "Is er sprake van een zelfstandige werkruimte?",
+                        "answers": {
+                            "Ja": false,
+                            "Nee": true
+                        }
+                    },
+                    {
+                        "question": "Welke attributen zijn er in de ruimte aanwezig?",
+                        "answers": {
+                            "CV-ketel": false,
+                            "Ornament": false,
+                            "Plafondplinten": false,
+                            "Vloerplinten": false,
+                            "Gordijnrails": true,
+                            "Radiatoren/leidingen": false,
+                            "Vensterbank": true,
+                            "Plafondarmaturen": false,
+                            "Sanitair (wasbak/toilet)": false,
+                            "Trap opgang/vide": false,
+                            "Trapleuning": false,
+                            "Wasmachine/droger": false,
+                            "Schoorsteen (schouw/kanaal)": false,
+                            "Anders": false
+                        }
+                    }
+                ]
+            },
+            {
+                "images": [
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee",
+                    "https://www.gravatar.com/avatar/e1537c6a2f81cf9aac64d1362b2a93b3?d=identicon&s=128",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/de3be32f-e382-46b4-9ff3-5029e789eaab/conversions/image_picker_4fc9b5c9-0375-43c3-88a1-6d8667c6ac76-618-000002b54547f9bd-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022534Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=5836ef740575a81e10bf157d0a3b1ba017ea27fe1457e28c51ee181b36b619ea",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/4939fe7a-39b4-4fd3-89dd-f0233a0f3928/conversions/image_picker_8cf5bc7d-f44a-4aab-860c-1da86dfb057e-618-000002b5ac4eadb7-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022534Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=12c826c102ad654d25184d638684473f8931f1d7ffcb2c4aa66777eab9e77d6d",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee"
+                ],
+                "title": "G1.B1.R3. Berging",
+                "questionaire_data": [
+                    {
+                        "question": "Wil je een ruimte aan de binnenkant of buitenkant aanmaken?",
+                        "answers": {
+                            "Buitenkant gebouw": false,
+                            "Binnenkant gebouw": true
+                        }
+                    },
+                    {
+                        "question": "Op welke bouwlaag bevind zich de ruimte?",
+                        "answers": {
+                            "Bouwlaag -1": false,
+                            "Bouwlaag 0": false,
+                            "Bouwlaag 0,5": false,
+                            "Bouwlaag 1": true,
+                            "Bouwlaag 2": false,
+                            "Bouwlaag 3": false,
+                            "Bouwlaag 4": false,
+                            "Bouwlaag 5": false,
+                            "Bouwlaag 6": false,
+                            "Insteek": false
+                        }
+                    },
+                    {
+                        "question": "Nummer van de ruimte?",
+                        "answers": {
+                            "Ruimte 1": false,
+                            "Ruimte 2": false,
+                            "Ruimte 3": true,
+                            "Ruimte 4": false,
+                            "Ruimte 5": false,
+                            "Ruimte 6": false,
+                            "Ruimte 7": false,
+                            "Ruimte 8": false,
+                            "Ruimte 9": false,
+                            "Ruimte 10": false,
+                            "Anders": false
+                        }
+                    },
+                    {
+                        "question": "Wat is de functie van de ruimte?",
+                        "answers": {
+                            "Badkamer": false,
+                            "Berging": true,
+                            "Bijkeuken": false,
+                            "CV ruimte": false,
+                            "Hal": false,
+                            "Eetkamer": false,
+                            "Garage": false,
+                            "Hobbykamer": false,
+                            "Kelder": false,
+                            "Keuken": false,
+                            "Logeerkamer": false,
+                            "Meterkast": false,
+                            "Overloop": false,
+                            "Schuur": false,
+                            "Serre": false,
+                            "Slaapkamer": false,
+                            "Toilet": false,
+                            "Trapopgang": false,
+                            "Vide": false,
+                            "Wasruimte": false,
+                            "Werkkamer": false,
+                            "Woonkamer": false,
+                            "Zolder": false,
+                            "Anders": false,
+                            "Woonkamer-keuken": false
+                        }
+                    },
+                    {
+                        "question": "Is er schade in deze ruimte geconstateerd?",
+                        "answers": {
+                            "Ja": false,
+                            "Nee": true
+                        }
+                    },
+                    {
+                        "question": "Is er sprake van een zelfstandige werkruimte?",
+                        "answers": {
+                            "Ja": false,
+                            "Nee": true
+                        }
+                    },
+                    {
+                        "question": "Welke attributen zijn er in de ruimte aanwezig?",
+                        "answers": {
+                            "CV-ketel": false,
+                            "Ornament": false,
+                            "Plafondplinten": false,
+                            "Vloerplinten": false,
+                            "Gordijnrails": false,
+                            "Radiatoren/leidingen": true,
+                            "Vensterbank": false,
+                            "Plafondarmaturen": false,
+                            "Sanitair (wasbak/toilet)": false,
+                            "Trap opgang/vide": false,
+                            "Trapleuning": false,
+                            "Wasmachine/droger": false,
+                            "Schoorsteen (schouw/kanaal)": false,
+                            "Anders": false
+                        }
+                    }
+                ]
+            },
+            {
+                "images": [
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee",
+                    "https://www.gravatar.com/avatar/e1537c6a2f81cf9aac64d1362b2a93b3?d=identicon&s=128",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/79672287-fbd2-4f04-85bf-53ae30cf5620/conversions/image_picker_203242c6-a42b-4026-9165-d84d50abc4e1-618-000002b5ded26ce5-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022604Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=7b52108dfb09b537d2ea595df479ed61e7f94c7d068a460f7c1c232b0b5059f1",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/f6fae36c-c203-4536-840b-bbc4881ef030/conversions/image_picker_7dd10f58-61cd-4157-9f0c-df67a419ecce-618-000002b5f009a641-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022604Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=d4c3de3a7eb5017e694772477e6556140b14171c95c1c1e36ecaf889192d740d",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee"
+                ],
+                "title": "G1.B1.R4. Werkkamer",
+                "questionaire_data": [
+                    {
+                        "question": "Wil je een ruimte aan de binnenkant of buitenkant aanmaken?",
+                        "answers": {
+                            "Buitenkant gebouw": false,
+                            "Binnenkant gebouw": true
+                        }
+                    },
+                    {
+                        "question": "Op welke bouwlaag bevind zich de ruimte?",
+                        "answers": {
+                            "Bouwlaag -1": false,
+                            "Bouwlaag 0": false,
+                            "Bouwlaag 0,5": false,
+                            "Bouwlaag 1": true,
+                            "Bouwlaag 2": false,
+                            "Bouwlaag 3": false,
+                            "Bouwlaag 4": false,
+                            "Bouwlaag 5": false,
+                            "Bouwlaag 6": false,
+                            "Insteek": false
+                        }
+                    },
+                    {
+                        "question": "Nummer van de ruimte?",
+                        "answers": {
+                            "Ruimte 1": false,
+                            "Ruimte 2": false,
+                            "Ruimte 3": false,
+                            "Ruimte 4": true,
+                            "Ruimte 5": false,
+                            "Ruimte 6": false,
+                            "Ruimte 7": false,
+                            "Ruimte 8": false,
+                            "Ruimte 9": false,
+                            "Ruimte 10": false,
+                            "Anders": false
+                        }
+                    },
+                    {
+                        "question": "Wat is de functie van de ruimte?",
+                        "answers": {
+                            "Badkamer": false,
+                            "Berging": false,
+                            "Bijkeuken": false,
+                            "CV ruimte": false,
+                            "Hal": false,
+                            "Eetkamer": false,
+                            "Garage": false,
+                            "Hobbykamer": false,
+                            "Kelder": false,
+                            "Keuken": false,
+                            "Logeerkamer": false,
+                            "Meterkast": false,
+                            "Overloop": false,
+                            "Schuur": false,
+                            "Serre": false,
+                            "Slaapkamer": false,
+                            "Toilet": false,
+                            "Trapopgang": false,
+                            "Vide": false,
+                            "Wasruimte": false,
+                            "Werkkamer": true,
+                            "Woonkamer": false,
+                            "Zolder": false,
+                            "Anders": false,
+                            "Woonkamer-keuken": false
+                        }
+                    },
+                    {
+                        "question": "Is er schade in deze ruimte geconstateerd?",
+                        "answers": {
+                            "Ja": true,
+                            "Nee": false
+                        }
+                    },
+                    {
+                        "question": "Is er sprake van een zelfstandige werkruimte?",
+                        "answers": {
+                            "Ja": false,
+                            "Nee": true
+                        }
+                    },
+                    {
+                        "question": "Welke attributen zijn er in de ruimte aanwezig?",
+                        "answers": {
+                            "CV-ketel": false,
+                            "Ornament": false,
+                            "Plafondplinten": true,
+                            "Vloerplinten": true,
+                            "Gordijnrails": true,
+                            "Radiatoren/leidingen": false,
+                            "Vensterbank": true,
+                            "Plafondarmaturen": false,
+                            "Sanitair (wasbak/toilet)": false,
+                            "Trap opgang/vide": false,
+                            "Trapleuning": false,
+                            "Wasmachine/droger": false,
+                            "Schoorsteen (schouw/kanaal)": false,
+                            "Anders": false
+                        }
+                    }
+                ]
+            },
+            {
+                "images": [
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee",
+                    "https://www.gravatar.com/avatar/e1537c6a2f81cf9aac64d1362b2a93b3?d=identicon&s=128",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/f00cf9c1-a27b-4113-890e-35f8bbaa464e/conversions/image_picker_af90d28d-77d4-4ebb-89c4-6b19e784bed9-618-000002c139c10b32-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022634Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=d8837baf6400ef55b6fdb0ac66151e37cb82647269cf77b719c6dc0d0523b71f",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/aa97c0a6-bf56-405a-b547-d55a386c5b91/conversions/image_picker_9f3f023e-f750-46c3-af37-f4f0342e02da-618-000002c1499e835b-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022634Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=d04e43ec466876f4e165e9121147cfee4dcad373292f88c88e55c6efa9551de3",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee"
+                ],
+                "title": "G1.B1.R5. Slaapkamer",
+                "questionaire_data": [
+                    {
+                        "question": "Wil je een ruimte aan de binnenkant of buitenkant aanmaken?",
+                        "answers": {
+                            "Buitenkant gebouw": false,
+                            "Binnenkant gebouw": true
+                        }
+                    },
+                    {
+                        "question": "Op welke bouwlaag bevind zich de ruimte?",
+                        "answers": {
+                            "Bouwlaag -1": false,
+                            "Bouwlaag 0": false,
+                            "Bouwlaag 0,5": false,
+                            "Bouwlaag 1": true,
+                            "Bouwlaag 2": false,
+                            "Bouwlaag 3": false,
+                            "Bouwlaag 4": false,
+                            "Bouwlaag 5": false,
+                            "Bouwlaag 6": false,
+                            "Insteek": false
+                        }
+                    },
+                    {
+                        "question": "Nummer van de ruimte?",
+                        "answers": {
+                            "Ruimte 1": false,
+                            "Ruimte 2": false,
+                            "Ruimte 3": false,
+                            "Ruimte 4": false,
+                            "Ruimte 5": true,
+                            "Ruimte 6": false,
+                            "Ruimte 7": false,
+                            "Ruimte 8": false,
+                            "Ruimte 9": false,
+                            "Ruimte 10": false,
+                            "Anders": false
+                        }
+                    },
+                    {
+                        "question": "Wat is de functie van de ruimte?",
+                        "answers": {
+                            "Badkamer": false,
+                            "Berging": false,
+                            "Bijkeuken": false,
+                            "CV ruimte": false,
+                            "Hal": false,
+                            "Eetkamer": false,
+                            "Garage": false,
+                            "Hobbykamer": false,
+                            "Kelder": false,
+                            "Keuken": false,
+                            "Logeerkamer": false,
+                            "Meterkast": false,
+                            "Overloop": false,
+                            "Schuur": false,
+                            "Serre": false,
+                            "Slaapkamer": true,
+                            "Toilet": false,
+                            "Trapopgang": false,
+                            "Vide": false,
+                            "Wasruimte": false,
+                            "Werkkamer": false,
+                            "Woonkamer": false,
+                            "Zolder": false,
+                            "Anders": false,
+                            "Woonkamer-keuken": false
+                        }
+                    },
+                    {
+                        "question": "Is er schade in deze ruimte geconstateerd?",
+                        "answers": {
+                            "Ja": true,
+                            "Nee": false
+                        }
+                    },
+                    {
+                        "question": "Is er sprake van een zelfstandige werkruimte?",
+                        "answers": {
+                            "Ja": false,
+                            "Nee": true
+                        }
+                    },
+                    {
+                        "question": "Welke attributen zijn er in de ruimte aanwezig?",
+                        "answers": {
+                            "CV-ketel": false,
+                            "Ornament": false,
+                            "Plafondplinten": true,
+                            "Vloerplinten": false,
+                            "Gordijnrails": false,
+                            "Radiatoren/leidingen": true,
+                            "Vensterbank": true,
+                            "Plafondarmaturen": false,
+                            "Sanitair (wasbak/toilet)": false,
+                            "Trap opgang/vide": false,
+                            "Trapleuning": false,
+                            "Wasmachine/droger": false,
+                            "Schoorsteen (schouw/kanaal)": false,
+                            "Anders": false
+                        }
+                    }
+                ]
+            },
+            {
+                "images": [
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee",
+                    "https://www.gravatar.com/avatar/e1537c6a2f81cf9aac64d1362b2a93b3?d=identicon&s=128",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/27ac1d39-141d-4c11-9202-6c430a7262f2/conversions/image_picker_1257ee27-f8cf-48a9-9de5-ca657d1f8577-618-000002ce35b8dcd6-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022701Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=04ff3b2fbc026dd3e47ebd62b74b3d0bfa5eb2de7196fd1238b33f550406bbf6",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/ff986403-7db5-4183-b810-622fd80ede09/conversions/image_picker_6dbbe1a0-99d4-4b9e-93a8-bcaa8c91660b-618-000002ce5c860da1-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022701Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=2db99a85de9b54bba51bec0cd4a2b79848309eb145713a66fc499edf1799b409",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee"
+                ],
+                "title": "G1.B1.R6. CV ruimte",
+                "questionaire_data": [
+                    {
+                        "question": "Wil je een ruimte aan de binnenkant of buitenkant aanmaken?",
+                        "answers": {
+                            "Buitenkant gebouw": false,
+                            "Binnenkant gebouw": true
+                        }
+                    },
+                    {
+                        "question": "Op welke bouwlaag bevind zich de ruimte?",
+                        "answers": {
+                            "Bouwlaag -1": false,
+                            "Bouwlaag 0": false,
+                            "Bouwlaag 0,5": false,
+                            "Bouwlaag 1": true,
+                            "Bouwlaag 2": false,
+                            "Bouwlaag 3": false,
+                            "Bouwlaag 4": false,
+                            "Bouwlaag 5": false,
+                            "Bouwlaag 6": false,
+                            "Insteek": false
+                        }
+                    },
+                    {
+                        "question": "Nummer van de ruimte?",
+                        "answers": {
+                            "Ruimte 1": false,
+                            "Ruimte 2": false,
+                            "Ruimte 3": false,
+                            "Ruimte 4": false,
+                            "Ruimte 5": false,
+                            "Ruimte 6": true,
+                            "Ruimte 7": false,
+                            "Ruimte 8": false,
+                            "Ruimte 9": false,
+                            "Ruimte 10": false,
+                            "Anders": false
+                        }
+                    },
+                    {
+                        "question": "Wat is de functie van de ruimte?",
+                        "answers": {
+                            "Badkamer": false,
+                            "Berging": false,
+                            "Bijkeuken": false,
+                            "CV ruimte": true,
+                            "Hal": false,
+                            "Eetkamer": false,
+                            "Garage": false,
+                            "Hobbykamer": false,
+                            "Kelder": false,
+                            "Keuken": false,
+                            "Logeerkamer": false,
+                            "Meterkast": false,
+                            "Overloop": false,
+                            "Schuur": false,
+                            "Serre": false,
+                            "Slaapkamer": false,
+                            "Toilet": false,
+                            "Trapopgang": false,
+                            "Vide": false,
+                            "Wasruimte": false,
+                            "Werkkamer": false,
+                            "Woonkamer": false,
+                            "Zolder": false,
+                            "Anders": false,
+                            "Woonkamer-keuken": false
+                        }
+                    },
+                    {
+                        "question": "Is er schade in deze ruimte geconstateerd?",
+                        "answers": {
+                            "Ja": false,
+                            "Nee": true
+                        }
+                    },
+                    {
+                        "question": "Is er sprake van een zelfstandige werkruimte?",
+                        "answers": {
+                            "Ja": false,
+                            "Nee": true
+                        }
+                    },
+                    {
+                        "question": "Welke attributen zijn er in de ruimte aanwezig?",
+                        "answers": {
+                            "CV-ketel": true,
+                            "Ornament": false,
+                            "Plafondplinten": false,
+                            "Vloerplinten": false,
+                            "Gordijnrails": false,
+                            "Radiatoren/leidingen": true,
+                            "Vensterbank": false,
+                            "Plafondarmaturen": false,
+                            "Sanitair (wasbak/toilet)": false,
+                            "Trap opgang/vide": false,
+                            "Trapleuning": false,
+                            "Wasmachine/droger": false,
+                            "Schoorsteen (schouw/kanaal)": false,
+                            "Anders": false
+                        }
+                    }
+                ]
+            },
+            {
+                "images": [
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee",
+                    "https://www.gravatar.com/avatar/e1537c6a2f81cf9aac64d1362b2a93b3?d=identicon&s=128",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/57ca222b-203d-4f29-afcc-371b13f172e7/conversions/image_picker_3637e5e3-d105-47dd-8345-2dc0334b0d13-618-000002ce9efb6d1f-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022730Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=d6bbc1a9792a57511d81932986e0194aa082a95d4bd0ecc68aa30c41f5a3ca9a",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/963a1056-6777-438a-8e94-ad45cdc8d8e1/conversions/image_picker_a80d1b0e-dd18-4c4f-9689-80e2b78c5d51-618-000002ced1349629-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022730Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=5ec9e4a31083fafa8fc032949ecd934ed04d17058b714df79b10a0dec1dca2a4",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee"
+                ],
+                "title": "G1.B1.R7. Berging",
+                "questionaire_data": [
+                    {
+                        "question": "Wil je een ruimte aan de binnenkant of buitenkant aanmaken?",
+                        "answers": {
+                            "Buitenkant gebouw": false,
+                            "Binnenkant gebouw": true
+                        }
+                    },
+                    {
+                        "question": "Op welke bouwlaag bevind zich de ruimte?",
+                        "answers": {
+                            "Bouwlaag -1": false,
+                            "Bouwlaag 0": false,
+                            "Bouwlaag 0,5": false,
+                            "Bouwlaag 1": true,
+                            "Bouwlaag 2": false,
+                            "Bouwlaag 3": false,
+                            "Bouwlaag 4": false,
+                            "Bouwlaag 5": false,
+                            "Bouwlaag 6": false,
+                            "Insteek": false
+                        }
+                    },
+                    {
+                        "question": "Nummer van de ruimte?",
+                        "answers": {
+                            "Ruimte 1": false,
+                            "Ruimte 2": false,
+                            "Ruimte 3": false,
+                            "Ruimte 4": false,
+                            "Ruimte 5": false,
+                            "Ruimte 6": false,
+                            "Ruimte 7": true,
+                            "Ruimte 8": false,
+                            "Ruimte 9": false,
+                            "Ruimte 10": false,
+                            "Anders": false
+                        }
+                    },
+                    {
+                        "question": "Wat is de functie van de ruimte?",
+                        "answers": {
+                            "Badkamer": false,
+                            "Berging": true,
+                            "Bijkeuken": false,
+                            "CV ruimte": false,
+                            "Hal": false,
+                            "Eetkamer": false,
+                            "Garage": false,
+                            "Hobbykamer": false,
+                            "Kelder": false,
+                            "Keuken": false,
+                            "Logeerkamer": false,
+                            "Meterkast": false,
+                            "Overloop": false,
+                            "Schuur": false,
+                            "Serre": false,
+                            "Slaapkamer": false,
+                            "Toilet": false,
+                            "Trapopgang": false,
+                            "Vide": false,
+                            "Wasruimte": false,
+                            "Werkkamer": false,
+                            "Woonkamer": false,
+                            "Zolder": false,
+                            "Anders": false,
+                            "Woonkamer-keuken": false
+                        }
+                    },
+                    {
+                        "question": "Is er schade in deze ruimte geconstateerd?",
+                        "answers": {
+                            "Ja": false,
+                            "Nee": true
+                        }
+                    },
+                    {
+                        "question": "Is er sprake van een zelfstandige werkruimte?",
+                        "answers": {
+                            "Ja": false,
+                            "Nee": true
+                        }
+                    },
+                    {
+                        "question": "Welke attributen zijn er in de ruimte aanwezig?",
+                        "answers": {
+                            "CV-ketel": false,
+                            "Ornament": false,
+                            "Plafondplinten": false,
+                            "Vloerplinten": false,
+                            "Gordijnrails": false,
+                            "Radiatoren/leidingen": true,
+                            "Vensterbank": false,
+                            "Plafondarmaturen": false,
+                            "Sanitair (wasbak/toilet)": false,
+                            "Trap opgang/vide": false,
+                            "Trapleuning": false,
+                            "Wasmachine/droger": false,
+                            "Schoorsteen (schouw/kanaal)": false,
+                            "Anders": false
+                        }
+                    }
+                ]
+            },
+            {
+                "images": [
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee",
+                    "https://www.gravatar.com/avatar/e1537c6a2f81cf9aac64d1362b2a93b3?d=identicon&s=128",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/7676bb62-3269-448c-b43f-fb79abc18ef3/conversions/image_picker_2135a124-5860-4b73-ad65-1c24d3a7e72a-618-000002cff86ca3c1-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022759Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=b1ed3919b5dc8910bf943940231c7210a2a4191f5efe68f916eaef098ccfe4ba",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/999cae21-d53b-47ac-aea9-510154f7f7e0/conversions/image_picker_6a3167f1-24e6-4a44-a676-70ca5d52c419-618-000002d004857b26-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaDGV1LWNlbnRyYWwtMSJHMEUCIQD9dtE96Fpnqd0LNQZ3L%2B9B3m0bcfUZoCCYhNDP1jqDxwIgSs17%2F1vFPchbgw6DW6b9fktaFS%2BcSgrVBuocAAsHf44qxgUI4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDGUdkEbyvZldS2is6iqaBbw6hZB3UW0ONbvc60yhcgGGBxdS6%2F5NEO4ukmNaSSq9RK9SiN%2B0x337XKCTGPLkL8aOy%2BChD%2Fy3brwT8Q6C45pTm2ErHGOa1AgmKYcc2h7zqV9%2BHtunsNz%2BL84QafIR5OfoA85nmfOwTWj%2BgaRJAaItsj6DPVsJc5FmFJfQDl07FpimNateM4rCOfFFgqxg2IaUp00yV8qPbC4p1UJUtXZeSCzXonFH4HGcymXe8lxWF9blP4Cevje9BqUIBQCGfx6aluh27ro3lpPo0Rv5SHwUzX096Mnq58FAHrCV7pzGd5VMr4BmxniPtKAu9rN4ggIImOY%2B%2BmdHW6zXN%2BuoEOHubr4C0xqM5Ek18xnvyqQSRJJknhcDws2I9Vq2A109en8m0AhXWSbXHa30QIhKYZ8qcTC7A5yWhunog%2Bm7OcNe5%2FupunMkBPSzIayKIDDqjveU5TmSBGjK%2Fnls0q%2BReckVRME8Fe5ffXhjxcaxcI2%2F3KH8%2FG9kx1A7amJJcAJXFZyI7jATc2KbFULCSlqM7Novipr3kIIEJbCBqKTp7zs7lr1R3%2FdoVw%2F8Hsz9VFFdgIP9zE0ouxX5clmNWT4UvZfPmCsqD4oMp7PkB%2F8rTfQVjrvpq6hmTdQLrd2XObi01m42XbmqcSowaRxu9yKZMHUR7iC%2F4PR1GPljSXPeaykhXe5bHlADZeSsLf4CKpJJXkfN72ciiuO1wgGOuTmkKXwgP66d1%2FHAxhz%2F1gRzf01HDiGQxvZgBBvSKE4YlQXR2OnfGNDYfJ5GZDlvc1p0kl0j0H0bh13G0XAToDzKfOwt26O1K6fnSBwA%2BxdKG%2FIhaUV3shspOe%2B1lL9F1MM0vdgiiop6OY%2BxT0OJvjjkpaVT6VW4XWcqbF6mQTDV%2BL66BjqxAX058wsIPVy%2FZQngyYDhcywfXxMCaO1U9o4yMSHiUrUtvtl5T9V6hLOeWuis0ZwyfExwkqRc1ZQfbhbj2ekVjKrrPXjaK7N0g6IfEt2RhndQXa2Vl5TBUTvGgRKHQWBwV8Eb6rvWIDHhG89tnOG71A%2FjySSmz0toW8poBvQcQBMyiC2QA%2Fr7RB88x17iaiZcUg31HnmJ4RdfJ0TsubQidu6UG%2FykPh3xLDOsMe6WG3vGpA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJPHONOK5%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T022759Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=66ebe2097051475ade709aaaa17cf269ed3a88042ccaf0580a93925af33d07e8",
+                    "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaDGV1LWNlbnRyYWwtMSJGMEQCIFdjLKUex2j6D12C6iXxL241lZ2qx0jUpOo7Teo61ZQuAiBkJHz4XqgvlgLmpDC8rtF0Mj65IyyPjQpziEAE9eRYGCrGBQjj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDg3MTAyNTY1OTEwMCIMBXlZW5O4cdVEJvPNKpoFkaY1taNNLFQBGmU%2FSPOfpoii7H5nSiq2YKnj83LULe%2FYZ7y57BbbuzIQa9LaYRxxw%2FKvU78pIJlRZouorDs5pt2Hq2uTzPnBXOi%2F%2FU7zqd1FMtp%2Fr0JAY3VXz0%2F6gxhxQDSCYszCK%2FFO3xdaQdREiKoBgwdg%2BJBS191zTpNSK4LFQcuZMGTFzYJrUioA%2Bg5Q3%2BxNiD%2FC8kkj%2B4wqCbUhyBAJTdiuxqlDZIU6AngFUV0AkJ9%2BZNw8YfOCH8M6e0nNb8hti9FRZloBaw0wakJKUSh%2Bqw720b%2F6tcpnFE9JmXs9IntKUDgZwLkjUfT0yFp%2BlfwTdUh0cJc92k2IMTgXAPMViCl4LfrxA2CqH3Xmn99xMdNFIeAo4vK6kGsti6RopRHvGWqDRWlFUwWUz5TI6xRmgH4r0NguWg9WnD2c1n9meK03HM2w%2B7NLLFN6u64U0QlUoHTg95mDZbxoZW2f6oTeP0ODVBdIa15SwUYeyWCpwVcP2n4COlfHzLgtYF74xkNQf6BjHqYviLqlR9xCb9eohgL%2FVxaqdFNDu%2FZMAp1I%2FBHk6aFNG2Djr6WxLBuO3pEkf2N611SfhSdmcjx323hf16rZY4oJwY3q8rrgv7zXxdU6OUW%2BMa25Y3QP6QZCrmwCTyzeFdtp4vd%2FSK0y352WejMlfZ4xif9ZrviMcbHmHnADYT06eUQOfTTny94h0zqJ3bQUGP0YkjTXuNAXamBLKU1GvYmN3wCU7Bwsvf91FE8qcfnvhLw0t7R37WgbgJsXKw6nFWoiSbCsLiY1EM24rEg1g2MppXG0Whok%2Bk7%2B4duZy49BB4tQrCnbgyBQ4QHLNxu1g4BecvG5Eg1UgjcCifxqfSi%2FpmAnIZ17STM7s0wMEQS5tIh2MKzevroGOrIBVc1wSx9%2BuMChvCjvDMqQYjp3t%2BIFTW9oHobgAaU4holnCcxSGb68SNBiv3gy%2B%2BWI1%2B87HOhJk0fBFDtFeHa2qQ1OkXEntMWGGT%2FEjj%2FoQgMEKTZP6Cp88owW1RSJBbYy0Z3gVmNU4aGPqXvmpJTtp5e7v8CvTnGXfDPFr1txnUtyMX1pEnfI%2FlfA5KwJ3Ue205ApK9vDx4J6W66%2F7cpHAnBpjDFHnhcIt%2FlU2JZHhQUfXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOKEE4L57S%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T021953Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=866983525eeef393c8c5fb9661501ccbbea71391f537c089c5bce5703e35f9ee"
+                ],
+                "title": "G1.B1.R8. Badkamer",
+                "questionaire_data": [
+                    {
+                        "question": "Wil je een ruimte aan de binnenkant of buitenkant aanmaken?",
+                        "answers": {
+                            "Buitenkant gebouw": false,
+                            "Binnenkant gebouw": true
+                        }
+                    },
+                    {
+                        "question": "Op welke bouwlaag bevind zich de ruimte?",
+                        "answers": {
+                            "Bouwlaag -1": false,
+                            "Bouwlaag 0": false,
+                            "Bouwlaag 0,5": false,
+                            "Bouwlaag 1": true,
+                            "Bouwlaag 2": false,
+                            "Bouwlaag 3": false,
+                            "Bouwlaag 4": false,
+                            "Bouwlaag 5": false,
+                            "Bouwlaag 6": false,
+                            "Insteek": false
+                        }
+                    },
+                    {
+                        "question": "Nummer van de ruimte?",
+                        "answers": {
+                            "Ruimte 1": false,
+                            "Ruimte 2": false,
+                            "Ruimte 3": false,
+                            "Ruimte 4": false,
+                            "Ruimte 5": false,
+                            "Ruimte 6": false,
+                            "Ruimte 7": false,
+                            "Ruimte 8": true,
+                            "Ruimte 9": false,
+                            "Ruimte 10": false,
+                            "Anders": false
+                        }
+                    },
+                    {
+                        "question": "Wat is de functie van de ruimte?",
+                        "answers": {
+                            "Badkamer": true,
+                            "Berging": false,
+                            "Bijkeuken": false,
+                            "CV ruimte": false,
+                            "Hal": false,
+                            "Eetkamer": false,
+                            "Garage": false,
+                            "Hobbykamer": false,
+                            "Kelder": false,
+                            "Keuken": false,
+                            "Logeerkamer": false,
+                            "Meterkast": false,
+                            "Overloop": false,
+                            "Schuur": false,
+                            "Serre": false,
+                            "Slaapkamer": false,
+                            "Toilet": false,
+                            "Trapopgang": false,
+                            "Vide": false,
+                            "Wasruimte": false,
+                            "Werkkamer": false,
+                            "Woonkamer": false,
+                            "Zolder": false,
+                            "Anders": false,
+                            "Woonkamer-keuken": false
+                        }
+                    },
+                    {
+                        "question": "Is er sprake van een zelfstandige werkruimte?",
+                        "answers": {
+                            "Ja": false,
+                            "Nee": true
+                        }
+                    },
+                    {
+                        "question": "Welke attributen zijn er in de ruimte aanwezig?",
+                        "answers": {
+                            "CV-ketel": false,
+                            "Ornament": false,
+                            "Plafondplinten": true,
+                            "Vloerplinten": false,
+                            "Gordijnrails": false,
+                            "Radiatoren/leidingen": false,
+                            "Vensterbank": false,
+                            "Plafondarmaturen": false,
+                            "Sanitair (wasbak/toilet)": true,
+                            "Trap opgang/vide": false,
+                            "Trapleuning": false,
+                            "Wasmachine/droger": false,
+                            "Schoorsteen (schouw/kanaal)": false,
+                            "Anders": false
+                        }
+                    }
+                ]
+            }
+        ],
+        "url": "https://productie.deatabix.nl/dossiers/9d8686f8-8b86-43f2-ae2c-cfb9202d86e1/editors/deskundige/ruimtes/",
+        "tab_type": "ruimtes"
     }
 ]

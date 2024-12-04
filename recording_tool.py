@@ -37,30 +37,38 @@ def got_inside_yellow_button_click(driver):
     all_data = []
     starting_url_index = 0
     for url in urls[starting_url_index:]:
-        # print('11111111url:', url)
+        #print('11111111url:', url)
+        '''TESTING'''
+        if "ruimtes".lower() in url.lower():
+            print("GOT THE ruimtes URL")
+            data = handle_url(driver, url)
+            hyperSel.log_utilities.log_function(data)
+            custom_log.log_to_file(data)
+            input("IN THE ruimtes")
+        else:
+            continue
+        
+        
         try:
-            # hyperSel.colors_utilities.c_print(text="FOR ANY OF THESE, IF DATA IS NONE, RUN AGAIN TO ATTEMPT, GIVE N ATTEMPTS", color="cyan")
             data = handle_url(driver, url)
             all_data.append(data)
-            # print("data:", data)
-            # input("I AM TRYING TO DO THE SECOND TAB")
         except Exception as e:
             print("URL FIALED:", url)
             print(e)
             # input("WHAT WENT WRONG?")
 
-        if starting_url_index != 0:
-            print("ONLY DOING ONE ITER, BRAK")
-            break
+        #if starting_url_index != 0:
+        #    print("ONLY DOING ONE ITER, BRAK")
+        #    break
 
     return all_data
 
 def get_all_individual_building_data(driver, building_url):
+    # hyperSel.log_utilities.checkpoint()
 
     hyperSel.selenium_utilities.go_to_site(driver, building_url)
 
     time.sleep(2)
-
 
     question_xpath = ".//div[contains(@class, 'question') and contains(@class, 'flex') and contains(@class, 'items-center')]"
 
@@ -68,7 +76,7 @@ def get_all_individual_building_data(driver, building_url):
     for i in questions:
         try:
             xpath = '/html/body/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div[3]/div[2]/div/div/div[2]/div/div[2]/div[1]/div[5]/aside/div[1]/div/div[1]/div[2]/div/div[2]/div/button'
-            hyperSel.selenium_utilities.click_button(driver, xpath=xpath, time=0.0001)
+            hyperSel.selenium_utilities.click_button(driver, xpath=xpath, time=0.01)
             # print("WEIRD THING APPEARED")
             time.sleep(0.001)
         except Exception as e:
@@ -82,11 +90,12 @@ def get_all_individual_building_data(driver, building_url):
         
         try:
             i.click()
+            time.sleep(0.1)
         except Exception as e:
             print(2)
             print(e)
 
-        
+
     time.sleep(2)
     full_soup = hyperSel.selenium_utilities.get_driver_soup(driver)
     questions_data = extract_question_data(full_soup)
@@ -127,7 +136,6 @@ def gebouwen_scrape(driver, url):
         except Exception as e:
             pass
 
-        
         try:
             building_title = building.find("span", class_="atabix-side-menu-draggable__item--title").text
         except Exception as e:
@@ -140,11 +148,7 @@ def gebouwen_scrape(driver, url):
         #print("building_url:", building_url)
         
         questions_data = get_all_individual_building_data(driver, building_url)
-        #for i in questions_data:
-        #    print(i)
-        #    print("======")
 
-        # get images
         hyperSel.selenium_utilities.go_to_site(driver, building_url+'afbeeldingen')
         time.sleep(3)
         soup = hyperSel.selenium_utilities.get_driver_soup(driver)
@@ -210,7 +214,6 @@ def handle_url(driver, url):
             'url':url,
             'tab_type':tab_type
         }
-        # print("full_data:", full_data)
         return full_data
     except Exception as e:
         hyperSel.colors_utilities.c_print(f"handle_url ERROR", "red")
@@ -218,49 +221,170 @@ def handle_url(driver, url):
         # input("GOOBER mess UP")
 
 
-def extract_question_data(soup):
+def extract_numeric_answers(soup):
+    """
+    Extract questions with numeric answers from a BeautifulSoup object.
+
+    Args:
+        soup (BeautifulSoup): The parsed HTML soup.
+
+    Returns:
+        list: A list of dictionaries, each containing a question and its numeric answer.
+    """
+    question_divs = soup.find_all('div', {'label': True, 'value': True})
     all_questions = []
 
-    # Loop through each div with class 'flex flex-col'
-    for tag in soup.find_all("div", class_="flex flex-col"):
-        try:
-            # Extract question name
-            question_name_tag = tag.find("span", class_="question__name")
-            if question_name_tag:
-                question_name = question_name_tag.text.strip()
-            else:
-                continue  # Skip if there's no question name
-
-            # Initialize a dictionary to store answer statuses
-            radio_button_status = {}
-
-            # Find all radio button containers within this question's tag
-            for container in tag.find_all("div", class_="radio-input-container"):
-                # Extract the label and selection status
-                label_tag = container.find("label")
-                input_tag = container.find("input", type="radio")
-                
-                # Ensure label and input are found
-                if label_tag and input_tag:
-                    label = label_tag.text.strip()
-                    is_selected = input_tag.get("aria-checked") == "true"
-                    # Store in the dictionary
-                    radio_button_status[label] = is_selected
-
-            # If no radio buttons were found, skip this question
-            if not radio_button_status:
-                continue
-
-            # Append question and answers to the result list
+    for div in question_divs:
+        question_name = div.get('label')  # Extract the question text
+        radio_button_status = div.get('value')  # Extract the answer
+        
+        # Check if the answer is numeric
+        if radio_button_status.isdigit():  # Ensures the answer is numeric
             all_questions.append({
+                "question": question_name,
+                "answers": f"{radio_button_status}"  # Convert the numeric answer to an integer
+            })
+    
+    return all_questions
+
+def extract_questions_without_data(soup):
+    """Extract questions from divs with class 'atabix__label-container' that don't have answers."""
+    questions_found_without_data = []
+    for div in soup.find_all('div', class_="atabix__label-container"):
+        if div.text.strip():
+            questions_found_without_data.append(div.text.strip())
+    return questions_found_without_data
+
+
+def extract_label_questions_with_answers(soup):
+    """Extract questions and their answers from labels with class 'question__name'."""
+    all_questions = []
+    question_name_tags = soup.find_all("label", class_="question__name")
+    for label in question_name_tags:
+        question_name = label.text.strip()
+        # Find the next div element (regardless of class) for the answer
+        answer_div = label.find_next("div")
+        answer_value = answer_div["value"] if answer_div and answer_div.get("value") else ""
+        all_questions.append({
+            "question": question_name,
+            "answer": answer_value,
+        })
+    return all_questions
+
+
+def add_questions_without_answers(questions_without_data, numeric_answers, all_questions):
+    """Add questions without answers if not found in numeric answers."""
+    for question_name in questions_without_data:
+        if not any(question_name == num_answer['question'] for num_answer in numeric_answers):
+            all_questions.append({
+                "question": question_name,
+                "answer": ""
+            })
+    return all_questions
+
+
+def extract_exclusive_radio_button_answers(soup):
+    """Extract questions and their radio button options."""
+    all_radio_answers = []
+    for tag in soup.find_all("span", class_="question__name"):
+        question_name = tag.text.strip()
+        parent_div = tag.find_parent("div")
+        if not parent_div:
+            continue
+
+        # Get the next sibling `div` containing the radio button answers
+        answer_div = parent_div.find_next_sibling("div")
+        if not answer_div:
+            continue
+
+        # Collect radio button statuses
+        radio_button_status = {}
+        for container in answer_div.find_all("div", class_="radio-input-container"):
+            label_tag = container.find("label")
+            input_tag = container.find("input", type="radio")
+            if label_tag and input_tag:
+                label = label_tag.text.strip()
+                is_selected = input_tag.get("aria-checked") == "true"
+                radio_button_status[label] = is_selected
+
+        if radio_button_status:
+            all_radio_answers.append({
                 "question": question_name,
                 "answers": radio_button_status
             })
+    return all_radio_answers
 
-        except Exception as e:
-            print("Error processing question:", e)
+
+def extract_question_data(soup):
+
+    """Main function to orchestrate question and answer extraction."""
+    all_questions = []
+
+    # Extract questions without data
+    questions_found_without_data = extract_questions_without_data(soup)
+
+    # Extract label-based questions with answers
+    label_questions = extract_label_questions_with_answers(soup)
+    all_questions.extend(label_questions)
+
+    # Extract numeric answers
+    numeric_answers = extract_numeric_answers(soup)
+    all_questions.extend(numeric_answers)
+
+    # Add questions without data
+    all_questions = add_questions_without_answers(
+        questions_found_without_data, numeric_answers, all_questions
+    )
+
+    # Extract radio button answers
+    radio_button_answers = extract_exclusive_radio_button_answers(soup)
+    all_questions.extend(radio_button_answers)
+
+    # Extract radio button answers2
+    exlusive_radio_buttons =  extract_inclusive_radio_button_answers(soup)
+    all_questions.extend(exlusive_radio_buttons)
 
     return all_questions
+
+def extract_inclusive_radio_button_answers(soup):
+    """Extract inclusive radio button answers (checkboxes) for questions."""
+    all_radio_answers = []
+
+    # Find all questions
+    for tag in soup.find_all("span", class_="question__name"):
+        question_name = tag.text.strip()
+
+        # Move to the parent div to locate the checkbox group
+        parent_div = tag.find_parent("div")
+        if not parent_div:
+            continue
+
+        # Get the next sibling div containing the checkbox answers
+        answer_div = parent_div.find_next_sibling("div")
+        if not answer_div:
+            continue
+
+        # Collect checkbox statuses
+        checkbox_status = {}
+        for container in answer_div.find_all("div", class_="flex"):
+            # Extract the label and the selection status
+            label = container.get("label", "").strip()
+            input_tag = container.find("input", type="checkbox")
+            if label and input_tag:
+                is_checked = input_tag.get("aria-checked") == "true"
+                checkbox_status[label] = is_checked
+
+        # If no checkboxes were found, skip this question
+        if not checkbox_status:
+            continue
+
+        # Append the question and its answers to the result
+        all_radio_answers.append({
+            "question": question_name,
+            "answers": checkbox_status
+        })
+
+    return all_radio_answers
 
 def ruimtes_scrape(driver, url):
     print("\nExecuting Ruimtes scrape")
@@ -280,24 +404,25 @@ def ruimtes_scrape(driver, url):
             xpath = '/html/body/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div[3]/div[2]/div/div/div[2]/div/div[2]/div[1]/div[5]/aside/div[1]/div/div[1]/div[2]/div/div[2]/div/button'
             hyperSel.selenium_utilities.click_button(driver, xpath=xpath, time=0.0001)
             # print("WEIRD THING APPEARED")
-            time.sleep(0.001)
+            time.sleep(0.01)
         except Exception as e:
             pass
 
         # print("[1]1[]1[]1[]i:", i)
         try:
             driver.execute_script("arguments[0].scrollIntoView(true);", i)
+            time.sleep(0.01)
         except Exception as e:
             print(1)
             print(e)
 
-
-        try:
-            i.click()
-            time.sleep(0.01)
-        except Exception as e:
-            print(2)
-            print(e)
+        for l in range(5):   
+            try:
+                i.click()
+                time.sleep(0.01)
+            except Exception as e:
+                print(2)
+                print(e)
 
         try:
             xpath = '/html/body/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div[3]/div[2]/div/div/div[2]/div/div[2]/div[1]/div[5]/aside/div[1]/div/div[1]/div[2]/div/div[2]/div/button'
@@ -311,9 +436,10 @@ def ruimtes_scrape(driver, url):
 
         data = get_individual_space_data_after_click(driver)
         all_space_data.append(data)
-        hyperSel.log_utilities.checkpoint()
+        # hyperSel.log_utilities.checkpoint()
         time.sleep(1)
         # print("======"
+        input("DID A SINGLE SPACE?")
 
     return all_space_data
 
@@ -340,11 +466,13 @@ def get_individual_space_data_after_click(driver):
             try:
                 driver.execute_script("arguments[0].scrollIntoView(true);", element)
                 element.click()
-                time.sleep(0.01)
+                time.sleep(0.2)
             except Exception as e:
                 #print(1)
                 #print(e)
                 pass
+            #print(element)
+            #MFA ATTEMPinput("-STOP THE FIRST SHOULD HAVE BEEN CLICKED")
 
             try:
                 xpath = '/html/body/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div[3]/div[2]/div/div/div[2]/div/div[2]/div[1]/div[5]/aside/div[1]/div/div[1]/div[2]/div/div[2]/div/button'
@@ -582,3 +710,6 @@ def omgevingskenmerken_scrape(driver, url):
         # input("SINGLE STOPPAGE")
 
     return all_questions
+
+if __name__ == '__main__':
+    pass

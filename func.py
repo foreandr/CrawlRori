@@ -62,7 +62,7 @@ def screenshot(driver, path):
 def sign_in():
     print("\nSIGN IN")
     try:
-        current_url = "https://www.youtube.com/live/QNwtpu_eLvc"
+        current_url = "https://www.youtube.com/live/kH2jSStTQU8"
         # 1. open driver
         driver = hyperSel.selenium_utilities.open_site_selenium(site=current_url, show_browser=True)
         hyperSel.selenium_utilities.maximize_the_window(driver)
@@ -73,7 +73,10 @@ def sign_in():
         for i in range(10):
             print("MFA ATTEMPT", i)
             try:
-                mfa = find_mfa_tokens(extract_text_with_easyocr(img_path))
+                start = time.time()
+                text_extracts = extract_text_with_easyocr(img_path)
+                print("TEXT", time.time()-start)
+                mfa = find_mfa_tokens(text_extracts)
                 print("mfa:", mfa)
                 break
             except Exception as e:
@@ -97,7 +100,6 @@ def sign_in():
         
         token_xpath = '''//*[@id="input-46"]'''
         hyperSel.selenium_utilities.enter_keys(driver, token_xpath, mfa)
-
 
         current_url = driver.current_url
 
