@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from tkinter import Scrollbar
+from tkinter import Toplevel
 
 
 def create_algemeen_tab(tab, algemeen_data):
@@ -12,35 +12,31 @@ def create_algemeen_tab(tab, algemeen_data):
         label = ctk.CTkLabel(tab, text="No content available for Algemeen.")
         label.pack(pady=20)
 
-
 def create_question_display(parent, questions_data):
     """
-    Dynamically creates widgets to display questions and answers without scroll functionality.
+    Dynamically creates widgets to display questions and answers with "If Rule" and "Then Rule" buttons.
     """
     # Create a frame to contain all question-answer pairs
     content_frame = ctk.CTkFrame(parent)
     content_frame.pack(fill="both", expand=True, padx=10, pady=10)
+
+    # Data structure to store rules
+    rules = []
 
     # Create widgets for each question and answer
     for idx, question_data in enumerate(questions_data):
         question = question_data.get("question", "Unknown question")
         answers = question_data.get("answers", {})
 
-        # Question Label
-        question_frame = ctk.CTkFrame(content_frame)
-        question_frame.pack(fill="x", pady=5, padx=10)
-
+        # Question Section with Spacing
         question_label = ctk.CTkLabel(
-            question_frame, text=question, anchor="w", wraplength=600, font=("Arial", 14)
+            content_frame,
+            text=question,
+            anchor="w",
+            wraplength=600,
+            font=("Arial", 14, "bold"),  # Bold for clearer delineation
         )
-        question_label.pack(side="left", padx=10)
-
-        question_button = ctk.CTkButton(
-            question_frame,
-            text="Print Question",
-            command=lambda q=question: print_to_screen(f"Question: {q}"),
-        )
-        question_button.pack(side="right", padx=10)
+        question_label.pack(fill="x", pady=(10, 5))  # Top padding for space between questions
 
         # Answer Section
         for answer_text, answer_value in answers.items():
@@ -54,19 +50,65 @@ def create_question_display(parent, questions_data):
             )
             answer_label.pack(side="left", padx=10)
 
-            answer_button = ctk.CTkButton(
+            # Add "If Rule" Button
+            if_rule_button = ctk.CTkButton(
                 answer_frame,
-                text="Print Answer",
-                command=lambda a=answer_text, v=answer_value: print_to_screen(
-                    f"Answer: {a} -> {v}"
-                ),
+                text="If Rule",
+                command=lambda a=answer_text, v=answer_value: set_rule("if", a, v, rules),
             )
-            answer_button.pack(side="right", padx=10)
+            if_rule_button.pack(side="right", padx=10)
 
+            # Add "Then Rule" Button
+            then_rule_button = ctk.CTkButton(
+                answer_frame,
+                text="Then Rule",
+                command=lambda a=answer_text, v=answer_value: set_rule("then", a, v, rules),
+            )
+            then_rule_button.pack(side="right", padx=10)
 
-
-def print_to_screen(message):
+def set_rule(rule_type, answer, value, rules):
     """
-    Function to handle button clicks and print the message to the screen.
+    Handles setting the "If" or "Then" rule with a boolean condition using a clickable dialog.
     """
-    print(message)
+    # Create a popup for boolean selection
+    popup = Toplevel()
+    popup.title(f"Set {rule_type.capitalize()} Rule")
+    popup.geometry("300x150")
+    popup.resizable(False, False)
+
+    # Label
+    label = ctk.CTkLabel(
+        popup,
+        text=f"Set condition for '{answer}' ({rule_type.upper()} Rule):",
+        wraplength=280,
+        anchor="center",
+    )
+    label.pack(pady=20)
+
+    # Button for True
+    true_button = ctk.CTkButton(
+        popup,
+        text="True",
+        fg_color="green",
+        command=lambda: finalize_rule(rule_type, answer, True, rules, popup),
+    )
+    true_button.pack(side="left", padx=20, pady=10)
+
+    # Button for False
+    false_button = ctk.CTkButton(
+        popup,
+        text="False",
+        fg_color="red",
+        command=lambda: finalize_rule(rule_type, answer, False, rules, popup),
+    )
+    false_button.pack(side="right", padx=20, pady=10)
+
+
+def finalize_rule(rule_type, answer, condition, rules, popup):
+    """
+    Finalizes the rule, stores it, and closes the popup.
+    """
+    rule = {"type": rule_type, "answer": answer, "condition": condition}
+    rules.append(rule)  # Store the rule
+    print(f"Rule set: {rule}")
+    popup.destroy()  # Close the popup
