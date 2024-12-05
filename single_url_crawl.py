@@ -22,6 +22,63 @@ def get_title(driver):
     return title
 
 
+def click_recording_tool():
+    try:
+        pass
+    except Exception as e:
+        print("FAILED TO CLICK RECORDING TOOL SKIP")
+        return False
+
+def click_control_tool():
+    try:
+        pass
+    except Exception as e:
+        print("FAILED TO CLICK RECORDING TOOL SKIP")
+        return False
+
+def get_button_xpaths(driver):
+    from selenium.webdriver.common.by import By
+    """
+    Extracts the XPaths of all buttons on the current webpage using an existing WebDriver instance.
+
+    Args:
+        driver (webdriver): An active Selenium WebDriver instance, already navigated to the desired page.
+
+    Returns:
+        list: A list of XPaths for all buttons on the page.
+    """
+    # Find all buttons on the page
+    buttons = driver.find_elements(By.TAG_NAME, "button")
+
+    # Extract the absolute XPaths of all buttons
+    button_xpaths = []
+    for button in buttons:
+        try:
+            xpath = driver.execute_script(
+                "function absoluteXPath(element) {" 
+                "    var path = '';" 
+                "    for (; element && element.nodeType === 1; element = element.parentNode) {" 
+                "        var index = 0;" 
+                "        for (var sibling = element.previousSibling; sibling; sibling = sibling.previousSibling) {" 
+                "            if (sibling.nodeType === Node.ELEMENT_NODE && sibling.nodeName === element.nodeName) {" 
+                "                index++;" 
+                "            }" 
+                "        }" 
+                "        var tagName = element.nodeName.toLowerCase();" 
+                "        var part = '/' + tagName + (index > 0 ? '[' + (index + 1) + ']' : '');" 
+                "        path = part + path;" 
+                "    }" 
+                "    return path;" 
+                "}" 
+                "return absoluteXPath(arguments[0]);", 
+                button)
+            button_xpaths.append(xpath)
+        except Exception as e:
+            print(f"Could not generate XPath for a button: {e}")
+
+    return button_xpaths
+
+
 def single_crawler(url):
     try:
         print("URL", url)
@@ -35,20 +92,28 @@ def single_crawler(url):
 
         final_data = {}
 
-        if is_s_version(title):
-            print("FULL WITH CONTROL TOOL")
-            # TRY RECORDING TOOL DATA  
-            hyperSel.selenium_utilities.go_to_site(driver, url)
-            final_data['recording_tool'] = recording_tool.recording_tool_crawl(driver, url)     
-            
-            # RESET BACK TO OG PAGE
-            hyperSel.selenium_utilities.go_to_site(driver, url)
-            final_data['control_tool'] = control_tool.control_tool_crawl(driver, url)
-        else:
-            hyperSel.selenium_utilities.go_to_site(driver, url)
-            print("JUST RECORDING TOOL")   
-            final_data['recording_tool'] = recording_tool.recording_tool_crawl(driver, url)
+        # TRY CLICK RECORDING TOOL BUTTON
+        try:                
+            #                  
+            dossier_xpath = '''/html/body/div/div[1]/div/div[2]/div[3]/div/div/div[1]/div[1]/div[3]/a[1]/button'''
+            hyperSel.selenium_utilities.click_button(driver, dossier_xpath)
+            time.sleep(5)
+            final_data['recording_tool'] = recording_tool.got_inside_yellow_button_click(driver)
+        except Exception as  e:
+            print("FAILED TO CLICK RECORDING TOOL BUTTON")
+            final_data['recording_tool'] = []
 
+        hyperSel.selenium_utilities.go_to_site(driver, url)
+
+        # TRY CLICK CONTROL TOOL BUTTON
+        try:                                
+            dossier_xpath = '''/html/body/div/div[1]/div/div[2]/div[3]/div/div/div[1]/div[1]/div[3]/a[2]/button'''
+            hyperSel.selenium_utilities.click_button(driver, dossier_xpath)
+            time.sleep(5)
+            final_data['control_tool'] = control_tool.control_tool_crawl(driver, url)
+        except Exception as  e:
+            print("FAILED TO CLICK control TOOL BUTTON")
+            final_data['control_tool'] = []
     except Exception as e:
         print("E", e)
         input("E STOP")
@@ -85,7 +150,7 @@ def t1():
 
 if __name__ == '__main__':
     start= time.time()
-    url = 'https://productie.deatabix.nl/dossiers/9da27ba2-126f-447d-b477-0f79e7eea00d/overzicht'
+    url = 'https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/overzicht'
     data = single_crawler(url=url)
     hyperSel.log_utilities.log_function(data)
     custom_log.log_to_file(data)

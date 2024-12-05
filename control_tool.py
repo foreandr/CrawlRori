@@ -28,30 +28,19 @@ def control_tool_logic(driver, url):
     all_data['calculation'] = get_calculation_data(driver, url)
     return all_data
 
-def get_calculation_data(driver, url):
-    
-
-    time.sleep(2)
-    print("get_calculation_data")
-    control_tool_url = url.replace("overzicht", "editors/controle/beoordelen/calculatie")
-    hyperSel.selenium_utilities.go_to_site(driver, control_tool_url)
-    time.sleep(10)
-
-    soup = hyperSel.selenium_utilities.get_driver_soup(driver)
-    # Find the container with the data
-    table_container = soup.find("div", class_="costs-conclusion__content")
-
-    # Define headers for the keys
+def direct_cost_data(soup):
+   # Define headers for the keys
     headers = ["Naam", "Aantal", "Stukprijs", "Staffel", "Ruimte", "Gebouw", "Totaal", "BTW %"]
 
     # Initialize a list to store extracted rows as dictionaries
     rows = []
 
     # Iterate through all rows in the table
-    for row in table_container.find_all("div", class_="costs-conclusion__row"):
+    for row in soup.find_all("div", class_="costs-conclusion__row"):
         # Extract individual columns in the row
         columns = row.find_all("div", class_="costs-conclusion__item")
         row_data = [col.get_text(strip=True).replace('\xa0', '') for col in columns]
+        # print(len(row_data), "row_data:", row_data)
 
         if len(row_data) == 4:
             # print(f"QUAD: {row_data}")
@@ -75,6 +64,54 @@ def get_calculation_data(driver, url):
             rows.append(row_dict)
 
     return rows
+
+def calculated_data(soup):
+    headers = ["Naam", "Aantal","Stukprijs","Subtotaal","Totaal","Cumulatief", "BTW %"]
+    # Initialize a list to store extracted rows as dictionaries
+    rows = []
+
+    # Iterate through all rows in the table
+    for row in soup.find_all("div", class_="costs-conclusion__row"):
+        # Extract individual columns in the row
+        columns = row.find_all("div", class_="costs-conclusion__item")
+        row_data = [col.get_text(strip=True).replace('\xa0', '') for col in columns]
+        # print(len(row_data), "row_data:", row_data)
+
+        if len(row_data) == 4:
+            # print(f"QUAD: {row_data}")
+            # Map QUAD data to a dictionary with most fields empty, except Gebouw
+            row_dict = {
+                "Naam": row_data[0],
+                "Aantal": "",
+                "Stukprijs": "",
+                "Staffel": "",
+                "Ruimte": "",
+                "Gebouw": row_data[1],
+                "Totaal": "",
+                "BTW %": ""
+            }
+            rows.append(row_dict)
+
+        # Ensure the row has the correct number of columns to match the headers
+        if len(row_data) == len(headers):
+            # Create a dictionary for the row using headers as keys
+            row_dict = dict(zip(headers, row_data))
+            rows.append(row_dict)
+
+    return rows
+
+def get_calculation_data(driver, url):
+    time.sleep(2)
+    print("get_calculation_data")
+    control_tool_url = url.replace("overzicht", "editors/controle/beoordelen/calculatie")
+    hyperSel.selenium_utilities.go_to_site(driver, control_tool_url)
+    time.sleep(10)
+
+    soup = hyperSel.selenium_utilities.get_driver_soup(driver)
+    all_calc_data =[ ]
+    all_calc_data.extend(direct_cost_data(soup))
+    all_calc_data.extend(calculated_data(soup))
+    return all_calc_data
 
 
 def get_the_informatie_data(driver, url):

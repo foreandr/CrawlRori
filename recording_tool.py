@@ -10,26 +10,6 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 import custom_log
 
-def recording_tool_crawl(driver, url):
-    print("DOING RECORDING TOOL")
-    hyperSel.selenium_utilities.go_to_site(driver, url)
-    tab_data = single_dossier_iteration(driver)
-    return tab_data
-    
-def single_dossier_iteration(driver):
-    # print("single_dossier_iteration")
-    dossier_xpath = '''/html/body/div/div[1]/div/div[2]/div[3]/div/div/div[1]/div[1]/div[3]/a[1]/button'''
-
-    try:
-        hyperSel.selenium_utilities.click_button(driver, dossier_xpath)
-        time.sleep(3)
-        data = got_inside_yellow_button_click(driver)
-        return data
-    except Exception as e:
-        hyperSel.colors_utilities.c_print(f"single_dossier_iterati ERROR", "red")
-        hyperSel.colors_utilities.c_print(f"handle_url ERROR", "red")
-        print("RETURN FALSE")
-        return False
 
 # Main function to iterate over URLs and call the dispatcher
 def got_inside_yellow_button_click(driver):
@@ -37,7 +17,7 @@ def got_inside_yellow_button_click(driver):
     all_data = []
     starting_url_index = 0
     for url in urls[starting_url_index:]:
-        #print('11111111url:', url)
+        print('11111111url:', url)
         '''TESTING
         if "ruimtes".lower() in url.lower():
             print("GOT THE ruimtes URL")
@@ -48,8 +28,7 @@ def got_inside_yellow_button_click(driver):
         else:
             continue
         '''
-        
-        
+
         try:
             data = handle_url(driver, url)
             all_data.append(data)
@@ -57,11 +36,6 @@ def got_inside_yellow_button_click(driver):
             print("URL FIALED:", url)
             print(e)
             # input("WHAT WENT WRONG?")
-
-        #if starting_url_index != 0:
-        #    print("ONLY DOING ONE ITER, BRAK")
-        #    break
-
     return all_data
 
 def get_all_individual_building_data(driver, building_url):
@@ -743,8 +717,3 @@ def omgevingskenmerken_scrape(driver, url):
         # input("SINGLE STOPPAGE")
 
     return all_questions
-
-if __name__ == '__main__':
-    soup = hyperSel.log_utilities.load_file_as_soup("./logs/2024/12/03/2024-12-03.txt")
-    questionaaire_data = extract_question_data(soup, verbose=True)
-    custom_log.log_to_file(questionaaire_data)
