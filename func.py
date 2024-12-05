@@ -162,3 +162,34 @@ def load_json(file_path):
         print(f"Error: Failed to decode JSON. {e}")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
+
+    
+def get_recording_tool_data(recording_tool_data):
+    algemeen_data = None
+    omgevingskenmerken_data = None
+    gebouwen_data = None
+    ruimtes_data = None
+    schades_data = None
+    bijlagen_data = None
+    samenvatting_data = None
+
+    # Loop through recording_tool_data to categorize data by tab_type
+    for item in recording_tool_data:
+        tab_type = item["tab_type"]
+        if tab_type == "algemeen":
+            algemeen_data = item
+        elif tab_type == "omgevingskenmerken":
+            omgevingskenmerken_data = item
+        elif tab_type == "gebouwen":
+            gebouwen_data = item
+        elif tab_type == "ruimtes":
+            ruimtes_data = item
+        elif tab_type == "schades":
+            schades_data = item
+        elif tab_type == "bijlagen":
+            bijlagen_data = item
+        elif tab_type == "samenvatting":
+            samenvatting_data = item
+
+
+    return algemeen_data, omgevingskenmerken_data, gebouwen_data, ruimtes_data, schades_data, bijlagen_data, samenvatting_data

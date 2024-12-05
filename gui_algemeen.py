@@ -1,6 +1,6 @@
 import customtkinter as ctk
 from tkinter import Toplevel
-
+import validation_rules
 
 def create_algemeen_tab(tab, algemeen_data):
     """
@@ -50,6 +50,14 @@ def create_question_display(parent, questions_data):
             )
             answer_label.pack(side="left", padx=10)
 
+            # Add "Then Rule" Button
+            then_rule_button = ctk.CTkButton(
+                answer_frame,
+                text="Then Rule",
+                command=lambda a=answer_text, v=answer_value: set_rule("then", a, v, rules),
+            )
+            then_rule_button.pack(side="right", padx=10)
+
             # Add "If Rule" Button
             if_rule_button = ctk.CTkButton(
                 answer_frame,
@@ -58,13 +66,7 @@ def create_question_display(parent, questions_data):
             )
             if_rule_button.pack(side="right", padx=10)
 
-            # Add "Then Rule" Button
-            then_rule_button = ctk.CTkButton(
-                answer_frame,
-                text="Then Rule",
-                command=lambda a=answer_text, v=answer_value: set_rule("then", a, v, rules),
-            )
-            then_rule_button.pack(side="right", padx=10)
+
 
 def set_rule(rule_type, answer, value, rules):
     """
@@ -108,7 +110,9 @@ def finalize_rule(rule_type, answer, condition, rules, popup):
     """
     Finalizes the rule, stores it, and closes the popup.
     """
-    rule = {"type": rule_type, "answer": answer, "condition": condition}
+    rule = {"type": rule_type, "answer": answer, "condition": condition, "location": "algemeen"}
+    validation_rules.my_validation_rules.append(rule)
+
     rules.append(rule)  # Store the rule
     print(f"Rule set: {rule}")
     popup.destroy()  # Close the popup
