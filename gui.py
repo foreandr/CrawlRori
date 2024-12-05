@@ -23,7 +23,10 @@ import gui_credenitals
 
 # Test mode flag to skip login
 test_mode = True
-admin=None
+admin = None
+current_data = None
+data_ready_event = threading.Event()
+
 # Function to validate login and open appropriate page
 def validate_login(username, password, root, credentials):
     # Check if username and password match for admin accounts
@@ -84,37 +87,51 @@ def display_data(data, parent):
 def FAKE_DATA_FUNC(url):
     """Simulate a long-running operation with a delay."""
     print(f"Fetching data for URL: {url}")
-    time.sleep(2)  # Simulate delay (10 seconds)
+    # time.sleep(2)  # Simulate delay (10 seconds)
     print("sleep for 2 seocnds to simulate crawl")
     return func.load_json("./data.json")
 
+def re_write_current_data(data):
+    """Write the current data to a JSON file."""
+    file_name = "current_data.json"
+    with open(file_name, "w") as f:
+        json.dump(data, f)
+
+def load_current_data():
+    """Load the current data from the JSON file."""
+    file_name = "current_data.json"
+    try:
+        with open(file_name, "r") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return None
+
 def handle_search(url_entry, display_frame):
+    global current_data  # Indicate this refers to the global variable
     print("IN THE GUI")
     url = url_entry.get()
     print("url:", url)
 
-    # Add a status label to indicate the fetching process
     status_label = ctk.CTkLabel(display_frame, text="Data is being fetched, please wait...", anchor="center")
     status_label.pack(pady=10)
 
-    # Define the worker function to run in a separate thread
     def worker():
-        # Replace `single_crawler` with `FAKE_DATA_FUNC` for testing
+        global current_data  # Modify the global variable
+        # Simulate fetching data
         data = FAKE_DATA_FUNC(url)
-        
-        # Update the UI after fetching the data
+        print("Data fetched:", len(data))
+        current_data = data
+
+        # Write data to the JSON file
+        re_write_current_data(data)
+
         def update_ui():
-            # Update status label
             status_label.configure(text="Crawl complete!")
-            # Display the fetched data
             display_data(data, display_frame)
 
-        # Call update_ui on the main thread
         display_frame.after(0, update_ui)
 
-    # Start the worker function in a new thread
     threading.Thread(target=worker, daemon=True).start()
-
 
 # Separate function to add the Search tab
 def add_search_tab(tabview):

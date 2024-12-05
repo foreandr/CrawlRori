@@ -8,13 +8,109 @@
         },
         {
             "type": "then",
-            "answer": "Gedeeltelijk particulier en gedeeltelijk zakelijk",
+            "answer": "Zakelijk",
+            "condition": true,
+            "location": "algemeen"
+        }
+    ],
+    [
+        {
+            "type": "if",
+            "answer": "Nee",
             "condition": true,
             "location": "algemeen"
         },
         {
             "type": "then",
             "answer": "Ja",
+            "condition": true,
+            "location": "algemeen"
+        },
+        {
+            "type": "if",
+            "answer": "Zakelijk",
+            "condition": true,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "answer": "Gedeeltelijk particulier en gedeeltelijk zakelijk",
+            "condition": true,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "answer": "Particulier",
+            "condition": true,
+            "location": "algemeen"
+        },
+        {
+            "type": "if",
+            "answer": "Particulier",
+            "condition": true,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "answer": "Nee",
+            "condition": true,
+            "location": "algemeen"
+        }
+    ],
+    [
+        {
+            "type": "then",
+            "answer": "Particulier",
+            "condition": true,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "answer": "Zakelijk",
+            "condition": true,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "answer": "Gedeeltelijk particulier en gedeeltelijk zakelijk",
+            "condition": true,
+            "location": "algemeen"
+        }
+    ],
+    [
+        {
+            "type": "then",
+            "answer": "Particulier",
+            "condition": true,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "answer": "Zakelijk",
+            "condition": true,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "answer": "Gedeeltelijk particulier en gedeeltelijk zakelijk",
+            "condition": true,
+            "location": "algemeen"
+        },
+        {
+            "type": "if",
+            "answer": "Nee",
+            "condition": true,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "answer": "Ja",
+            "condition": true,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "answer": "Nee",
             "condition": true,
             "location": "algemeen"
         }

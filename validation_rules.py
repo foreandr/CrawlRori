@@ -1,33 +1,19 @@
 import customtkinter as ctk
 from tkinter import messagebox
 import json
-import func
-import hyperSel.colors_utilities
-import hyperSel.log_utilities
-import hyperSel.selenium_utilities
-import crud_credentials
-import custom_log
-import hyperSel
-import validation_rules
-import tkinter as tk
-from tkinter import ttk
-from difflib import SequenceMatcher
-import customtkinter as ctk
-import single_url_crawl
-import threading
-import time
-import gui_algemeen
-from tkinter import Scrollbar
 import os
-import json
+import gui
+import validation_rules
 
-import gui_credenitals
 VALIDATION_RULES_FILE = "./validation_rules.json"
+VALIDATION_RESULTS_FILE = "./validation_results.csv"
+
 my_validation_rules = []
 demo_validation_rules = [
-    {"type": "if","answer": "Particulier","condition": True,"location": "algemeen"},
-    {"type": "then","answer": "Gedeeltelijk particulier en gedeeltelijk zakelijk","condition": True, "location": "algemeen"}
+    {"type": "if", "answer": "Particulier", "condition": True, "location": "algemeen"},
+    {"type": "then", "answer": "Gedeeltelijk particulier en gedeeltelijk zakelijk", "condition": True, "location": "algemeen"}
 ]
+
 
 def create_validation_rules_tab(validation_rules_tab):
     """
@@ -47,6 +33,7 @@ def create_validation_rules_tab(validation_rules_tab):
     check_tab = sub_tabview.add("Check Validation Rules")
     create_check_validation_tab(check_tab)
 
+
 def create_validation_tab(create_tab):
     global my_validation_rules
     """
@@ -54,21 +41,16 @@ def create_validation_tab(create_tab):
     - Left Panel: If Rules
     - Right Panel: Then Rules
     """
-
-    # Create a grid layout for the tab
     create_tab.grid_rowconfigure(0, weight=1)
-    create_tab.grid_columnconfigure(0, weight=1)  # Left panel
-    create_tab.grid_columnconfigure(1, weight=1)  # Right panel
+    create_tab.grid_columnconfigure(0, weight=1)
+    create_tab.grid_columnconfigure(1, weight=1)
 
-    # Create Left Panel for If Rules
     left_panel = ctk.CTkFrame(create_tab, corner_radius=10)
     left_panel.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
 
-    # Create Right Panel for Then Rules
     right_panel = ctk.CTkFrame(create_tab, corner_radius=10)
     right_panel.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
 
-    # Add labels for panel headers
     left_label = ctk.CTkLabel(left_panel, text="IF RULES", font=("Arial", 16, "bold"))
     left_label.pack(pady=10)
 
@@ -76,17 +58,14 @@ def create_validation_tab(create_tab):
     right_label.pack(pady=10)
 
     def refresh_rules():
-        """Refreshes the displayed validation rules in both panels."""
-        # Clear content in both panels
         for widget in left_panel.winfo_children():
-            if widget != left_label:  # Skip the header label
+            if widget != left_label:
                 widget.destroy()
 
         for widget in right_panel.winfo_children():
-            if widget != right_label:  # Skip the header label
+            if widget != right_label:
                 widget.destroy()
 
-        # Populate If Rules in the left panel
         for rule in my_validation_rules:
             if rule["type"] == "if":
                 rule_text = f"{rule['location'].upper()} - {rule['answer']}: {'True' if rule['condition'] else 'False'}"
@@ -96,7 +75,6 @@ def create_validation_tab(create_tab):
                 rule_label = ctk.CTkLabel(rule_frame, text=rule_text, anchor="w", wraplength=300)
                 rule_label.pack(fill="x", pady=5, padx=5)
 
-        # Populate Then Rules in the right panel
         for rule in my_validation_rules:
             if rule["type"] == "then":
                 rule_text = f"{rule['location'].upper()} - {rule['answer']}: {'True' if rule['condition'] else 'False'}"
@@ -107,99 +85,170 @@ def create_validation_tab(create_tab):
                 rule_label.pack(fill="x", pady=5, padx=5)
 
     def save_rules():
-        """Saves the current rules to a single JSON file, appending to the existing list of rule sets."""
-        # Check if the file exists, and create it if not
         if not os.path.exists(VALIDATION_RULES_FILE):
             with open(VALIDATION_RULES_FILE, "w") as file:
-                json.dump([], file)  # Initialize the file with an empty list
+                json.dump([], file)
 
-        # Load existing rules from the file
         with open(VALIDATION_RULES_FILE, "r") as file:
             all_rules = json.load(file)
 
-        # Append the current set of rules to the list
         all_rules.append(my_validation_rules)
 
-        # Save back to the file
         with open(VALIDATION_RULES_FILE, "w") as file:
             json.dump(all_rules, file, indent=4)
 
         print(f"Rules successfully saved to {VALIDATION_RULES_FILE}")
 
-    # Add a frame at the bottom for the buttons
     button_frame = ctk.CTkFrame(create_tab)
     button_frame.grid(row=1, column=0, columnspan=2, pady=10)
 
-    # Add the Refresh Rules button
-    refresh_button = ctk.CTkButton(
-        button_frame,
-        text="Refresh Rules",
-        command=refresh_rules,
-        width=120,
-    )
+    refresh_button = ctk.CTkButton(button_frame, text="Refresh Rules", command=refresh_rules, width=120)
     refresh_button.pack(side="left", padx=10)
 
-    # Add the Save Rules button
-    save_button = ctk.CTkButton(
-        button_frame,
-        text="Save Rules",
-        command=save_rules,
-        width=120,
-    )
+    save_button = ctk.CTkButton(button_frame, text="Save Rules", command=save_rules, width=120)
     save_button.pack(side="left", padx=10)
 
-    # Initial display of rules
     refresh_rules()
+
 
 def create_check_validation_tab(check_tab):
     """
     Creates the tab for checking validation rules against current data.
     """
-    check_tab.grid_rowconfigure(0, weight=1)
-    check_tab.grid_columnconfigure(0, weight=1)
+    ITEMS_PER_PAGE = 2  # Items to display per page
+    current_page = 0
+    rules_to_display = []
 
-    # Add a label for instructions
-    instruction_label = ctk.CTkLabel(
-        check_tab, text="Loaded Validation Rules:", font=("Arial", 14, "bold"), anchor="w"
-    )
-    instruction_label.pack(pady=10, padx=10)
-
-    # Frame to display validation rules
-    rules_display_frame = ctk.CTkFrame(check_tab, corner_radius=10)
-    rules_display_frame.pack(fill="both", expand=True, padx=10, pady=10)
-
-    def display_rules():
-        """Load and display rules in the frame."""
-        # Clear existing content
-        for widget in rules_display_frame.winfo_children():
-            widget.destroy()
-
-        # Load rules from file and include demo rules
+    def load_rules():
+        """Load rules from file and add demo rules."""
+        nonlocal rules_to_display
         rules_to_display = []
         if os.path.exists(VALIDATION_RULES_FILE):
             with open(VALIDATION_RULES_FILE, "r") as file:
                 rules_to_display = json.load(file)
-
-        # Add demo rules
         rules_to_display.append(demo_validation_rules)
 
-        # Display each rule set
-        for rule_set in rules_to_display:
+    def display_rules():
+        """Display rules for the current page."""
+        nonlocal current_page
+        for widget in rules_display_frame.winfo_children():
+            widget.destroy()
+
+        start_idx = current_page * ITEMS_PER_PAGE
+        end_idx = start_idx + ITEMS_PER_PAGE
+        current_rules = rules_to_display[start_idx:end_idx]
+
+        for idx, rule_set in enumerate(current_rules):
             rule_set_frame = ctk.CTkFrame(rules_display_frame, corner_radius=8, border_width=1)
             rule_set_frame.pack(fill="x", pady=5, padx=10)
 
             for rule in rule_set:
                 rule_text = f"{rule['location'].upper()} - {rule['type'].upper()}: {rule['answer']} = {'True' if rule['condition'] else 'False'}"
-                rule_label = ctk.CTkLabel(
-                    rule_set_frame, text=rule_text, anchor="w", wraplength=600, font=("Arial", 12)
-                )
+                rule_label = ctk.CTkLabel(rule_set_frame, text=rule_text, anchor="w", wraplength=600, font=("Arial", 12))
                 rule_label.pack(fill="x", pady=2, padx=5)
 
-    # Display rules on tab load
-    display_rules()
+            #def check_rules(selected_rule_set=rule_set):
+            #    print("Selected Rule Set:", selected_rule_set)
+            #    print("gui.current_data", gui.current_data)
+            #   print("Current Data Length:", len(gui.current_data) if gui.current_data else "No Data Available")
 
-    # Add a refresh button to reload rules
-    refresh_button = ctk.CTkButton(
-        check_tab, text="Refresh Rules", command=display_rules, width=120
-    )
-    refresh_button.pack(pady=10)
+            def check_rules(selected_rule_set=rule_set):
+                print("Waiting for data...")
+
+                # Load the current data from the file
+                current_data = gui.load_current_data()
+
+                print("Selected Rule Set:", selected_rule_set)
+                print("Current Data Length:", len(current_data) if current_data else "No Data Available")
+
+
+            def delete_rules(selected_index=start_idx + idx):
+                if os.path.exists(VALIDATION_RULES_FILE):
+                    with open(VALIDATION_RULES_FILE, "r") as file:
+                        all_rules = json.load(file)
+
+                    if selected_index < len(all_rules):
+                        all_rules.pop(selected_index)
+                        with open(VALIDATION_RULES_FILE, "w") as file:
+                            json.dump(all_rules, file, indent=4)
+
+                        print(f"Deleted Rule Set {selected_index + 1}")
+                        load_rules()
+                        display_rules()
+
+            button_frame = ctk.CTkFrame(rule_set_frame)
+            button_frame.pack(fill="x", pady=5, padx=5)
+
+            ctk.CTkButton(
+                button_frame, text="Check Current Data Against Rules", command=check_rules, width=200
+            ).pack(side="left", padx=5)
+
+            ctk.CTkButton(
+                button_frame,
+                text="Delete Current Validation Rule",
+                command=lambda i=idx: delete_rules(),
+                fg_color="red",
+                width=200,
+            ).pack(side="left", padx=5)
+
+        update_pagination_controls()
+
+    def update_pagination_controls():
+        """Update pagination buttons."""
+        for widget in pagination_frame.winfo_children():
+            widget.destroy()
+
+        total_pages = (len(rules_to_display) + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
+
+        if current_page > 0:
+            ctk.CTkButton(
+                pagination_frame, text="Previous", command=lambda: go_to_page(current_page - 1), width=100
+            ).pack(side="left", padx=5)
+
+        ctk.CTkLabel(
+            pagination_frame, text=f"Page {current_page + 1} of {total_pages}", font=("Arial", 12)
+        ).pack(side="left", padx=5)
+
+        if current_page < total_pages - 1:
+            ctk.CTkButton(
+                pagination_frame, text="Next", command=lambda: go_to_page(current_page + 1), width=100
+            ).pack(side="left", padx=5)
+
+    def go_to_page(page_index):
+        """Navigate to a specific page."""
+        nonlocal current_page
+        current_page = page_index
+        display_rules()
+
+    def refresh_rules():
+        """Reload and display the rules."""
+        load_rules()
+        display_rules()
+
+    def save_results_to_csv():
+        """Placeholder function to save results."""
+        print(f"Saving validation results to {VALIDATION_RESULTS_FILE}")
+
+    # Create a frame for the rules display (scrollable area)
+    rules_display_frame = ctk.CTkFrame(check_tab, corner_radius=10)
+    rules_display_frame.pack(fill="both", expand=True, padx=10, pady=(10, 0))
+
+    # Pagination controls
+    pagination_frame = ctk.CTkFrame(check_tab)
+    pagination_frame.pack(fill="x", pady=10)
+
+    # Refresh and save buttons at the bottom
+    controls_frame = ctk.CTkFrame(check_tab)
+    controls_frame.pack(fill="x", pady=10)
+
+    ctk.CTkButton(
+        controls_frame, text="Refresh Rules", command=refresh_rules, width=120
+    ).pack(side="left", padx=10)
+
+    ctk.CTkButton(
+        controls_frame, text="Save Results to CSV", command=save_results_to_csv, width=200, fg_color="green"
+    ).pack(side="left", padx=10)
+
+    # Load and display rules
+    load_rules()
+    display_rules()
