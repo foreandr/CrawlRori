@@ -131,7 +131,7 @@ def create_check_validation_tab(check_tab):
     def display_rules():
         """Display rules for the current page."""
         nonlocal current_page
-        for widget in rules_display_frame.winfo_children():
+        for widget in left_display_frame.winfo_children():
             widget.destroy()
 
         start_idx = current_page * ITEMS_PER_PAGE
@@ -139,18 +139,13 @@ def create_check_validation_tab(check_tab):
         current_rules = rules_to_display[start_idx:end_idx]
 
         for idx, rule_set in enumerate(current_rules):
-            rule_set_frame = ctk.CTkFrame(rules_display_frame, corner_radius=8, border_width=1)
+            rule_set_frame = ctk.CTkFrame(left_display_frame, corner_radius=8, border_width=1)
             rule_set_frame.pack(fill="x", pady=5, padx=10)
 
             for rule in rule_set:
                 rule_text = f"{rule['location'].upper()} - {rule['type'].upper()}: {rule['answer']} = {'True' if rule['condition'] else 'False'}"
                 rule_label = ctk.CTkLabel(rule_set_frame, text=rule_text, anchor="w", wraplength=600, font=("Arial", 12))
                 rule_label.pack(fill="x", pady=2, padx=5)
-
-            #def check_rules(selected_rule_set=rule_set):
-            #    print("Selected Rule Set:", selected_rule_set)
-            #    print("gui.current_data", gui.current_data)
-            #   print("Current Data Length:", len(gui.current_data) if gui.current_data else "No Data Available")
 
             def check_rules(selected_rule_set=rule_set):
                 print("Waiting for data...")
@@ -160,7 +155,6 @@ def create_check_validation_tab(check_tab):
 
                 print("Selected Rule Set:", selected_rule_set)
                 print("Current Data Length:", len(current_data) if current_data else "No Data Available")
-
 
             def delete_rules(selected_index=start_idx + idx):
                 if os.path.exists(VALIDATION_RULES_FILE):
@@ -180,15 +174,16 @@ def create_check_validation_tab(check_tab):
             button_frame.pack(fill="x", pady=5, padx=5)
 
             ctk.CTkButton(
-                button_frame, text="Check Current Data Against Rules", command=check_rules, width=200
+                button_frame, text="Check", command=check_rules, width=100, height=30
             ).pack(side="left", padx=5)
 
             ctk.CTkButton(
                 button_frame,
-                text="Delete Current Validation Rule",
+                text="Delete",
                 command=lambda i=idx: delete_rules(),
                 fg_color="red",
-                width=200,
+                width=100,
+                height=30,
             ).pack(side="left", padx=5)
 
         update_pagination_controls()
@@ -202,7 +197,7 @@ def create_check_validation_tab(check_tab):
 
         if current_page > 0:
             ctk.CTkButton(
-                pagination_frame, text="Previous", command=lambda: go_to_page(current_page - 1), width=100
+                pagination_frame, text="Previous", command=lambda: go_to_page(current_page - 1), width=80, height=30
             ).pack(side="left", padx=5)
 
         ctk.CTkLabel(
@@ -211,7 +206,7 @@ def create_check_validation_tab(check_tab):
 
         if current_page < total_pages - 1:
             ctk.CTkButton(
-                pagination_frame, text="Next", command=lambda: go_to_page(current_page + 1), width=100
+                pagination_frame, text="Next", command=lambda: go_to_page(current_page + 1), width=80, height=30
             ).pack(side="left", padx=5)
 
     def go_to_page(page_index):
@@ -225,30 +220,37 @@ def create_check_validation_tab(check_tab):
         load_rules()
         display_rules()
 
-    def save_results_to_csv():
-        """Placeholder function to save results."""
-        print(f"Saving validation results to {VALIDATION_RESULTS_FILE}")
+    # Main split for left and right sections
+    main_split_frame = ctk.CTkFrame(check_tab, corner_radius=10)
+    main_split_frame.pack(fill="both", expand=True, padx=10, pady=10)
 
-    # Create a frame for the rules display (scrollable area)
-    rules_display_frame = ctk.CTkFrame(check_tab, corner_radius=10)
-    rules_display_frame.pack(fill="both", expand=True, padx=10, pady=(10, 0))
+    # Left-hand side: List of rules with pagination
+    left_display_frame = ctk.CTkFrame(main_split_frame)
+    left_display_frame.pack(side="left", fill="both", expand=True, padx=(0, 10))
 
-    # Pagination controls
+    # Right-hand side: Independent unified section
+    right_display_frame = ctk.CTkFrame(main_split_frame, fg_color="lightgray")
+    right_display_frame.pack(side="left", fill="both", expand=True)
+
+    # Add "Hello World" to the right-hand side
+    hello_label = ctk.CTkLabel(right_display_frame, text="Hello World", font=("Arial", 18, "bold"), anchor="center")
+    hello_label.pack(fill="both", expand=True, pady=10, padx=10)
+
+    # Pagination controls (only for the left-hand side)
     pagination_frame = ctk.CTkFrame(check_tab)
-    pagination_frame.pack(fill="x", pady=10)
+    pagination_frame.pack(fill="x", pady=5)
 
-    # Refresh and save buttons at the bottom
-    controls_frame = ctk.CTkFrame(check_tab)
-    controls_frame.pack(fill="x", pady=10)
+    # Bottom buttons: Refresh and Save
+    bottom_frame = ctk.CTkFrame(check_tab)
+    bottom_frame.pack(fill="x", pady=5)
 
     ctk.CTkButton(
-        controls_frame, text="Refresh Rules", command=refresh_rules, width=120
+        bottom_frame, text="Refresh Rules", command=refresh_rules, width=100, height=30
     ).pack(side="left", padx=10)
 
     ctk.CTkButton(
-        controls_frame, text="Save Results to CSV", command=save_results_to_csv, width=200, fg_color="green"
+        bottom_frame, text="Save Results to CSV", command=lambda: print(f"Saving to {VALIDATION_RESULTS_FILE}"), width=150, height=30
     ).pack(side="left", padx=10)
 
-    # Load and display rules
-    load_rules()
-    display_rules()
+    # Refresh and load rules
+    refresh_rules()
