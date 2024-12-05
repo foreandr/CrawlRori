@@ -155,6 +155,7 @@ def create_check_validation_tab(check_tab):
 
                 print("Selected Rule Set:", selected_rule_set)
                 print("Current Data Length:", len(current_data) if current_data else "No Data Available")
+                update_validation_section(current_data, selected_rule_set)
 
             def delete_rules(selected_index=start_idx + idx):
                 if os.path.exists(VALIDATION_RULES_FILE):
@@ -229,12 +230,7 @@ def create_check_validation_tab(check_tab):
     left_display_frame.pack(side="left", fill="both", expand=True, padx=(0, 10))
 
     # Right-hand side: Independent unified section
-    right_display_frame = ctk.CTkFrame(main_split_frame, fg_color="lightgray")
-    right_display_frame.pack(side="left", fill="both", expand=True)
-
-    # Add "Hello World" to the right-hand side
-    hello_label = ctk.CTkLabel(right_display_frame, text="Hello World", font=("Arial", 18, "bold"), anchor="center")
-    hello_label.pack(fill="both", expand=True, pady=10, padx=10)
+    update_validation_section = create_validation_data_section(main_split_frame)
 
     # Pagination controls (only for the left-hand side)
     pagination_frame = ctk.CTkFrame(check_tab)
@@ -254,3 +250,43 @@ def create_check_validation_tab(check_tab):
 
     # Refresh and load rules
     refresh_rules()
+
+def create_validation_data_section(parent_frame):
+    """
+    Creates the Validation Section on the right-hand side.
+    Displays the fetched data length and the current selected rule set.
+    """
+    # Create the right-hand side frame
+    validation_data_frame = ctk.CTkFrame(parent_frame)  # Matches the rest of the layout
+    validation_data_frame.pack(side="left", fill="both", expand=True)
+
+    # Add the "Validation Section" label
+    title_label = ctk.CTkLabel(
+        validation_data_frame, text="Validation Section", font=("Arial", 18, "bold"), anchor="center"
+    )
+    title_label.pack(pady=10)
+
+    # Add a label for displaying the fetched data length
+    data_length_label = ctk.CTkLabel(
+        validation_data_frame, text="Data Length: Waiting...", font=("Arial", 14), anchor="w"
+    )
+    data_length_label.pack(pady=5, padx=10, anchor="w")
+
+    # Add a label for displaying the selected rule set
+    selected_rule_label = ctk.CTkLabel(
+        validation_data_frame, text="Selected Rule Set: None", font=("Arial", 14), anchor="w"
+    )
+    selected_rule_label.pack(pady=5, padx=10, anchor="w")
+
+    # Function to update the labels
+    def update_validation_section(current_data, selected_rule_set):
+        """
+        Updates the validation section with the fetched data
+        and the current selected rule set.
+        """
+        data_length = len(current_data) if current_data else 0
+        data_length_label.configure(text=f"Data Length: {data_length}")
+        selected_rule_label.configure(text=f"Selected Rule Set: {selected_rule_set}")
+
+    # Return the update function for external calls
+    return update_validation_section
