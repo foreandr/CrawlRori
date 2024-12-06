@@ -54,7 +54,7 @@ def create_question_display(parent, questions_data):
             then_rule_button = ctk.CTkButton(
                 answer_frame,
                 text="Then Rule",
-                command=lambda a=answer_text, v=answer_value: set_rule("then", a, v, rules),
+                command=lambda q=question, a=answer_text, v=answer_value: set_rule("then", q, a, v, rules),
             )
             then_rule_button.pack(side="right", padx=10)
 
@@ -62,13 +62,11 @@ def create_question_display(parent, questions_data):
             if_rule_button = ctk.CTkButton(
                 answer_frame,
                 text="If Rule",
-                command=lambda a=answer_text, v=answer_value: set_rule("if", a, v, rules),
+                command=lambda q=question, a=answer_text, v=answer_value: set_rule("if", q, a, v, rules),
             )
             if_rule_button.pack(side="right", padx=10)
 
-
-
-def set_rule(rule_type, answer, value, rules):
+def set_rule(rule_type, question, answer, value, rules):
     """
     Handles setting the "If" or "Then" rule with a boolean condition using a clickable dialog.
     """
@@ -92,7 +90,7 @@ def set_rule(rule_type, answer, value, rules):
         popup,
         text="True",
         fg_color="green",
-        command=lambda: finalize_rule(rule_type, answer, True, rules, popup),
+        command=lambda: finalize_rule(rule_type, question, answer, True, rules, popup),
     )
     true_button.pack(side="left", padx=20, pady=10)
 
@@ -101,16 +99,21 @@ def set_rule(rule_type, answer, value, rules):
         popup,
         text="False",
         fg_color="red",
-        command=lambda: finalize_rule(rule_type, answer, False, rules, popup),
+        command=lambda: finalize_rule(rule_type, question, answer, False, rules, popup),
     )
     false_button.pack(side="right", padx=20, pady=10)
 
-
-def finalize_rule(rule_type, answer, condition, rules, popup):
+def finalize_rule(rule_type, question, answer, condition, rules, popup):
     """
     Finalizes the rule, stores it, and closes the popup.
     """
-    rule = {"type": rule_type, "answer": answer, "condition": condition, "location": "algemeen"}
+    rule = {
+        "type": rule_type,
+        "question": question,
+        "answer": answer,
+        "condition": condition,
+        "location": "algemeen"
+    }
     validation_rules.my_validation_rules.append(rule)
 
     rules.append(rule)  # Store the rule

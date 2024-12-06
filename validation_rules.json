@@ -2,77 +2,79 @@
     [
         {
             "type": "if",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
             "answer": "Particulier",
             "condition": true,
             "location": "algemeen"
         },
         {
             "type": "then",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
             "answer": "Zakelijk",
-            "condition": true,
+            "condition": false,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
+            "answer": "Gedeeltelijk particulier en gedeeltelijk zakelijk",
+            "condition": false,
             "location": "algemeen"
         }
     ],
     [
         {
             "type": "if",
-            "answer": "Nee",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
+            "answer": "Particulier",
             "condition": true,
             "location": "algemeen"
         },
         {
             "type": "then",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
+            "answer": "Zakelijk",
+            "condition": true,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
+            "answer": "Gedeeltelijk particulier en gedeeltelijk zakelijk",
+            "condition": false,
+            "location": "algemeen"
+        }
+    ],
+    [
+        {
+            "type": "if",
+            "question": "Heeft de aanvrager voor zijn zakelijke prestaties recht op aftrek van de BTW?",
+            "answer": "Ja",
+            "condition": false,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
+            "answer": "Gedeeltelijk particulier en gedeeltelijk zakelijk",
+            "condition": false,
+            "location": "algemeen"
+        }
+    ],
+    [
+        {
+            "type": "then",
+            "question": "Heeft de aanvrager voor zijn zakelijke prestaties recht op aftrek van de BTW?",
             "answer": "Ja",
             "condition": true,
             "location": "algemeen"
-        },
-        {
-            "type": "if",
-            "answer": "Zakelijk",
-            "condition": true,
-            "location": "algemeen"
-        },
-        {
-            "type": "then",
-            "answer": "Gedeeltelijk particulier en gedeeltelijk zakelijk",
-            "condition": true,
-            "location": "algemeen"
-        },
-        {
-            "type": "then",
-            "answer": "Particulier",
-            "condition": true,
-            "location": "algemeen"
-        },
-        {
-            "type": "if",
-            "answer": "Particulier",
-            "condition": true,
-            "location": "algemeen"
-        },
-        {
-            "type": "then",
-            "answer": "Nee",
-            "condition": true,
-            "location": "algemeen"
         }
     ],
     [
         {
             "type": "then",
-            "answer": "Particulier",
-            "condition": true,
-            "location": "algemeen"
-        },
-        {
-            "type": "then",
-            "answer": "Zakelijk",
-            "condition": true,
-            "location": "algemeen"
-        },
-        {
-            "type": "then",
-            "answer": "Gedeeltelijk particulier en gedeeltelijk zakelijk",
+            "question": "Heeft de aanvrager voor zijn zakelijke prestaties recht op aftrek van de BTW?",
+            "answer": "Ja",
             "condition": true,
             "location": "algemeen"
         }

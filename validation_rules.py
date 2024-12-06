@@ -2,17 +2,33 @@ import customtkinter as ctk
 from tkinter import messagebox
 import json
 import os
+
+import hyperSel.colors_utilities
 import gui
 import validation_rules
+import hyperSel
 
 VALIDATION_RULES_FILE = "./validation_rules.json"
 VALIDATION_RESULTS_FILE = "./validation_results.csv"
 
 my_validation_rules = []
 demo_validation_rules = [
-    {"type": "if", "answer": "Particulier", "condition": True, "location": "algemeen"},
-    {"type": "then", "answer": "Gedeeltelijk particulier en gedeeltelijk zakelijk", "condition": True, "location": "algemeen"}
+        {
+            "type": "if",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
+            "answer": "Particulier",
+            "condition": True,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
+            "answer": "Zakelijk",
+            "condition": True,
+            "location": "algemeen"
+        }
 ]
+
 
 
 def create_validation_rules_tab(validation_rules_tab):
@@ -67,17 +83,19 @@ def create_validation_tab(create_tab):
                 widget.destroy()
 
         for rule in my_validation_rules:
+            rule_text = (
+                f"{rule['location'].upper()} - {rule['question']}\n"
+                f"Answer: {rule['answer']} - Condition: {'True' if rule['condition'] else 'False'}"
+            )
+
             if rule["type"] == "if":
-                rule_text = f"{rule['location'].upper()} - {rule['answer']}: {'True' if rule['condition'] else 'False'}"
                 rule_frame = ctk.CTkFrame(left_panel, corner_radius=8)
                 rule_frame.pack(fill="x", pady=5, padx=10)
 
                 rule_label = ctk.CTkLabel(rule_frame, text=rule_text, anchor="w", wraplength=300)
                 rule_label.pack(fill="x", pady=5, padx=5)
 
-        for rule in my_validation_rules:
             if rule["type"] == "then":
-                rule_text = f"{rule['location'].upper()} - {rule['answer']}: {'True' if rule['condition'] else 'False'}"
                 rule_frame = ctk.CTkFrame(right_panel, corner_radius=8)
                 rule_frame.pack(fill="x", pady=5, padx=10)
 
@@ -86,14 +104,23 @@ def create_validation_tab(create_tab):
 
     def save_rules():
         if not os.path.exists(VALIDATION_RULES_FILE):
+            # Create the file and initialize it as an empty list
             with open(VALIDATION_RULES_FILE, "w") as file:
                 json.dump([], file)
 
-        with open(VALIDATION_RULES_FILE, "r") as file:
-            all_rules = json.load(file)
+        try:
+            # Open the file and load its content
+            with open(VALIDATION_RULES_FILE, "r") as file:
+                content = file.read()
+                all_rules = json.loads(content) if content.strip() else []
+        except json.JSONDecodeError:
+            # If the file content is invalid, reset to an empty list
+            all_rules = []
 
+        # Append the new set of rules (as a list) to the main list
         all_rules.append(my_validation_rules)
 
+        # Save back to the file
         with open(VALIDATION_RULES_FILE, "w") as file:
             json.dump(all_rules, file, indent=4)
 
@@ -110,7 +137,6 @@ def create_validation_tab(create_tab):
 
     refresh_rules()
 
-
 def create_check_validation_tab(check_tab):
     """
     Creates the tab for checking validation rules against current data.
@@ -123,9 +149,22 @@ def create_check_validation_tab(check_tab):
         """Load rules from file and add demo rules."""
         nonlocal rules_to_display
         rules_to_display = []
-        if os.path.exists(VALIDATION_RULES_FILE):
-            with open(VALIDATION_RULES_FILE, "r") as file:
+
+        # Ensure the file exists and is initialized as an empty list if missing
+        if not os.path.exists(VALIDATION_RULES_FILE):
+            with open(VALIDATION_RULES_FILE, "w") as file:
+                json.dump([], file)
+
+        # Read the file, handling empty or invalid content gracefully
+        with open(VALIDATION_RULES_FILE, "r") as file:
+            try:
                 rules_to_display = json.load(file)
+                if not isinstance(rules_to_display, list):
+                    raise ValueError("Rules file must contain a list")
+            except (json.JSONDecodeError, ValueError):
+                rules_to_display = []
+
+        # Add demo rules to the display
         rules_to_display.append(demo_validation_rules)
 
     def display_rules():
@@ -143,7 +182,11 @@ def create_check_validation_tab(check_tab):
             rule_set_frame.pack(fill="x", pady=5, padx=10)
 
             for rule in rule_set:
-                rule_text = f"{rule['location'].upper()} - {rule['type'].upper()}: {rule['answer']} = {'True' if rule['condition'] else 'False'}"
+                rule_text = (
+                    f"{rule['location'].upper()} - {rule['type'].upper()}\n"
+                    f"Question: {rule['question']}\n"
+                    f"Answer: {rule['answer']} - Condition: {'True' if rule['condition'] else 'False'}"
+                )
                 rule_label = ctk.CTkLabel(rule_set_frame, text=rule_text, anchor="w", wraplength=600, font=("Arial", 12))
                 rule_label.pack(fill="x", pady=2, padx=5)
 
@@ -284,8 +327,13 @@ def create_validation_data_section(parent_frame):
         Updates the validation section with the fetched data
         and the current selected rule set.
         """
+        print("\n\n\n")
+        hyperSel.colors_utilities.c_print(F"CURRENT DATA {current_data}", "green")
+
+
+
         data_length = len(current_data) if current_data else 0
-        data_length_label.configure(text=f"Data Length: {data_length}")
+        data_length_label.configure(text=f"Data Length: {current_data}")
         selected_rule_label.configure(text=f"Selected Rule Set: {selected_rule_set}")
 
     # Return the update function for external calls
