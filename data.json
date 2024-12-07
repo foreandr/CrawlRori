@@ -5419,12 +5419,12 @@
                 "tab_type": "bijlagen"
             },
             {
-                "data": {
-                    "Zijn er omgevingskenmerken die op ongelijke zetting wijzen?": "Nee",
-                    "Aantal gebouwen": "1",
-                    "Aantal ruimtes met schades": "5",
-                    "Aantal schades": "35"
-                },
+                "data": [
+                    {"question": "Zijn er omgevingskenmerken die op ongelijke zetting wijzen?", "answer": "Nee"},
+                    {"question": "Aantal gebouwen", "answer": "1"},
+                    {"question": "Aantal ruimtes met schades", "answer": "5"},
+                    {"question": "Aantal schades", "answer": "35"}
+                ],
                 "url": "https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/samenvatting",
                 "tab_type": "samenvatting"
             }

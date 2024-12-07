@@ -7,7 +7,7 @@ import hyperSel.colors_utilities
 import gui
 import validation_rules
 import hyperSel
-
+import validation_logic
 VALIDATION_RULES_FILE = "./validation_rules.json"
 VALIDATION_RESULTS_FILE = "./validation_results.csv"
 
@@ -196,8 +196,8 @@ def create_check_validation_tab(check_tab):
                 # Load the current data from the file
                 current_data = gui.load_current_data()
 
-                print("Selected Rule Set:", selected_rule_set)
-                print("Current Data Length:", len(current_data) if current_data else "No Data Available")
+                #print("Selected Rule Set:", selected_rule_set)
+                #print("Current Data Length:", len(current_data) if current_data else "No Data Available")
                 update_validation_section(current_data, selected_rule_set)
 
             def delete_rules(selected_index=start_idx + idx):
@@ -297,44 +297,132 @@ def create_check_validation_tab(check_tab):
 def create_validation_data_section(parent_frame):
     """
     Creates the Validation Section on the right-hand side.
-    Displays the fetched data length and the current selected rule set.
+    Displays a visually appealing report for validation results, including a detailed "Failures" section for THEN rules.
     """
     # Create the right-hand side frame
     validation_data_frame = ctk.CTkFrame(parent_frame)  # Matches the rest of the layout
-    validation_data_frame.pack(side="left", fill="both", expand=True)
+    validation_data_frame.pack(side="left", fill="both", expand=True, padx=20, pady=20)
 
     # Add the "Validation Section" label
     title_label = ctk.CTkLabel(
-        validation_data_frame, text="Validation Section", font=("Arial", 18, "bold"), anchor="center"
+        validation_data_frame, 
+        text="Validation Section", 
+        font=("Arial", 20, "bold"), 
+        anchor="center"
     )
     title_label.pack(pady=10)
 
-    # Add a label for displaying the fetched data length
-    data_length_label = ctk.CTkLabel(
-        validation_data_frame, text="Data Length: Waiting...", font=("Arial", 14), anchor="w"
-    )
-    data_length_label.pack(pady=5, padx=10, anchor="w")
+    # Add a frame for IF Rules
+    if_frame = ctk.CTkFrame(validation_data_frame, corner_radius=10, border_width=2, border_color="gray")
+    if_frame.pack(pady=10, padx=10, fill="x", expand=False)
 
-    # Add a label for displaying the selected rule set
-    selected_rule_label = ctk.CTkLabel(
-        validation_data_frame, text="Selected Rule Set: None", font=("Arial", 14), anchor="w"
+    if_title_label = ctk.CTkLabel(
+        if_frame, 
+        text="IF Rules Report", 
+        font=("Arial", 16, "bold"), 
+        anchor="w"
     )
-    selected_rule_label.pack(pady=5, padx=10, anchor="w")
+    if_title_label.pack(pady=5, padx=10, anchor="w")
 
-    # Function to update the labels
+    # Labels for IF Rules
+    if_success_label = ctk.CTkLabel(if_frame, text="Success: 0", font=("Arial", 14), anchor="w")
+    if_success_label.pack(pady=2, padx=10, anchor="w")
+
+    if_fail_label = ctk.CTkLabel(if_frame, text="Fails: 0", font=("Arial", 14), anchor="w")
+    if_fail_label.pack(pady=2, padx=10, anchor="w")
+
+    if_not_found_label = ctk.CTkLabel(if_frame, text="Not Found: 0", font=("Arial", 14), anchor="w")
+    if_not_found_label.pack(pady=2, padx=10, anchor="w")
+
+    # Add a frame for THEN Rules
+    then_frame = ctk.CTkFrame(validation_data_frame, corner_radius=10, border_width=2, border_color="gray")
+    then_frame.pack(pady=10, padx=10, fill="x", expand=False)
+
+    then_title_label = ctk.CTkLabel(
+        then_frame, 
+        text="THEN Rules Report", 
+        font=("Arial", 16, "bold"), 
+        anchor="w"
+    )
+    then_title_label.pack(pady=5, padx=10, anchor="w")
+
+    # Labels for THEN Rules
+    then_success_label = ctk.CTkLabel(then_frame, text="Success: 0", font=("Arial", 14), anchor="w")
+    then_success_label.pack(pady=2, padx=10, anchor="w")
+
+    then_fail_label = ctk.CTkLabel(then_frame, text="Fails: 0", font=("Arial", 14), anchor="w")
+    then_fail_label.pack(pady=2, padx=10, anchor="w")
+
+    then_not_found_label = ctk.CTkLabel(then_frame, text="Not Found: 0", font=("Arial", 14), anchor="w")
+    then_not_found_label.pack(pady=2, padx=10, anchor="w")
+
+    # Add a frame for Failures
+    failures_frame = ctk.CTkFrame(validation_data_frame, corner_radius=10, border_width=2, border_color="red")
+    failures_frame.pack(pady=10, padx=10, fill="both", expand=True)
+
+    failures_title_label = ctk.CTkLabel(
+        failures_frame, 
+        text="FAILURES (THEN Rules)", 
+        font=("Arial", 16, "bold"), 
+        text_color="red", 
+        anchor="w"
+    )
+    failures_title_label.pack(pady=5, padx=10, anchor="w")
+
+    # Scrollable frame for listing failures
+    failures_list_frame = ctk.CTkFrame(failures_frame, corner_radius=5)
+    failures_list_frame.pack(fill="both", expand=True, padx=10, pady=10)
+
+    # Function to update the report
     def update_validation_section(current_data, selected_rule_set):
         """
         Updates the validation section with the fetched data
         and the current selected rule set.
         """
-        print("\n\n\n")
-        hyperSel.colors_utilities.c_print(F"CURRENT DATA {current_data}", "green")
+        print("\n")
+        hyperSel.colors_utilities.c_print("WE ARE HERE", "green")
 
+        final_rule_dict = validation_logic.validation_rule_tool(current_data=current_data, selected_rule_set=selected_rule_set)
 
+        # Get counts for each category
+        if_success_count = len(final_rule_dict.get("all_if_rules_confirmed", []))
+        if_fail_count = len(final_rule_dict.get("all_if_rules_failed", []))
+        if_not_found_count = len(final_rule_dict.get("all_if_rules_not_found", []))
 
-        data_length = len(current_data) if current_data else 0
-        data_length_label.configure(text=f"Data Length: {current_data}")
-        selected_rule_label.configure(text=f"Selected Rule Set: {selected_rule_set}")
+        then_success_count = len(final_rule_dict.get("all_then_rules_confirmed", []))
+        then_fail_count = len(final_rule_dict.get("all_then_rules_failed", []))
+        then_not_found_count = len(final_rule_dict.get("all_then_rules_not_found", []))
+
+        # Update the labels
+        if_success_label.configure(text=f"Success: {if_success_count}")
+        if_fail_label.configure(text=f"Fails: {if_fail_count}")
+        if_not_found_label.configure(text=f"Not Found: {if_not_found_count}")
+
+        then_success_label.configure(text=f"Success: {then_success_count}")
+        then_fail_label.configure(text=f"Fails: {then_fail_count}")
+        then_not_found_label.configure(text=f"Not Found: {then_not_found_count}")
+
+        # Populate failures list for THEN rules
+        for widget in failures_list_frame.winfo_children():
+            widget.destroy()  # Clear the previous list
+
+        then_failures = final_rule_dict.get("all_then_rules_failed", [])
+        if then_failures:
+            for idx, failure in enumerate(then_failures, start=1):
+                failure_text = (
+                    f"{idx}. Question: {failure.get('question', 'N/A')}\n"
+                    f"   Answer: {failure.get('answer', 'N/A')}\n"
+                    f"   Condition: {failure.get('condition', 'N/A')}\n"
+                    f"   Location: {failure.get('location', 'N/A')}"
+                )
+                failure_label = ctk.CTkLabel(
+                    failures_list_frame, 
+                    text=failure_text, 
+                    font=("Arial", 12), 
+                    anchor="w", 
+                    wraplength=600
+                )
+                failure_label.pack(pady=5, anchor="w")
 
     # Return the update function for external calls
     return update_validation_section

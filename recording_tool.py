@@ -569,9 +569,21 @@ def samenvatting_scrape(driver, url):
 
     if data == {}:
         # input("EMPTY SAMEN DATA")
-        pass
+        return {}
+    transformed_data = transform_data_to_question_answer(data)
+    return transformed_data
 
-    return data
+def transform_data_to_question_answer(data):
+    transformed = []
+    try:
+        for question, answer in data.items():
+            transformed.append({
+                "question": question,
+                "answer": answer
+            })
+    except Exception as e:
+        print(f"Error transforming data: {data} - {e}")
+    return transformed
 
 def algemeen_scrape(driver, url):
     try:

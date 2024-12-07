@@ -1,5 +1,6 @@
 import re
-
+import hyperSel
+import hyperSel.colors_utilities
 test_data = {
     "recording_tool": [
         {
@@ -160,54 +161,74 @@ example_validation_rule =     [
 def flatten_test_data_to_questions(data):
     flattened = []
 
-    # Traverse recording_tool
-    if "recording_tool" in data:
-        for section in data["recording_tool"]:
-            source = section.get("tab_type", "unknown")
-            for entry in section.get("data", []):
-                question = entry.get("question")
-                answers = entry.get("answers", {})
-                if question:
-                    flattened.append({
-                        "question": question,
-                        "answers": answers,
-                        "source": source
-                    })
-            for sub_entry in section.get("questionaire_data", []):
-                question = sub_entry.get("question")
-                answers = sub_entry.get("answers", sub_entry.get("answer", {}))
-                if question:
-                    flattened.append({
-                        "question": question,
-                        "answers": answers,
-                        "source": source
-                    })
+    try:
+        # Traverse recording_tool
+        if "recording_tool" in data:
+            for section in data["recording_tool"]:
+                try:
+                    source = section.get("tab_type", "unknown")
+                    for entry in section.get("data", []):
+                        try:
+                            question = entry.get("question")
+                            answers = entry.get("answers", {})
+                            if question:
+                                flattened.append({
+                                    "question": question,
+                                    "answers": answers,
+                                    "source": source
+                                })
+                        except Exception as e:
+                            hyperSel.colors_utilities.c_print(text=f"Error processing entry in 'data': {entry} - {e}", color="red")
+                    for sub_entry in section.get("questionaire_data", []):
+                        try:
+                            question = sub_entry.get("question")
+                            answers = sub_entry.get("answers", sub_entry.get("answer", {}))
+                            if question:
+                                flattened.append({
+                                    "question": question,
+                                    "answers": answers,
+                                    "source": source
+                                })
+                        except Exception as e:
+                            hyperSel.colors_utilities.c_print(text=f"Error processing sub_entry in 'questionaire_data': {sub_entry} - {e}", color="red")
+                except Exception as e:
+                    hyperSel.colors_utilities.c_print(text=f"Error processing section in 'recording_tool': {section} - {e}", color="red")
 
-    # Traverse control_tool - informatie
-    if "control_tool" in data and "informatie" in data["control_tool"]:
-        for entry in data["control_tool"]["informatie"]:
-            question = entry.get("question")
-            answers = entry.get("answer", {})
-            if question:
-                flattened.append({
-                    "question": question,
-                    "answers": answers,
-                    "source": "informatie"
-                })
+        # Traverse control_tool - informatie
+        if "control_tool" in data and "informatie" in data["control_tool"]:
+            for entry in data["control_tool"]["informatie"]:
+                try:
+                    question = entry.get("question")
+                    answers = entry.get("answer", {})
+                    if question:
+                        flattened.append({
+                            "question": question,
+                            "answers": answers,
+                            "source": "informatie"
+                        })
+                except Exception as e:
+                    hyperSel.colors_utilities.c_print(text=f"Error processing entry in 'informatie': {entry} - {e}", color="red")
 
-    # Traverse control_tool - calculation
-    if "control_tool" in data and "calculation" in data["control_tool"]:
-        for entry in data["control_tool"]["calculation"]:
-            question = entry.get("Naam")
-            answers = entry.get("Gebouw", "")
-            if question:
-                flattened.append({
-                    "question": question,
-                    "answers": answers,
-                    "source": "calculation"
-                })
+        # Traverse control_tool - calculation
+        if "control_tool" in data and "calculation" in data["control_tool"]:
+            for entry in data["control_tool"]["calculation"]:
+                try:
+                    question = entry.get("Naam")
+                    answers = entry.get("Gebouw", "")
+                    if question:
+                        flattened.append({
+                            "question": question,
+                            "answers": answers,
+                            "source": "calculation"
+                        })
+                except Exception as e:
+                    hyperSel.colors_utilities.c_print(text=f"Error processing entry in 'calculation': {entry} - {e}", color="red")
+
+    except Exception as e:
+        hyperSel.colors_utilities.c_print(text=f"General error processing data: {data} - {e}", color="red")
 
     return flattened
+
 
 def get_if_rules(selected_rule_set):
     if_rules = [rule for rule in selected_rule_set if rule.get("type") == "if"]
@@ -219,29 +240,77 @@ def get_then_rules(selected_rule_set):
 
 def check_if_rule_in_data(rule, flattened_data):
 
+    # Extract rule details
     rule_type = rule.get("type")
     rule_question = rule.get("question")
     rule_answer = rule.get("answer")
     rule_condition = rule.get("condition")
     rule_location = rule.get("location")
 
-    for data in flattened_data:
-        question = data.get('question')
-        answers = data.get('answers')
-        source = data.get('source')
+    #print("Rule Type:", rule_type)
+    #print("Rule Question:", rule_question)
+    #print("Rule Answer:", rule_answer)
+    #print("Rule Condition:", rule_condition)
+    #print("Rule Location:", rule_location)
+    #print("==")
 
-        # Attempt to convert answers to numbers if possible
+    rule_data_confirmed = []
+    rule_data_failed = []
+    rule_data_does_not_exist = []
+
+    # Iterate through flattened data
+    for data in flattened_data:
+        question = data.get("question")
+        answers = data.get("answers")
+        source = data.get("source")
+
+        # Attempt to convert answers to numbers if applicable
         if isinstance(answers, str):
             answers = convert_to_number(answers)
         elif isinstance(answers, dict):
             # Convert values in dict answers
             answers = {k: convert_to_number(v) for k, v in answers.items()}
 
-        print("question:", question)
-        print("answers:", answers)
-        print("source:", source)
-        print("--")
-    pass
+        # Check if the question matches
+        if question.lower() == rule_question.lower() and source == rule_location:
+            #print("MATCH")
+            #print("question:", question)
+            #print("answers:", answers)
+            #print("source:", source)
+
+            # Check the type of `answers` and validate
+            if isinstance(answers, dict):
+                # If answers is a dictionary, check if the rule's answer exists and matches condition
+                if rule_answer in answers and answers[rule_answer] == rule_condition:
+                    # print("Rule confirmed!")
+                    rule_data_confirmed.append(rule)
+                else:
+                    # print("Rule failed.")
+                    rule_data_failed.append(rule)
+
+            elif isinstance(answers, (list, str)):
+                # Directly compare for lists or strings
+                if answers == rule_answer:
+                    #print("Rule confirmed!")
+                    rule_data_confirmed.append(rule)
+                else:
+                    #print("Rule failed.")
+                    rule_data_failed.append(rule)
+            break
+    else:
+        # If no match is found in the data
+        # print("Rule does not exist in the data.")
+        rule_data_does_not_exist.append(rule)
+
+    return {
+        "confirmed": rule_data_confirmed,
+        "failed": rule_data_failed,
+        "not_found": rule_data_does_not_exist,
+    }
+
+
+
+
 def convert_to_number(value):
     """
     Attempts to convert a string value with potential currency symbols or formatting
@@ -258,32 +327,89 @@ def convert_to_number(value):
             return value  # Return original value if conversion fails
     return value
 
-def clean_data_from_each_section(current_data, selected_rule_set):
+def validation_rule_tool(current_data, selected_rule_set):
     flattened_data = flatten_test_data_to_questions(current_data)
     
     all_if_rules = get_if_rules(selected_rule_set)
     all_then_rules = get_then_rules(selected_rule_set)
 
     if len(all_then_rules) == 0:
-        print("NO RULES, RETURN NOTHING")
         return []
     
+    all_if_rules_confirmed = []
+    all_if_rules_failed = []
+    all_if_rules_not_found = []
+
+    all_then_rules_confirmed = []
+    all_then_rules_failed = []
+    all_then_rules_not_found = []
+
 
     if len(all_if_rules) > 0:
-        print("WE HAVE IF RULES")
-        if_rule_in_data = None
         for if_rule in all_if_rules:
-            if_rule_exists_in_data = check_if_rule_in_data(if_rule, flattened_data)
-            print("if_rule:", if_rule)
-        exit()
 
+            rule_result_dict = check_if_rule_in_data(if_rule, flattened_data)
+            rule_confirmed = rule_result_dict['confirmed']
+            rule_failed = rule_result_dict['failed']
+            rule_not_found = rule_result_dict['not_found']
+
+            if rule_confirmed != []:
+                all_if_rules_confirmed.append(rule_confirmed[0])
+
+            if rule_failed != []:
+                all_if_rules_failed.append(rule_failed[0])
+
+            if rule_not_found != []:
+                all_if_rules_not_found.append(rule_not_found[0])
+
+        if len(all_if_rules_confirmed) != 0:
+            for then_rule in all_then_rules:
+                rule_result_dict = check_if_rule_in_data(then_rule, flattened_data)
+                rule_confirmed = rule_result_dict['confirmed']
+                rule_failed = rule_result_dict['failed']
+                rule_not_found = rule_result_dict['not_found']
+
+                if rule_confirmed != []:
+                    all_then_rules_confirmed.append(rule_confirmed[0])
+
+                if rule_failed != []:
+                    all_then_rules_failed.append(rule_failed[0])
+
+                if rule_not_found != []:
+                    all_then_rules_not_found.append(rule_not_found[0])
 
     else:
-        print("JUST CHECK THE THEN RULES")
+        for then_rule in all_then_rules:
+            rule_result_dict = check_if_rule_in_data(then_rule, flattened_data)
+            rule_confirmed = rule_result_dict['confirmed']
+            rule_failed = rule_result_dict['failed']
+            rule_not_found = rule_result_dict['not_found']
 
-    exit()
-    for i in flattened_data:
-        print(i)
+            if rule_confirmed != []:
+                all_then_rules_confirmed.append(rule_confirmed[0])
+
+            if rule_failed != []:
+                all_then_rules_failed.append(rule_failed[0])
+
+            if rule_not_found != []:
+                all_then_rules_not_found.append(rule_not_found[0])
+
+    final_rule_dict = {
+        "all_then_rules_confirmed":all_then_rules_confirmed,
+        "all_then_rules_failed":all_then_rules_failed,
+        "all_then_rules_not_found":all_then_rules_not_found,
+
+        "all_if_rules_confirmed":all_if_rules_confirmed,
+        "all_if_rules_failed":all_if_rules_failed,
+        "all_if_rules_not_found":all_if_rules_not_found,
+
+    }
+
+    return final_rule_dict
 
 if __name__ == '__main__':
-    res = clean_data_from_each_section(current_data=test_data, selected_rule_set=example_validation_rule)
+    final_rule_dict = validation_rule_tool(current_data=test_data, selected_rule_set=example_validation_rule)
+    for key, value in final_rule_dict.items():
+        print(key)
+        print(value)
+        print("-")
