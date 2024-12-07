@@ -330,82 +330,15 @@
                         ]
                     },
                     {
-                        "building_title": "Appartement klein (2 laags, beneden of bovenwoning)",
+                        "building_title": "second building!!23984712983",
                         "building_url": "https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/gebouwen/ccc056d9-0921-4fcd-907f-2cc4e1b70877/",
                         "questions_data": [
                             {
-                                "question": "Nadere omschrijving gebouw (indien van toepassing)",
-                                "answer": ""
-                            },
-                            {
                                 "question": "Wat is het bouwjaar?",
-                                "answers": "1939.0"
+                                "answers": "19.0"
                             },
-                            {
-                                "question": "Monumentnummer",
-                                "answer": ""
-                            },
-                            {
-                                "question": "Is het een gebouw of een werk?",
-                                "answers": {
-                                    "Gebouw": true,
-                                    "Werk": false
-                                }
-                            },
-                            {
-                                "question": "Soort gebouw:",
-                                "answers": {
-                                    "2 onder 1 kap": false,
-                                    "Hoekwoning": false,
-                                    "Tussenwoning": false,
-                                    "Vrijstaande woning": false,
-                                    "Appartement klein (2 laags, beneden of bovenwoning)": true,
-                                    "Appartement groot (meer laags)": false,
-                                    "Boerderij en/of stal": false,
-                                    "Schuur of bijgebouw": false,
-                                    "Kerk": false,
-                                    "Molen": false,
-                                    "Winkel": false,
-                                    "Bedrijfsgebouw": false,
-                                    "Kantoorgebouw": false,
-                                    "Schoolgebouw": false,
-                                    "Fabrieksgebouw": false,
-                                    "Anders": false
-                                }
-                            },
-                            {
-                                "question": "Waarvoor wordt het gebouw gebruikt?",
-                                "answers": {
-                                    "Woonhuis": true,
-                                    "Bedrijf": false,
-                                    "Recreatie": false,
-                                    "Anders": false
-                                }
-                            },
-                            {
-                                "question": "Kenmerken Hoofd draagconstructie?",
-                                "answers": {
-                                    "Baksteen/kalkzandsteen/betonsteen": true,
-                                    "Beton": false,
-                                    "Hout": false,
-                                    "Staal": false
-                                }
-                            },
-                            {
-                                "question": "Is op basis van een betrouwbare bron de fundering bekend?",
-                                "answers": {
-                                    "Ja": false,
-                                    "Nee": true
-                                }
-                            },
-                            {
-                                "question": "Kelder/souterrain aanwezig?",
-                                "answers": {
-                                    "Nee": true,
-                                    "Ja, deels onder het gebouw": false,
-                                    "Ja, geheel onder het gebouw": false
-                                }
-                            },
+
+
                             {
                                 "question": "Kenmerken bouwlaag 0",
                                 "answers": {
@@ -413,73 +346,6 @@
                                     "Systeemvloer baksteen": false,
                                     "Beton (i.w. / breedplaat)": false,
                                     "Beton systeemvloer (kanaalplaat)": false
-                                }
-                            },
-                            {
-                                "question": "Kenmerken bouwlaag 0.5",
-                                "answers": {
-                                    "N.v.t.": true,
-                                    "Houten balkenvloer": false,
-                                    "Systeemvloer baksteen": false,
-                                    "Beton (i.w. / breedplaat)": false,
-                                    "Beton systeemvloer (kanaalplaat)": false
-                                }
-                            },
-                            {
-                                "question": "Kenmerken bouwlaag 1",
-                                "answers": {
-                                    "N.v.t.": false,
-                                    "Houten balkenvloer": false,
-                                    "Systeemvloer baksteen": false,
-                                    "Beton (i.w. / breedplaat)": true,
-                                    "Beton systeemvloer (kanaalplaat)": false
-                                }
-                            },
-                            {
-                                "question": "Kenmerken bouwlaag 2",
-                                "answers": {
-                                    "N.v.t.": true,
-                                    "Houten balkenvloer": false,
-                                    "Systeemvloer baksteen": false,
-                                    "Beton (i.w. / breedplaat)": false,
-                                    "Beton systeemvloer (kanaalplaat)": false
-                                }
-                            },
-                            {
-                                "question": "Kenmerken bouwlaag 3",
-                                "answers": {
-                                    "N.v.t.": true,
-                                    "Houten balkenvloer": false,
-                                    "Systeemvloer baksteen": false,
-                                    "Beton (i.w. / breedplaat)": false,
-                                    "Beton systeemvloer (kanaalplaat)": false
-                                }
-                            },
-                            {
-                                "question": "Zijn er opmerkingen over de div. vloerconstructies?",
-                                "answers": {
-                                    "Ja": false,
-                                    "Nee": true
-                                }
-                            },
-                            {
-                                "question": "Constructie van het hellende dak?",
-                                "answers": {
-                                    "Sporen": false,
-                                    "Spant": false,
-                                    "Gordingen": false,
-                                    "Niet zichtbaar": true
-                                }
-                            },
-                            {
-                                "question": "Kenmerken Gevelopbouw?",
-                                "answers": {
-                                    "Spouwmuur": true,
-                                    "Steens": false,
-                                    "Half steens": false,
-                                    "Paneelvulling": false,
-                                    "Plaatmateriaal": false,
-                                    "Anders": false
                                 }
                             },
                             {
@@ -496,109 +362,18 @@
                                     "Nee": true
                                 }
                             },
-                            {
-                                "question": "Hoeveel gemetselde schoorstenen zijn er aanwezig?",
-                                "answers": {
-                                    "0": false,
-                                    "1": true,
-                                    "2": false,
-                                    "3": false,
-                                    "4": false,
-                                    "5": false,
-                                    "meer dan 5": false
-                                }
-                            },
+
                             {
                                 "question": "Balkon aanwezig?",
-                                "answers": {
-                                    "Ja": false,
-                                    "Nee": true
-                                }
+                                "answers": "hello world"
+                                
                             },
-                            {
-                                "question": "Dakterras aanwezig?",
-                                "answers": {
-                                    "Ja": false,
-                                    "Nee": true
-                                }
-                            },
-                            {
-                                "question": "Zijn er één of meerdere dakkapellen later bijgeplaatst?",
-                                "answers": {
-                                    "Ja": false,
-                                    "Nee": true
-                                }
-                            },
-                            {
-                                "question": "Zijn er overige (bijzondere) gebouwkenmerken?",
-                                "answers": {
-                                    "Ja": false,
-                                    "Nee": true
-                                }
-                            },
-                            {
-                                "question": "Zijn er latere bouwkundige aanpassing(en) doorgevoerd?",
-                                "answers": {
-                                    "Ja": false,
-                                    "Nee": true
-                                }
-                            },
-                            {
-                                "question": "Is er in het verleden sprake geweest van calamiteiten?",
-                                "answers": {
-                                    "Ja": false,
-                                    "Nee": true
-                                }
-                            },
-                            {
-                                "question": "Staat van onderhoud van het metselwerk/voegwerk?",
-                                "answers": {
-                                    "Goed": false,
-                                    "Matig": false,
-                                    "Slecht": true
-                                }
-                            },
-                            {
-                                "question": "Staat van onderhoud van het schilderwerk/houtconstructies?",
-                                "answers": {
-                                    "Goed": false,
-                                    "Matig": false,
-                                    "Slecht": true
-                                }
-                            },
-                            {
-                                "question": "Staat van onderhoud van het dak/goten?",
-                                "answers": {
-                                    "Goed": false,
-                                    "Matig": false,
-                                    "Slecht": true
-                                }
-                            },
-                            {
-                                "question": "Is er sprake van een pand of bijbehorend bijgebouw (zoals een garage/schuur op hetzelfde perceel) bestemd voor permanente bewoning door particulieren en is de woning tevens ouder dan 2 jaar?",
-                                "answers": {
-                                    "Ja, beide": true,
-                                    "Nee": false
-                                }
-                            },
-                            {
-                                "question": "Vorm van het dak?",
-                                "answers": {
-                                    "Plat": false,
-                                    "Hellend": true
-                                }
-                            },
-                            {
-                                "question": "Materiaal van het dak?",
-                                "answers": {
-                                    "Onbeschoten": false,
-                                    "Houten beplanking": false,
-                                    "Houten plaatmateriaal": true,
-                                    "Beton": false,
-                                    "Geïsoleerde dakplaat": false,
-                                    "Stalen profielplaat": false
-                                }
-                            },
+
+  
+
+  
+ 
+          
                             {
                                 "question": "Buiten afwerking van het dak?",
                                 "answers": {
@@ -614,11 +389,7 @@
                         "images": [
                             "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE8aDGV1LWNlbnRyYWwtMSJIMEYCIQD%2BR575K6U47ildPKK8I3Gy8Ir1Yx%2B54Soz%2ByT7PWM1WgIhAOGkC2fYuhgSRJD3Wp1Hg7YMrOCqRwlQfp21zTMwUAjyKsYFCPj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQAhoMODcxMDI1NjU5MTAwIgyGcbHGdc6sVV5dx7MqmgWqUdkvVAeERoTQUBN4hqsCIJrm8o6aZ7%2BGRBnj5fuZDbB70uT5e4RO3Awmg321ICbsyH67XutvaCdcAUeqc71orMQGUPg6Rt62hFcBfPdfZcvosrX%2F68hTAc2qsyYkEuf%2BHJ0%2FbakfEVxDSyfN3BBkatoWc6pMMqaa%2FqVGN5lwUGjhZ1omzc2ptWgT8G4kksrSFbn2swDBgZ3a%2FqAN6cxzsyZU%2BmvQmPxgTbeE3USLOGnh3NKV57NkCyrGUlritA5Yp5rdDzGbCWCfZfJHvW16u%2F4a8y0QSjhYaV0d4sC9d%2Bgzm0uijS2aRr5j%2FMc2oKVj49I2remWL3o2XlrKVJWB6zQ2o59jqy%2F76cl2zRxxdetJiZhdvxWpjY8L9B1IXHtn35eIZvfc%2FFbX%2FPNBguN18H669pgcAO9UxEjVoe96H5KRV9Bk1VcLqkTXZu6N8Tu4OTr1D4xKwEkariznng4l4McFQw4ar4DpibBUVfJqnEo%2F9T41m%2F6nTBvBcOnB3L1aV%2B%2FsR4iLIrL1KrtVxqibfuGssy3XbsMhsevim2thqfMEIyjnhxY882BFfjvzKa74XFkDs8dhfeiVz2egD4YbJUEba00I6zNoVIiXjmLzqh4uTblIKmV8QbBP%2FFM6CdPYp9Ot0IKSWa8iBYv5wwnaR%2Fs9ZE%2Bu6TIjd9%2FLMoL5vOw8P6pzDT0DCSai2H4zM%2FAlG2oa6ES5jhbi80H4RU%2FSuw52y%2Fqe6DgEwAGa%2FOBr1dT3%2FMv%2FEUgJxmJhAgXgQ%2BtQnHup51rK3QN5zbQV5Wiq7FK0oZVo1Zm1XsuinLJ1tSZ%2FJG4P7FP7vlq1QnlTg7rd1X4NjEgshMdfoGMsnsh3rjcCVsxUibX%2F02q2Yvd%2Fd5Zi4wr3VF7uCcUw4b3DugY6sAHOBbboXYiEVgUMXRSJ93DSBEaENHryX6KWQ1DCng9PLebe6G0HSjfZM5a0IPgKf9J%2BJdVcUbE6Z028IVY8SYYbhZOi7%2BBX%2BClwg%2FvByaY06CUOv0fEj99s5ft3V9GbJUZSQB15flOrRZhv8wvgXg6L2fpibM3MZjUIy89GIkQ9CgD3g%2BrncwE1dRp%2Bjryq%2FztS%2FkEgkpEE1fi%2BS6pyPEmgIR2g18NBa%2FQnGCPFGHlEiw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOLSSMYNQ4%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T233018Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=86f5528d4f38a5fe69c6e39b0d53d128a83febc2b578c27b1c9382f861b117a4",
                             "https://www.gravatar.com/avatar/e1537c6a2f81cf9aac64d1362b2a93b3?d=identicon&s=128",
-                            "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/c6660dd1-eb65-4144-9f7a-d92502465056/conversions/image_picker_91e629bf-65e1-4c0b-a8af-56ed2e36ddd8-44264-0000058698779ffa-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE4aDGV1LWNlbnRyYWwtMSJHMEUCIQCExaMHXQUtwJJum62ebgjxQIDyLfiD7cgUPD0TOJW5jgIgW3IULlafbGlkt0yMQgWrH3mhmT%2FlXjOpcXQMd57qckoqxgUI%2BP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDMIBBzyuDWR9j4aPmSqaBTuvqutaeMVCaOkbeqFUw1%2ByO5eZX%2Bbffs5Rchgl1CNzGkXtvauKJhgH5GBlaW5vhYl3s4IJDD5OCT1J%2F1904WZSLn0hTAzU9yN2f13ALAFX28gq%2FyGn1aGFRYLZcIyl1X%2FP3URPpK4DMdtiNofG9tso6Of%2BC65VzY8GHjTFNdJvSw0sLgtNiUEKqi2%2BVd9Eh9a294RDfs04sooSIfGauDkQymWp6Ye4reGlolQbfbSIqM%2BbScGSO0yLZ4KzZ8qOs5JXzKm9JHwseGabb595kATYB8QVLmEsRAocGN%2Br1QWwesReb%2BgoqoCUM3CUetR7g%2BSyRWP6FCuSSxkcS%2FGKLRq%2BSYqI%2B6V9ovm0Q1TkR%2FP1mD2ePsRi%2F1PbPAT46H2%2FcQtQTZ4A9%2FfsWRVSztRbi4w0NlJgkUIaGWDaltNkGgrw12rZ0ACrLKYRwUMPXdZtFWtkJ8ssI8w4kEnpwBSl6BIxpBV0V5OR4r6hkaaGVDrUwtLO4SuLmaVvw8oeGeBhuWPXfMSL%2Fz7%2BqKlDiksmooZvXlrTr%2FS%2ButnvOr8%2BJYPQHBc66Dn2yQVi3%2FaWDYdj9LF45Nwj9K3gOs6EBjpc6hSgIwncbmKUYVbzZj2Kp5KdqHSTLl7SLOovuTcslaRYWxF%2BvF%2BOIAgLZr1%2FlkwOY0v%2BRe6wrFCOaUKnMNYEG2hhIHv%2BrRjN9dLLR7RSDgscCcTNAjvu6crsxM58TNpLDi4YfXYJAgHv46mlbFUIn4c1L%2FrzOIxuKQM5%2FsL4O%2Btm0uKDoGjWw1uVnLoqxyi6vPuiRgjTi%2BSoKBhkFY6oUrPoR6utCC1HOfeR%2FVa1KFfuoxsS3UK4N9vEN1MVUXc4PxLPf7QcE0%2FtADjhCV5EmTrrpHYXHf%2Bpz1oTaDCprMO6BjqxAYJNYAbDpnI03tPHOso7q0negrU5SZr6T2KK195FCZAI342RGX%2FpMT5XnHjh%2F24pkqtpY1azEmHwvSdDvGb5LdSagboKTfNyoKk0q2MaiRav6G1QQ1Ckh0LHRPd9qB%2FgfbmT1AW9nn9YHz9HDmVqHeI0SZefLMg3SMINsoxul9vDXLueu7hOxz6yxSFz3DGL9kpzgwsY1mIbOj8JDRsIXQTW4SMflbDtYEsrnznh78kSyw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJ7V6QPKF%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T230320Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=40db007da2596e601f325f27178371cd0f95ae6af87a021cea61a9add4e762e9",
-                            "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/2b3d4df6-37aa-4380-a560-e84ab52a4436/conversions/image_picker_8b4faa6f-c3c2-47ed-ac1c-21358ae49ade-44264-0000058699296177-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE4aDGV1LWNlbnRyYWwtMSJHMEUCIQCExaMHXQUtwJJum62ebgjxQIDyLfiD7cgUPD0TOJW5jgIgW3IULlafbGlkt0yMQgWrH3mhmT%2FlXjOpcXQMd57qckoqxgUI%2BP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDMIBBzyuDWR9j4aPmSqaBTuvqutaeMVCaOkbeqFUw1%2ByO5eZX%2Bbffs5Rchgl1CNzGkXtvauKJhgH5GBlaW5vhYl3s4IJDD5OCT1J%2F1904WZSLn0hTAzU9yN2f13ALAFX28gq%2FyGn1aGFRYLZcIyl1X%2FP3URPpK4DMdtiNofG9tso6Of%2BC65VzY8GHjTFNdJvSw0sLgtNiUEKqi2%2BVd9Eh9a294RDfs04sooSIfGauDkQymWp6Ye4reGlolQbfbSIqM%2BbScGSO0yLZ4KzZ8qOs5JXzKm9JHwseGabb595kATYB8QVLmEsRAocGN%2Br1QWwesReb%2BgoqoCUM3CUetR7g%2BSyRWP6FCuSSxkcS%2FGKLRq%2BSYqI%2B6V9ovm0Q1TkR%2FP1mD2ePsRi%2F1PbPAT46H2%2FcQtQTZ4A9%2FfsWRVSztRbi4w0NlJgkUIaGWDaltNkGgrw12rZ0ACrLKYRwUMPXdZtFWtkJ8ssI8w4kEnpwBSl6BIxpBV0V5OR4r6hkaaGVDrUwtLO4SuLmaVvw8oeGeBhuWPXfMSL%2Fz7%2BqKlDiksmooZvXlrTr%2FS%2ButnvOr8%2BJYPQHBc66Dn2yQVi3%2FaWDYdj9LF45Nwj9K3gOs6EBjpc6hSgIwncbmKUYVbzZj2Kp5KdqHSTLl7SLOovuTcslaRYWxF%2BvF%2BOIAgLZr1%2FlkwOY0v%2BRe6wrFCOaUKnMNYEG2hhIHv%2BrRjN9dLLR7RSDgscCcTNAjvu6crsxM58TNpLDi4YfXYJAgHv46mlbFUIn4c1L%2FrzOIxuKQM5%2FsL4O%2Btm0uKDoGjWw1uVnLoqxyi6vPuiRgjTi%2BSoKBhkFY6oUrPoR6utCC1HOfeR%2FVa1KFfuoxsS3UK4N9vEN1MVUXc4PxLPf7QcE0%2FtADjhCV5EmTrrpHYXHf%2Bpz1oTaDCprMO6BjqxAYJNYAbDpnI03tPHOso7q0negrU5SZr6T2KK195FCZAI342RGX%2FpMT5XnHjh%2F24pkqtpY1azEmHwvSdDvGb5LdSagboKTfNyoKk0q2MaiRav6G1QQ1Ckh0LHRPd9qB%2FgfbmT1AW9nn9YHz9HDmVqHeI0SZefLMg3SMINsoxul9vDXLueu7hOxz6yxSFz3DGL9kpzgwsY1mIbOj8JDRsIXQTW4SMflbDtYEsrnznh78kSyw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJ7V6QPKF%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T230320Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=133d1cf55e604ff0a1a1ceda6dfaa50fb84cf4ab19927d3294e814d2f43a8c3a",
-                            "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/0b817f88-1ba7-42d1-b267-265fe826877f/conversions/image_picker_5341dbd6-d7c1-459b-9393-d6916f92d37a-44264-0000058699e8cb5f-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE4aDGV1LWNlbnRyYWwtMSJHMEUCIQCExaMHXQUtwJJum62ebgjxQIDyLfiD7cgUPD0TOJW5jgIgW3IULlafbGlkt0yMQgWrH3mhmT%2FlXjOpcXQMd57qckoqxgUI%2BP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDMIBBzyuDWR9j4aPmSqaBTuvqutaeMVCaOkbeqFUw1%2ByO5eZX%2Bbffs5Rchgl1CNzGkXtvauKJhgH5GBlaW5vhYl3s4IJDD5OCT1J%2F1904WZSLn0hTAzU9yN2f13ALAFX28gq%2FyGn1aGFRYLZcIyl1X%2FP3URPpK4DMdtiNofG9tso6Of%2BC65VzY8GHjTFNdJvSw0sLgtNiUEKqi2%2BVd9Eh9a294RDfs04sooSIfGauDkQymWp6Ye4reGlolQbfbSIqM%2BbScGSO0yLZ4KzZ8qOs5JXzKm9JHwseGabb595kATYB8QVLmEsRAocGN%2Br1QWwesReb%2BgoqoCUM3CUetR7g%2BSyRWP6FCuSSxkcS%2FGKLRq%2BSYqI%2B6V9ovm0Q1TkR%2FP1mD2ePsRi%2F1PbPAT46H2%2FcQtQTZ4A9%2FfsWRVSztRbi4w0NlJgkUIaGWDaltNkGgrw12rZ0ACrLKYRwUMPXdZtFWtkJ8ssI8w4kEnpwBSl6BIxpBV0V5OR4r6hkaaGVDrUwtLO4SuLmaVvw8oeGeBhuWPXfMSL%2Fz7%2BqKlDiksmooZvXlrTr%2FS%2ButnvOr8%2BJYPQHBc66Dn2yQVi3%2FaWDYdj9LF45Nwj9K3gOs6EBjpc6hSgIwncbmKUYVbzZj2Kp5KdqHSTLl7SLOovuTcslaRYWxF%2BvF%2BOIAgLZr1%2FlkwOY0v%2BRe6wrFCOaUKnMNYEG2hhIHv%2BrRjN9dLLR7RSDgscCcTNAjvu6crsxM58TNpLDi4YfXYJAgHv46mlbFUIn4c1L%2FrzOIxuKQM5%2FsL4O%2Btm0uKDoGjWw1uVnLoqxyi6vPuiRgjTi%2BSoKBhkFY6oUrPoR6utCC1HOfeR%2FVa1KFfuoxsS3UK4N9vEN1MVUXc4PxLPf7QcE0%2FtADjhCV5EmTrrpHYXHf%2Bpz1oTaDCprMO6BjqxAYJNYAbDpnI03tPHOso7q0negrU5SZr6T2KK195FCZAI342RGX%2FpMT5XnHjh%2F24pkqtpY1azEmHwvSdDvGb5LdSagboKTfNyoKk0q2MaiRav6G1QQ1Ckh0LHRPd9qB%2FgfbmT1AW9nn9YHz9HDmVqHeI0SZefLMg3SMINsoxul9vDXLueu7hOxz6yxSFz3DGL9kpzgwsY1mIbOj8JDRsIXQTW4SMflbDtYEsrnznh78kSyw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJ7V6QPKF%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T230320Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=d3ee6e9bdf9bb1294525f3b938b8e913468023997e73318b8924cba8fd294ef2",
-                            "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/63bc1f68-b540-462d-8b69-92f74ee88a5f/conversions/63bc1f68-b540-462d-8b69-92f74ee88a5f-thumbnail.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE4aDGV1LWNlbnRyYWwtMSJHMEUCIQCExaMHXQUtwJJum62ebgjxQIDyLfiD7cgUPD0TOJW5jgIgW3IULlafbGlkt0yMQgWrH3mhmT%2FlXjOpcXQMd57qckoqxgUI%2BP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw4NzEwMjU2NTkxMDAiDMIBBzyuDWR9j4aPmSqaBTuvqutaeMVCaOkbeqFUw1%2ByO5eZX%2Bbffs5Rchgl1CNzGkXtvauKJhgH5GBlaW5vhYl3s4IJDD5OCT1J%2F1904WZSLn0hTAzU9yN2f13ALAFX28gq%2FyGn1aGFRYLZcIyl1X%2FP3URPpK4DMdtiNofG9tso6Of%2BC65VzY8GHjTFNdJvSw0sLgtNiUEKqi2%2BVd9Eh9a294RDfs04sooSIfGauDkQymWp6Ye4reGlolQbfbSIqM%2BbScGSO0yLZ4KzZ8qOs5JXzKm9JHwseGabb595kATYB8QVLmEsRAocGN%2Br1QWwesReb%2BgoqoCUM3CUetR7g%2BSyRWP6FCuSSxkcS%2FGKLRq%2BSYqI%2B6V9ovm0Q1TkR%2FP1mD2ePsRi%2F1PbPAT46H2%2FcQtQTZ4A9%2FfsWRVSztRbi4w0NlJgkUIaGWDaltNkGgrw12rZ0ACrLKYRwUMPXdZtFWtkJ8ssI8w4kEnpwBSl6BIxpBV0V5OR4r6hkaaGVDrUwtLO4SuLmaVvw8oeGeBhuWPXfMSL%2Fz7%2BqKlDiksmooZvXlrTr%2FS%2ButnvOr8%2BJYPQHBc66Dn2yQVi3%2FaWDYdj9LF45Nwj9K3gOs6EBjpc6hSgIwncbmKUYVbzZj2Kp5KdqHSTLl7SLOovuTcslaRYWxF%2BvF%2BOIAgLZr1%2FlkwOY0v%2BRe6wrFCOaUKnMNYEG2hhIHv%2BrRjN9dLLR7RSDgscCcTNAjvu6crsxM58TNpLDi4YfXYJAgHv46mlbFUIn4c1L%2FrzOIxuKQM5%2FsL4O%2Btm0uKDoGjWw1uVnLoqxyi6vPuiRgjTi%2BSoKBhkFY6oUrPoR6utCC1HOfeR%2FVa1KFfuoxsS3UK4N9vEN1MVUXc4PxLPf7QcE0%2FtADjhCV5EmTrrpHYXHf%2Bpz1oTaDCprMO6BjqxAYJNYAbDpnI03tPHOso7q0negrU5SZr6T2KK195FCZAI342RGX%2FpMT5XnHjh%2F24pkqtpY1azEmHwvSdDvGb5LdSagboKTfNyoKk0q2MaiRav6G1QQ1Ckh0LHRPd9qB%2FgfbmT1AW9nn9YHz9HDmVqHeI0SZefLMg3SMINsoxul9vDXLueu7hOxz6yxSFz3DGL9kpzgwsY1mIbOj8JDRsIXQTW4SMflbDtYEsrnznh78kSyw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOJ7V6QPKF%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T230320Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Signature=135d98b21a1397ee435cef2977f9d952529c5f6bf51c5a9715501ba9b1529d5b",
-                            "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE8aDGV1LWNlbnRyYWwtMSJIMEYCIQD%2BR575K6U47ildPKK8I3Gy8Ir1Yx%2B54Soz%2ByT7PWM1WgIhAOGkC2fYuhgSRJD3Wp1Hg7YMrOCqRwlQfp21zTMwUAjyKsYFCPj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQAhoMODcxMDI1NjU5MTAwIgyGcbHGdc6sVV5dx7MqmgWqUdkvVAeERoTQUBN4hqsCIJrm8o6aZ7%2BGRBnj5fuZDbB70uT5e4RO3Awmg321ICbsyH67XutvaCdcAUeqc71orMQGUPg6Rt62hFcBfPdfZcvosrX%2F68hTAc2qsyYkEuf%2BHJ0%2FbakfEVxDSyfN3BBkatoWc6pMMqaa%2FqVGN5lwUGjhZ1omzc2ptWgT8G4kksrSFbn2swDBgZ3a%2FqAN6cxzsyZU%2BmvQmPxgTbeE3USLOGnh3NKV57NkCyrGUlritA5Yp5rdDzGbCWCfZfJHvW16u%2F4a8y0QSjhYaV0d4sC9d%2Bgzm0uijS2aRr5j%2FMc2oKVj49I2remWL3o2XlrKVJWB6zQ2o59jqy%2F76cl2zRxxdetJiZhdvxWpjY8L9B1IXHtn35eIZvfc%2FFbX%2FPNBguN18H669pgcAO9UxEjVoe96H5KRV9Bk1VcLqkTXZu6N8Tu4OTr1D4xKwEkariznng4l4McFQw4ar4DpibBUVfJqnEo%2F9T41m%2F6nTBvBcOnB3L1aV%2B%2FsR4iLIrL1KrtVxqibfuGssy3XbsMhsevim2thqfMEIyjnhxY882BFfjvzKa74XFkDs8dhfeiVz2egD4YbJUEba00I6zNoVIiXjmLzqh4uTblIKmV8QbBP%2FFM6CdPYp9Ot0IKSWa8iBYv5wwnaR%2Fs9ZE%2Bu6TIjd9%2FLMoL5vOw8P6pzDT0DCSai2H4zM%2FAlG2oa6ES5jhbi80H4RU%2FSuw52y%2Fqe6DgEwAGa%2FOBr1dT3%2FMv%2FEUgJxmJhAgXgQ%2BtQnHup51rK3QN5zbQV5Wiq7FK0oZVo1Zm1XsuinLJ1tSZ%2FJG4P7FP7vlq1QnlTg7rd1X4NjEgshMdfoGMsnsh3rjcCVsxUibX%2F02q2Yvd%2Fd5Zi4wr3VF7uCcUw4b3DugY6sAHOBbboXYiEVgUMXRSJ93DSBEaENHryX6KWQ1DCng9PLebe6G0HSjfZM5a0IPgKf9J%2BJdVcUbE6Z028IVY8SYYbhZOi7%2BBX%2BClwg%2FvByaY06CUOv0fEj99s5ft3V9GbJUZSQB15flOrRZhv8wvgXg6L2fpibM3MZjUIy89GIkQ9CgD3g%2BrncwE1dRp%2Bjryq%2FztS%2FkEgkpEE1fi%2BS6pyPEmgIR2g18NBa%2FQnGCPFGHlEiw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOLSSMYNQ4%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T233018Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=86f5528d4f38a5fe69c6e39b0d53d128a83febc2b578c27b1c9382f861b117a4"
+                           "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE8aDGV1LWNlbnRyYWwtMSJIMEYCIQD%2BR575K6U47ildPKK8I3Gy8Ir1Yx%2B54Soz%2ByT7PWM1WgIhAOGkC2fYuhgSRJD3Wp1Hg7YMrOCqRwlQfp21zTMwUAjyKsYFCPj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQAhoMODcxMDI1NjU5MTAwIgyGcbHGdc6sVV5dx7MqmgWqUdkvVAeERoTQUBN4hqsCIJrm8o6aZ7%2BGRBnj5fuZDbB70uT5e4RO3Awmg321ICbsyH67XutvaCdcAUeqc71orMQGUPg6Rt62hFcBfPdfZcvosrX%2F68hTAc2qsyYkEuf%2BHJ0%2FbakfEVxDSyfN3BBkatoWc6pMMqaa%2FqVGN5lwUGjhZ1omzc2ptWgT8G4kksrSFbn2swDBgZ3a%2FqAN6cxzsyZU%2BmvQmPxgTbeE3USLOGnh3NKV57NkCyrGUlritA5Yp5rdDzGbCWCfZfJHvW16u%2F4a8y0QSjhYaV0d4sC9d%2Bgzm0uijS2aRr5j%2FMc2oKVj49I2remWL3o2XlrKVJWB6zQ2o59jqy%2F76cl2zRxxdetJiZhdvxWpjY8L9B1IXHtn35eIZvfc%2FFbX%2FPNBguN18H669pgcAO9UxEjVoe96H5KRV9Bk1VcLqkTXZu6N8Tu4OTr1D4xKwEkariznng4l4McFQw4ar4DpibBUVfJqnEo%2F9T41m%2F6nTBvBcOnB3L1aV%2B%2FsR4iLIrL1KrtVxqibfuGssy3XbsMhsevim2thqfMEIyjnhxY882BFfjvzKa74XFkDs8dhfeiVz2egD4YbJUEba00I6zNoVIiXjmLzqh4uTblIKmV8QbBP%2FFM6CdPYp9Ot0IKSWa8iBYv5wwnaR%2Fs9ZE%2Bu6TIjd9%2FLMoL5vOw8P6pzDT0DCSai2H4zM%2FAlG2oa6ES5jhbi80H4RU%2FSuw52y%2Fqe6DgEwAGa%2FOBr1dT3%2FMv%2FEUgJxmJhAgXgQ%2BtQnHup51rK3QN5zbQV5Wiq7FK0oZVo1Zm1XsuinLJ1tSZ%2FJG4P7FP7vlq1QnlTg7rd1X4NjEgshMdfoGMsnsh3rjcCVsxUibX%2F02q2Yvd%2Fd5Zi4wr3VF7uCcUw4b3DugY6sAHOBbboXYiEVgUMXRSJ93DSBEaENHryX6KWQ1DCng9PLebe6G0HSjfZM5a0IPgKf9J%2BJdVcUbE6Z028IVY8SYYbhZOi7%2BBX%2BClwg%2FvByaY06CUOv0fEj99s5ft3V9GbJUZSQB15flOrRZhv8wvgXg6L2fpibM3MZjUIy89GIkQ9CgD3g%2BrncwE1dRp%2Bjryq%2FztS%2FkEgkpEE1fi%2BS6pyPEmgIR2g18NBa%2FQnGCPFGHlEiw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4VTJMZTOLSSMYNQ4%2F20241204%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T233018Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=86f5528d4f38a5fe69c6e39b0d53d128a83febc2b578c27b1c9382f861b117a4"
                         ]
                     }
                 ],

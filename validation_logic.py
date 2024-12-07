@@ -79,7 +79,9 @@ test_data = {
                         }
                     ]
                 }
-            ]
+            ],
+            "url": "https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/omgevingskenmerken",
+            "tab_type": "omgevingskenmerken"
         }
     ],
     "control_tool": {

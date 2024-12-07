@@ -20,6 +20,7 @@ import gui_algemeen
 from tkinter import Scrollbar
 import gui_omgevingskenmerken
 import gui_credenitals
+import gui_gebouwen
 
 # Test mode flag to skip login
 test_mode = True
@@ -86,6 +87,9 @@ def display_data(data, parent):
     # Add "Omgevingskenmerken" sub-tab
     tab_omgevingskenmerken = recording_tool_sub_tabview.add("Omgevingskenmerken")
     gui_omgevingskenmerken.create_omgevingskenmerken_tab(tab_omgevingskenmerken, omgevingskenmerken_data)
+
+    tab_gebouwen = recording_tool_sub_tabview.add("Gebouwen")
+    gui_gebouwen.create_gebouwen_tab(tab_gebouwen, gebouwen_data)
 
 
 def FAKE_DATA_FUNC(url):
