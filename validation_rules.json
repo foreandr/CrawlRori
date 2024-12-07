@@ -108,5 +108,21 @@
             "condition": true,
             "location": "omgevingskenmerken"
         }
+    ],
+    [
+        {
+            "type": "if",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
+            "answer": "Particulier",
+            "condition": true,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "question": "Wat is het bouwjaar?",
+            "answer": "1939.0",
+            "condition": "<",
+            "location": "gebouwen"
+        }
     ]
 ]

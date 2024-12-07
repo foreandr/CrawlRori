@@ -106,14 +106,6 @@ def create_question_display(parent, questions_data):
             )
             answer_label.pack(side="left", padx=10)
 
-            # Add "If Rule" Button
-            if_rule_button = ctk.CTkButton(
-                answer_frame,
-                text="If Rule",
-                command=lambda q=question, a=answers: set_rule("if", q, a, None, rules),
-            )
-            if_rule_button.pack(side="right", padx=10)
-
             # Add "Then Rule" Button
             then_rule_button = ctk.CTkButton(
                 answer_frame,
@@ -122,33 +114,112 @@ def create_question_display(parent, questions_data):
             )
             then_rule_button.pack(side="right", padx=10)
 
+            # Add "If Rule" Button
+            if_rule_button = ctk.CTkButton(
+                answer_frame,
+                text="If Rule",
+                command=lambda q=question, a=answers: set_rule("if", q, a, None, rules),
+            )
+            if_rule_button.pack(side="right", padx=10)
+            
 
 def set_rule(rule_type, question, answer, value, rules):
     """
-    Handles setting the "If" or "Then" rule with a boolean or conditional selection dialog.
+    Handles setting the "If" or "Then" rule with specific logic for strings, numbers, and booleans.
     """
-    # Create a popup for rule selection
+    # Fallback logic: Check value, then fallback to answer if value is None
+    target = value if value is not None else answer
+
+    # Determine the type of the target
+    if target is None or target == "":
+        value_type = "none"
+    elif isinstance(target, bool):
+        value_type = "boolean"
+    elif isinstance(target, (int, float)) and not isinstance(target, bool):
+        value_type = "number"
+    elif isinstance(target, str):
+        try:
+            # Check if the string can be converted to a number
+            float(target)
+            value_type = "number"
+        except ValueError:
+            value_type = "string"
+    else:
+        value_type = "unknown"
+
+    # Debug print to show the type
+    print(f"DEBUG: Answer = {answer}, Value = {value}, Target = {target}, Detected Type = {value_type}")
+
+    # Create the popup for rule selection
     popup = Toplevel()
     popup.title(f"Set {rule_type.capitalize()} Rule")
-    popup.geometry("300x150")
+    popup.geometry("300x200")
     popup.resizable(False, False)
 
-    # Label
     label = ctk.CTkLabel(
         popup,
-        text=f"Set condition for '{answer}' ({rule_type.upper()} Rule):",
+        text=f"Set condition for '{target}' ({rule_type.upper()} Rule):",
         wraplength=280,
         anchor="center",
     )
     label.pack(pady=20)
 
-    if isinstance(value, bool):
-        # Buttons for True/False
+    # Handle logic based on type
+    if value_type == "number":
+        # Provide numeric comparison options
+        greater_button = ctk.CTkButton(
+            popup,
+            text="Greater Than",
+            command=lambda: finalize_rule(rule_type, question, target, ">", rules, popup),
+        )
+        greater_button.pack(side="top", pady=5)
+
+        less_button = ctk.CTkButton(
+            popup,
+            text="Less Than",
+            command=lambda: finalize_rule(rule_type, question, target, "<", rules, popup),
+        )
+        less_button.pack(side="top", pady=5)
+
+        equal_button = ctk.CTkButton(
+            popup,
+            text="Equal To",
+            command=lambda: finalize_rule(rule_type, question, target, "=", rules, popup),
+        )
+        equal_button.pack(side="top", pady=5)
+
+    elif value_type == "string":
+        # Provide "contains" logic for strings
+        contains_label = ctk.CTkLabel(
+            popup,
+            text="Enter a value to check if the string contains:",
+        )
+        contains_label.pack(pady=10)
+
+        input_entry = ctk.CTkEntry(popup, placeholder_text="Enter substring")
+        input_entry.pack(pady=10)
+
+        confirm_button = ctk.CTkButton(
+            popup,
+            text="Confirm",
+            command=lambda: finalize_rule(
+                rule_type,
+                question,
+                target,
+                {"operator": "contains", "value": input_entry.get()},
+                rules,
+                popup,
+            ),
+        )
+        confirm_button.pack(pady=10)
+
+    elif value_type == "boolean":
+        # Provide True/False options for booleans
         true_button = ctk.CTkButton(
             popup,
             text="True",
             fg_color="green",
-            command=lambda: finalize_rule(rule_type, question, answer, True, rules, popup),
+            command=lambda: finalize_rule(rule_type, question, target, True, rules, popup),
         )
         true_button.pack(side="left", padx=20, pady=10)
 
@@ -156,57 +227,49 @@ def set_rule(rule_type, question, answer, value, rules):
             popup,
             text="False",
             fg_color="red",
-            command=lambda: finalize_rule(rule_type, question, answer, False, rules, popup),
+            command=lambda: finalize_rule(rule_type, question, target, False, rules, popup),
         )
         false_button.pack(side="right", padx=20, pady=10)
-    elif isinstance(value, (int, float)):
-        # Input for numeric conditions
-        greater_button = ctk.CTkButton(
-            popup,
-            text="Greater Than",
-            command=lambda: finalize_rule(rule_type, question, answer, ">", rules, popup),
-        )
-        greater_button.pack(side="top", pady=5)
 
-        less_button = ctk.CTkButton(
-            popup,
-            text="Less Than",
-            command=lambda: finalize_rule(rule_type, question, answer, "<", rules, popup),
-        )
-        less_button.pack(side="top", pady=5)
-
-        equal_button = ctk.CTkButton(
-            popup,
-            text="Equal To",
-            command=lambda: finalize_rule(rule_type, question, answer, "=", rules, popup),
-        )
-        equal_button.pack(side="top", pady=5)
     else:
-        # Text input for strings
-        input_entry = ctk.CTkEntry(popup, placeholder_text="Enter value")
-        input_entry.pack(pady=10)
-
-        confirm_button = ctk.CTkButton(
+        # If the type is unknown, show an error message
+        error_label = ctk.CTkLabel(
             popup,
-            text="Confirm",
-            command=lambda: finalize_rule(rule_type, question, answer, input_entry.get(), rules, popup),
+            text="Unsupported or unknown type.",
         )
-        confirm_button.pack(pady=10)
+        error_label.pack(pady=20)
 
+        close_button = ctk.CTkButton(
+            popup,
+            text="Close",
+            command=popup.destroy,
+        )
+        close_button.pack(pady=10)
+
+
+def is_numeric(value):
+    """
+    Determines if the provided value can be cast to a number (int or float).
+    """
+    try:
+        float(value)  # Attempt to cast to a float
+        return True
+    except (ValueError, TypeError):
+        return False
 
 def finalize_rule(rule_type, question, answer, condition, rules, popup):
     """
-    Finalizes the rule, stores it, and closes the popup.
+    Finalizes the rule, stores it in the rules list, and closes the popup.
     """
     rule = {
         "type": rule_type,
         "question": question,
         "answer": answer,
         "condition": condition,
-        "location": "gebouwen",
+        "location": "gebouwen",  # Example of additional context
     }
+    # Add the rule to your validation rules
     validation_rules.my_validation_rules.append(rule)
-
-    rules.append(rule)  # Store the rule
+    rules.append(rule)  # Store the rule locally for reference
     print(f"Rule set: {rule}")
     popup.destroy()  # Close the popup
