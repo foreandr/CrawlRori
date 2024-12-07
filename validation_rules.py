@@ -297,6 +297,7 @@ def create_check_validation_tab(check_tab):
 
     # Initialize the rules and controls
     refresh_rules()
+
 def create_validation_data_section(parent_frame):
     """
     Creates the Validation Section on the right-hand side.
@@ -308,6 +309,7 @@ def create_validation_data_section(parent_frame):
     title_label = ctk.CTkLabel(validation_data_frame, text="Validation Section", font=("Arial", 20, "bold"))
     title_label.pack(pady=10)
 
+    # IF Rules Report
     if_frame = ctk.CTkFrame(validation_data_frame, corner_radius=10, border_width=2, border_color="gray")
     if_frame.pack(pady=10, padx=10, fill="x", expand=False)
 
@@ -323,6 +325,7 @@ def create_validation_data_section(parent_frame):
     if_not_found_label = ctk.CTkLabel(if_frame, text="Not Found: 0", font=("Arial", 14))
     if_not_found_label.pack(pady=2, padx=10)
 
+    # THEN Rules Report
     then_frame = ctk.CTkFrame(validation_data_frame, corner_radius=10, border_width=2, border_color="gray")
     then_frame.pack(pady=10, padx=10, fill="x", expand=False)
 
@@ -338,20 +341,26 @@ def create_validation_data_section(parent_frame):
     then_not_found_label = ctk.CTkLabel(then_frame, text="Not Found: 0", font=("Arial", 14))
     then_not_found_label.pack(pady=2, padx=10)
 
+    # Failures Frame (with CTkTextbox for clean display)
     failures_frame = ctk.CTkFrame(validation_data_frame, corner_radius=10, border_width=2, border_color="red")
     failures_frame.pack(pady=10, padx=10, fill="both", expand=True)
 
     failures_title_label = ctk.CTkLabel(failures_frame, text="FAILURES (THEN Rules)", font=("Arial", 16, "bold"), text_color="red")
     failures_title_label.pack(pady=5, padx=10)
 
-    failures_list_frame = ctk.CTkFrame(failures_frame, corner_radius=5)
-    failures_list_frame.pack(fill="both", expand=True, padx=10, pady=10)
+    failures_textbox = ctk.CTkTextbox(failures_frame, wrap="word", font=("Arial", 12))
+    failures_textbox.pack(fill="both", expand=True, padx=10, pady=10)
+    failures_textbox.configure(state="disabled")  # Make it read-only by default
 
     def update_validation_section(current_data, selected_rule_set):
+        """
+        Updates the Validation Section with new validation results.
+        """
         final_rule_dict = validation_logic.validation_rule_tool(
             current_data=current_data, selected_rule_set=selected_rule_set
         )
 
+        # Update IF Rules
         if_success_count = len(final_rule_dict.get("all_if_rules_confirmed", []))
         if_fail_count = len(final_rule_dict.get("all_if_rules_failed", []))
         if_not_found_count = len(final_rule_dict.get("all_if_rules_not_found", []))
@@ -368,8 +377,9 @@ def create_validation_data_section(parent_frame):
         then_fail_label.configure(text=f"Fails: {then_fail_count}")
         then_not_found_label.configure(text=f"Not Found: {then_not_found_count}")
 
-        for widget in failures_list_frame.winfo_children():
-            widget.destroy()
+        # Update Failures Textbox
+        failures_textbox.configure(state="normal")  # Enable editing
+        failures_textbox.delete("1.0", "end")  # Clear existing content
 
         then_failures = final_rule_dict.get("all_then_rules_failed", [])
         if then_failures:
@@ -378,11 +388,10 @@ def create_validation_data_section(parent_frame):
                     f"{idx}. Question: {failure.get('question', 'N/A')}\n"
                     f"   Answer: {failure.get('answer', 'N/A')}\n"
                     f"   Condition: {failure.get('condition', 'N/A')}\n"
-                    f"   Location: {failure.get('location', 'N/A')}"
+                    f"   Location: {failure.get('location', 'N/A')}\n\n"
                 )
-                failure_label = ctk.CTkLabel(
-                    failures_list_frame, text=failure_text, font=("Arial", 12), anchor="w", wraplength=600
-                )
-                failure_label.pack(pady=5, anchor="w")
+                failures_textbox.insert("end", failure_text)
+
+        failures_textbox.configure(state="disabled")  # Make it read-only again
 
     return update_validation_section
