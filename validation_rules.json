@@ -78,5 +78,35 @@
             "condition": true,
             "location": "algemeen"
         }
+    ],
+    [
+        {
+            "type": "if",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
+            "answer": "Particulier",
+            "condition": true,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
+            "answer": "Zakelijk",
+            "condition": true,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "question": "Zijn met betrekking tot de ingevoerde schades \u00e9\u00e9n of meerdere kenmerken waargenomen waarbij mogelijk sprake is van ongelijke zetting?",
+            "answer": "Ja",
+            "condition": true,
+            "location": "omgevingskenmerken"
+        },
+        {
+            "type": "then",
+            "question": "Zijn met betrekking tot de ingevoerde schades \u00e9\u00e9n of meerdere kenmerken waargenomen waarbij mogelijk sprake is van ongelijke zetting?",
+            "answer": "Nee",
+            "condition": true,
+            "location": "omgevingskenmerken"
+        }
     ]
 ]

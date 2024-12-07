@@ -18,7 +18,7 @@ import threading
 import time
 import gui_algemeen
 from tkinter import Scrollbar
-
+import gui_omgevingskenmerken
 import gui_credenitals
 
 # Test mode flag to skip login
@@ -82,6 +82,10 @@ def display_data(data, parent):
     # Add "Algemeen" sub-tab
     tab_algemeen = recording_tool_sub_tabview.add("Algemeen")
     gui_algemeen.create_algemeen_tab(tab_algemeen, algemeen_data)
+
+    # Add "Omgevingskenmerken" sub-tab
+    tab_omgevingskenmerken = recording_tool_sub_tabview.add("Omgevingskenmerken")
+    gui_omgevingskenmerken.create_omgevingskenmerken_tab(tab_omgevingskenmerken, omgevingskenmerken_data)
 
 
 def FAKE_DATA_FUNC(url):
