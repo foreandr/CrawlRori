@@ -179,79 +179,107 @@ def create_check_validation_tab(check_tab):
         current_rules = rules_to_display[start_idx:end_idx]
 
         for idx, rule_set in enumerate(current_rules):
+            # Create a frame for each rule set
             rule_set_frame = ctk.CTkFrame(left_display_frame, corner_radius=8, border_width=1)
             rule_set_frame.pack(fill="x", pady=5, padx=10)
 
+            # Display each rule within the rule set
             for rule in rule_set:
                 rule_text = (
                     f"{rule['location'].upper()} - {rule['type'].upper()}\n"
                     f"Question: {rule['question']}\n"
-                    f"Answer: {rule['answer']} - Condition: {'True' if rule['condition'] else 'False'}"
+                    f"Answer: {rule['answer']} - Condition: {'✔️' if rule['condition'] else '❌'}"
                 )
-                rule_label = ctk.CTkLabel(rule_set_frame, text=rule_text, anchor="w", wraplength=600, font=("Arial", 12))
-                rule_label.pack(fill="x", pady=2, padx=5)
+                rule_label = ctk.CTkLabel(
+                    rule_set_frame,
+                    text=rule_text,
+                    anchor="w",
+                    wraplength=600,
+                    font=("Arial", 12),
+                    justify="left",  # Align text to the left for a clean layout
+                )
+                rule_label.pack(fill="x", pady=(5, 10), padx=5)  # Add spacing between rules
 
-            def check_rules(selected_rule_set=rule_set):
-                print("Waiting for data...")
-
-                # Load the current data from the file
-                current_data = gui.load_current_data()
-
-                # Print data for debugging
-                update_validation_section(current_data, selected_rule_set)
-
-            def delete_rules(selected_index=start_idx + idx):
-                if os.path.exists(VALIDATION_RULES_FILE):
-                    with open(VALIDATION_RULES_FILE, "r") as file:
-                        all_rules = json.load(file)
-
-                    if selected_index < len(all_rules):
-                        all_rules.pop(selected_index)
-                        with open(VALIDATION_RULES_FILE, "w") as file:
-                            json.dump(all_rules, file, indent=4)
-
-                        print(f"Deleted Rule Set {selected_index + 1}")
-                        load_rules()
-                        display_rules()
-
+            # Create a frame for buttons
             button_frame = ctk.CTkFrame(rule_set_frame)
             button_frame.pack(fill="x", pady=5, padx=5)
 
-            ctk.CTkButton(
-                button_frame, text="Check", command=check_rules, width=100, height=30
-            ).pack(side="left", padx=5)
-
+            # Check button
             ctk.CTkButton(
                 button_frame,
-                text="Delete",
-                command=lambda i=idx: delete_rules(),
-                fg_color="red",
+                text="Check",
+                command=lambda rs=rule_set: check_rules(rs),
                 width=100,
                 height=30,
             ).pack(side="left", padx=5)
 
+            # Delete button
+            ctk.CTkButton(
+                button_frame,
+                text="Delete",
+                command=lambda i=start_idx + idx: delete_rules(i),
+                fg_color="red",
+                width=100,
+                height=30,
+            ).pack(side="right", padx=5)
+
+        # Update pagination controls at the bottom
         update_pagination_controls()
 
+    def check_rules(selected_rule_set):
+        """
+        Handles the functionality of the 'Check' button to validate rules
+        against the current data.
+        """
+        print("Waiting for data...")
+
+        # Load the current data from the file
+        current_data = gui.load_current_data()
+
+        # Perform validation and update the validation section
+        update_validation_section(current_data, selected_rule_set)
+
+    def delete_rules(selected_index):
+        """
+        Handles the functionality of the 'Delete' button to remove a rule
+        set from the validation rules file.
+        """
+        if os.path.exists(VALIDATION_RULES_FILE):
+            with open(VALIDATION_RULES_FILE, "r") as file:
+                all_rules = json.load(file)
+
+            # Check if the selected index is valid before attempting deletion
+            if selected_index < len(all_rules):
+                all_rules.pop(selected_index)
+                with open(VALIDATION_RULES_FILE, "w") as file:
+                    json.dump(all_rules, file, indent=4)
+
+                print(f"Deleted Rule Set {selected_index + 1}")
+
+                # Reload and redisplay rules after deletion
+                load_rules()
+                display_rules()
+                
     def update_pagination_controls():
-        """Update pagination buttons."""
-        for widget in pagination_frame.winfo_children():
-            widget.destroy()
+            """Update pagination buttons."""
+            for widget in pagination_frame.winfo_children():
+                widget.destroy()
 
-        total_pages = (len(rules_to_display) + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
+            total_pages = (len(rules_to_display) + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
 
-        if current_page > 0:
-            ctk.CTkButton(
-                pagination_frame, text="Previous", command=lambda: go_to_page(current_page - 1), width=80, height=30
+            if current_page > 0:
+                ctk.CTkButton(
+                    pagination_frame, text="Previous", command=lambda: go_to_page(current_page - 1), width=80, height=30
+                ).pack(side="left", padx=5)
+
+            ctk.CTkLabel(
+                pagination_frame, text=f"Page {current_page + 1} of {total_pages}", font=("Arial", 12)
             ).pack(side="left", padx=5)
 
-        ctk.CTkLabel(
-            pagination_frame, text=f"Page {current_page + 1} of {total_pages}", font=("Arial", 12)
-        ).pack(side="left", padx=5)
-
-        if current_page < total_pages - 1:
-            ctk.CTkButton(
-                pagination_frame, text="Next", command=lambda: go_to_page(current_page + 1), width=80, height=30
-            ).pack(side="left", padx=5)
+            if current_page < total_pages - 1:
+                ctk.CTkButton(
+                    pagination_frame, text="Next", command=lambda: go_to_page(current_page + 1), width=80, height=30
+                ).pack(side="left", padx=5)
 
     def go_to_page(page_index):
         """Navigate to a specific page."""
