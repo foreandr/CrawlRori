@@ -1,257 +1,251 @@
-
 test_data = {
-    "recording_tool": [
-        {
-            "data": [
-                {
-                    "question": "Welke situatie is van toepassing? De aanvrager is:",
-                    "answers": {
-                        "Particulier": True,
-                        "Zakelijk": False,
-                        "Gedeeltelijk particulier en gedeeltelijk zakelijk": False
-                    }
-                },
-                {
-                    "question": "Heeft de aanvrager voor zijn zakelijke prestaties recht op aftrek van de BTW?",
-                    "answers": {
-                        "Nee": True,
-                        "Ja": False
-                    }
-                }
-            ],
-            "url": "https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/algemeen",
-            "tab_type": "algemeen"
-        },
-        {
-            "data": [
-                {
-                    "question": "Zijn met betrekking tot de ingevoerde schades één of meerdere kenmerken waargenomen waarbij mogelijk sprake is van ongelijke zetting?",
-                    "answers": {
-                        "Ja": True,
-                        "Nee": True
-                    }
-                }
-            ],
-            "url": "https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/omgevingskenmerken",
-            "tab_type": "omgevingskenmerken"
-        },
-        {
-            "data": [
-                    {
-                        "building_title": "second building!!23984712983",
-                        "building_url": "https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/gebouwen/ccc056d9-0921-4fcd-907f-2cc4e1b70877/",
-                        "questions_data": [
-                            {
-                                "question": "Wat is het bouwjaar?",
-                                "answers": "19.0"
-                            },
+	"recording_tool":[
+        		{
+			"data":[
+				{
+					"building_title":"second building!!23984712983",
+					"building_url":"https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/gebouwen/ccc056d9-0921-4fcd-907f-2cc4e1b70877/",
+					"questions_data":[
+						{
+							"question":"Wat is het bouwjaar?",
+							"answers":"19.0"
+						},
+						{
+							"question":"Kenmerken bouwlaag 0",
+							"answers":{
+								"Houten balkenvloer":True,
+								"Systeemvloer baksteen":False,
+								"Beton (i.w. / breedplaat)":False,
+								"Beton systeemvloer (kanaalplaat)":False
+							}
+						},
+						{
+							"question":"Zijn er meerdere gevelconstructies?",
+							"answers":{
+								"Ja":False,
+								"Nee":True
+							}
+						},
+						{
+							"question":"Is er een aanbouw (niet zijnde een erker) aanwezig?",
+							"answers":{
+								"Ja":False,
+								"Nee":True
+							}
+						},
+						{
+							"question":"Balkon aanwezig?",
+							"answers":"hello world"
+						},
+						{
+							"question":"Buiten afwerking van het dak?",
+							"answers":{
+								"Pannen":True,
+								"Leien":False,
+								"Metaal":False,
+								"Bitumen (o.g.)":False,
+								"Riet":False,
+								"Golfplaat":False
+							}
+						}
+					],
+					"images":[
+						
+					]
+				},
+				{
+					"building_title":"BUILDING NUMBER ONE",
+					"building_url":"https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/gebouwen/ccc056d9-0921-4fcd-907f-2cc4e1b70877/",
+					"questions_data":[
+						{
+							"question":"Wat is het bouwjaar?",
+							"answers":"194.0"
+						},
+						{
+							"question":"Kenmerken bouwlaag 0",
+							"answers":{
+								"Houten balkenvloer":True,
+								"Systeemvloer baksteen":False,
+								"Beton (i.w. / breedplaat)":False,
+								"Beton systeemvloer (kanaalplaat)":False
+							}
+						},
+						{
+							"question":"Zijn er meerdere gevelconstructies?",
+							"answers":{
+								"Ja":False,
+								"Nee":True
+							}
+						},
+						{
+							"question":"Is er een aanbouw (niet zijnde een erker) aanwezig?",
+							"answers":{
+								"Ja":False,
+								"Nee":True
+							}
+						},
+						{
+							"question":"Balkon aanwezig?",
+							"answers":"hello world"
+						},
+						{
+							"question":"Buiten afwerking van het dak?",
+							"answers":{
+								"Pannen":True,
+								"Leien":False,
+								"Metaal":False,
+								"Bitumen (o.g.)":False,
+								"Riet":False,
+								"Golfplaat":False
+							}
+						}
+					],
+					"images":[
+						
+					]
+				}
+			],
+			"url":"https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/gebouwen/",
+			"tab_type":"gebouwen"
+		},
+		{
+			"data":[
+				{
+					"question":"Welke situatie is van toepassing? De aanvrager is:",
+					"answers":{
+						"Particulier":True,
+						"Zakelijk":False,
+						"Gedeeltelijk particulier en gedeeltelijk zakelijk":False
+					}
+				},
+				{
+					"question":"Heeft de aanvrager voor zijn zakelijke prestaties recht op aftrek van de BTW?",
+					"answers":{
+						"Nee":True,
+						"Ja":False
+					}
+				}
+			],
+			"url":"https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/algemeen",
+			"tab_type":"algemeen"
+		},
+		{
+			"data":[
+				{
+					"question":"Zijn met betrekking tot de ingevoerde schades één of meerdere kenmerken waargenomen waarbij mogelijk sprake is van ongelijke zetting?",
+					"answers":{
+						"Ja":True,
+						"Nee":True
+					}
+				}
+			],
+			"url":"https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/omgevingskenmerken",
+			"tab_type":"omgevingskenmerken"
+		},
 
-
-                            {
-                                "question": "Kenmerken bouwlaag 0",
-                                "answers": {
-                                    "Houten balkenvloer": True,
-                                    "Systeemvloer baksteen": False,
-                                    "Beton (i.w. / breedplaat)": False,
-                                    "Beton systeemvloer (kanaalplaat)": False
-                                }
-                            },
-                            {
-                                "question": "Zijn er meerdere gevelconstructies?",
-                                "answers": {
-                                    "Ja": False,
-                                    "Nee": True
-                                }
-                            },
-                            {
-                                "question": "Is er een aanbouw (niet zijnde een erker) aanwezig?",
-                                "answers": {
-                                    "Ja": False,
-                                    "Nee": True
-                                }
-                            },
-
-                            {
-                                "question": "Balkon aanwezig?",
-                                "answers": "hello world"
-                                
-                            },
-
-                            {
-                                "question": "Buiten afwerking van het dak?",
-                                "answers": {
-                                    "Pannen": True,
-                                    "Leien": False,
-                                    "Metaal": False,
-                                    "Bitumen (o.g.)": False,
-                                    "Riet": False,
-                                    "Golfplaat": False
-                                }
-                            }
-                        ],
-                        "images": [
-                        ]
-                    },                    
-                    {
-                        "building_title": "BUILDING NUMBER ONE",
-                        "building_url": "https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/gebouwen/ccc056d9-0921-4fcd-907f-2cc4e1b70877/",
-                        "questions_data": [
-                            {
-                                "question": "Wat is het bouwjaar?",
-                                "answers": "19.0"
-                            },
-
-
-                            {
-                                "question": "Kenmerken bouwlaag 0",
-                                "answers": {
-                                    "Houten balkenvloer": True,
-                                    "Systeemvloer baksteen": False,
-                                    "Beton (i.w. / breedplaat)": False,
-                                    "Beton systeemvloer (kanaalplaat)": False
-                                }
-                            },
-                            {
-                                "question": "Zijn er meerdere gevelconstructies?",
-                                "answers": {
-                                    "Ja": False,
-                                    "Nee": True
-                                }
-                            },
-                            {
-                                "question": "Is er een aanbouw (niet zijnde een erker) aanwezig?",
-                                "answers": {
-                                    "Ja": False,
-                                    "Nee": True
-                                }
-                            },
-
-                            {
-                                "question": "Balkon aanwezig?",
-                                "answers": "hello world"
-                                
-                            },
-
-                            {
-                                "question": "Buiten afwerking van het dak?",
-                                "answers": {
-                                    "Pannen": True,
-                                    "Leien": False,
-                                    "Metaal": False,
-                                    "Bitumen (o.g.)": False,
-                                    "Riet": False,
-                                    "Golfplaat": False
-                                }
-                            }
-                        ],
-                        "images": [
-                         ]
-                    }
-                ],
-                "url": "https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/gebouwen/",
-                "tab_type": "gebouwen"
-            },
-        {
-            "data": [
-                {
-                    "images": [
-                    ],
-                    "title": "G1.B1.R1. Overloop",
-                    "questionaire_data": [
-                        {
-                            "question": "Wat is het oppervlakte (m2) van de vloer?",
-                            "answers": "2.2"
-                        },
-                        {
-                            "question": "Gebouw (verplicht)",
-                            "answer": ""
-                        },
-                        {
-                            "question": "Wil je een ruimte aan de binnenkant of buitenkant aanmaken?",
-                            "answers": {
-                                "Buitenkant gebouw": False,
-                                "Binnenkant gebouw": True
-                            }
-                        },
-                        {
-                            "question": "Op welke bouwlaag bevind zich de ruimte?",
-                            "answers": {
-                                "Bouwlaag -1": False,
-                                "Bouwlaag 0": False,
-                                "Bouwlaag 0,5": False,
-                                "Bouwlaag 1": True,
-                                "Bouwlaag 2": False,
-                                "Bouwlaag 3": False,
-                                "Bouwlaag 4": False,
-                                "Bouwlaag 5": False,
-                                "Bouwlaag 6": False,
-                                "Insteek": False
-                            }
-                        }
-                    ]
-                }
-            ],
-            "url": "https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/omgevingskenmerken",
-            "tab_type": "ruimtes"
-        }
-    ],
-    "control_tool": {
-        "informatie": [
-            {
-                "question": "Algemene opmerking van de aanvrager",
-                "answer": "-"
-            },
-            {
-                "question": "Algemene opmerking van de deskundige",
-                "answer": "Het gebouw betreft een appartement. Eventuele schade(s) aan de buitenmuren, het dak en/ of de fundering zijn niet meegenomen in de beoordeling van dit rapport, aangezien deze delen van het gebouw (totale complex) onder de verantwoordelijkheid van de Vereniging van Eigenaren vallen. In een aparte aanvraag kunnen deze schades (van het complex) worden aangevraagd."
-            },
-            {
-                "question": "Welke situatie is van toepassing? De aanvrager is:",
-                "answer": "Particulier"
-            },
-            {
-                "question": "Heeft de aanvrager voor zijn zakelijke prestaties recht op aftrek van de BTW?",
-                "answer": "Nee"
-            },
-            {
-                "question": "Gebied",
-                "answer": "Effectgebied"
-            }
-        ],
-        "calculation": [
-                {
-                    "Naam": "Subtotaal G1.B1.R1. Overloop",
-                    "Aantal": "",
-                    "Stukprijs": "",
-                    "Staffel": "",
-                    "Ruimte": "",
-                    "Gebouw": "€0,00",
-                    "Totaal": "",
-                    "BTW %": ""
-                },
-                {
-                    "Naam": "Subtotaal G1.B1.R2. Berging",
-                    "Aantal": "",
-                    "Stukprijs": "",
-                    "Staffel": "",
-                    "Ruimte": "",
-                    "Gebouw": "€0,00",
-                    "Totaal": "",
-                    "BTW %": ""
-                },
-                {
-                    "Naam": "Subtotaal G1.B1.R3. Berging",
-                    "Aantal": "",
-                    "Stukprijs": "",
-                    "Staffel": "",
-                    "Ruimte": "",
-                    "Gebouw": "€0,00",
-                    "Totaal": "",
-                    "BTW %": ""
-                }
-        ]
-    }
+		{
+			"data":[
+				{
+					"images":[
+						
+					],
+					"title":"G1.B1.R1. Overloop",
+					"questionaire_data":[
+						{
+							"question":"Wat is het oppervlakte (m2) van de vloer?",
+							"answers":"2.2"
+						},
+						{
+							"question":"Gebouw (verplicht)",
+							"answer":""
+						},
+						{
+							"question":"Wil je een ruimte aan de binnenkant of buitenkant aanmaken?",
+							"answers":{
+								"Buitenkant gebouw":False,
+								"Binnenkant gebouw":True
+							}
+						},
+						{
+							"question":"Op welke bouwlaag bevind zich de ruimte?",
+							"answers":{
+								"Bouwlaag -1":False,
+								"Bouwlaag 0":False,
+								"Bouwlaag 0,5":False,
+								"Bouwlaag 1":True,
+								"Bouwlaag 2":False,
+								"Bouwlaag 3":False,
+								"Bouwlaag 4":False,
+								"Bouwlaag 5":False,
+								"Bouwlaag 6":False,
+								"Insteek":False
+							}
+						}
+					]
+				}
+			],
+			"url":"https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/omgevingskenmerken",
+			"tab_type":"ruimtes"
+		}
+	],
+	"control_tool":{
+		"informatie":[
+			{
+				"question":"Algemene opmerking van de aanvrager",
+				"answer":"-"
+			},
+			{
+				"question":"Algemene opmerking van de deskundige",
+				"answer":"Het gebouw betreft een appartement. Eventuele schade(s) aan de buitenmuren, het dak en/ of de fundering zijn niet meegenomen in de beoordeling van dit rapport, aangezien deze delen van het gebouw (totale complex) onder de verantwoordelijkheid van de Vereniging van Eigenaren vallen. In een aparte aanvraag kunnen deze schades (van het complex) worden aangevraagd."
+			},
+			{
+				"question":"Welke situatie is van toepassing? De aanvrager is:",
+				"answer":"Particulier"
+			},
+			{
+				"question":"Heeft de aanvrager voor zijn zakelijke prestaties recht op aftrek van de BTW?",
+				"answer":"Nee"
+			},
+			{
+				"question":"Gebied",
+				"answer":"Effectgebied"
+			}
+		],
+		"calculation":[
+			{
+				"Naam":"Subtotaal G1.B1.R1. Overloop",
+				"Aantal":"",
+				"Stukprijs":"",
+				"Staffel":"",
+				"Ruimte":"",
+				"Gebouw":"€0,00",
+				"Totaal":"",
+				"BTW %":""
+			},
+			{
+				"Naam":"Subtotaal G1.B1.R2. Berging",
+				"Aantal":"",
+				"Stukprijs":"",
+				"Staffel":"",
+				"Ruimte":"",
+				"Gebouw":"€0,00",
+				"Totaal":"",
+				"BTW %":""
+			},
+			{
+				"Naam":"Subtotaal G1.B1.R3. Berging",
+				"Aantal":"",
+				"Stukprijs":"",
+				"Staffel":"",
+				"Ruimte":"",
+				"Gebouw":"€0,00",
+				"Totaal":"",
+				"BTW %":""
+			}
+		]
+	}
 }
+
 
 example_validation_rule = [
         {
@@ -288,46 +282,64 @@ example_validation_rule = [
         }
     ]
 
-
 import re
 import hyperSel
 import hyperSel.colors_utilities
+import operator
 
-def process_recording_tool(recording_tool):
+def process_recording_tool(recording_tool, verbose=False):
     flattened = []
-    for section in recording_tool[:]:
-        source = section.get("tab_type", "unknown")
-
-        all_data = section.get("data", [])
-        '''
-                               flattened.append({
-                        "question": question,
-                        "answers": answers,
-                        "source": source
-                    })
+    for section in recording_tool:
+        # print("SECTION: ", section)
         
-        '''
-        # print("all_data:", all_data)
+        
+        source = section.get("tab_type", "unknown")
+        # print("source:", source)
+    
+        all_data = section.get("data", [])
+
         for single_item in all_data:
             question_data = single_item.get('questions_data', [])
             if question_data == None or question_data == []:
                 question_data = single_item.get("questionaire_data", [])
 
             if question_data == []:
-                hyperSel.colors_utilities.c_print(text="NO SUB DATA, DATA IS ALL IN REGULAR SECTIONS", color="green")
+
                 question = single_item.get("question")
                 answers = single_item.get("answers", {})
-                print("question:", question)
-                print("answers :", answers)
-                print(single_item)
-                print("===")
+                full_str = f'''
+                    QUESTION:{question}\n
+                    ANSWER:{answers}\n
+                    SOURCE:{source}\n
+                    =======================
+                    '''
+                
+                if verbose:
+                    hyperSel.colors_utilities.c_print(text=full_str, color="red")
+                flattened.append({
+                    "question": question,
+                    "answers": answers,
+                    "source": source,
+                })
             else:
-                print("INNER QUESTION DATA")
-                hyperSel.colors_utilities.c_print(text="INNER QUESTION DATA", color="red")
-                print("question_data:", question_data)
-                print("==")
-    
-    exit()
+                for dict_question in question_data:
+                    question = dict_question.get("question")
+                    answers = dict_question.get("answers", {})
+                    full_str = f'''
+                    QUESTION:{question}\n
+                    ANSWER:{answers}\n
+                    SOURCE:{source}\n
+                    =======================
+                    '''
+                    if verbose:
+                        hyperSel.colors_utilities.c_print(text=full_str, color="green")
+
+                    flattened.append({
+                        "question": question,
+                        "answers": answers,
+                        "source": source,
+                    })
+
     return flattened
 
 
@@ -376,18 +388,13 @@ def process_control_tool(control_tool):
 
 def flatten_test_data_to_questions(data):
     flattened = []
-    try:
-        if "recording_tool" in data:
-            flattened.extend(process_recording_tool(data["recording_tool"]))
 
-        if "control_tool" in data:
-            flattened.extend(process_control_tool(data["control_tool"]))
+    if "recording_tool" in data:
+        flattened.extend(process_recording_tool(data["recording_tool"]))
 
-    except Exception as e:
-        hyperSel.colors_utilities.c_print(
-            text=f"General error processing data: {data} - {e}", color="red"
-        )
-
+    if "control_tool" in data:
+        flattened.extend(process_control_tool(data["control_tool"]))
+        
     return flattened
 
 def get_if_rules(selected_rule_set):
@@ -397,44 +404,166 @@ def get_if_rules(selected_rule_set):
 def get_then_rules(selected_rule_set):
     return [rule for rule in selected_rule_set if rule.get("type") == "then"]
 
+def get_condition_type(rule_condition):
+    if type(rule_condition) == bool:
+        return "boolean"
+
+    if type(rule_condition) == dict:
+        return "numeric"
+    
+    else: return "string"
+
+def string_condition_check(rule, answers):
+    if type(answers) == str and type(rule['condition']) == bool:
+        return None
+    
+    print("rule:", rule)
+    print("answers:", answers, type(answers))
+
+def bool_condition_check(rule, answers):
+    # hyperSel.colors_utilities.c_print("BOOLEAN", "blue")
+    if type(answers) == str and type(rule['condition']) == bool:
+        return None
+    
+    rule_answer_key = rule['answer']
+
+    answer_boolean = rule['condition']
+
+    try:
+        if answers[rule_answer_key] == answer_boolean:
+            return 1
+        else: 
+            return 2
+    except Exception as e:
+        return -1
+
+
+
+def numeric_condition_check(rule, answers):
+    try:
+        hyperSel.colors_utilities.c_print("NUMERIC", "cyan")
+        print("===" * 10)
+        
+        # Extract rule components
+        rule_type = rule.get('type')
+        rule_question = rule.get('question')
+        rule_answer = rule.get('answer')
+        rule_condition = rule.get('condition')
+        rule_location = rule.get('location')
+        rule_operator, rule_condition_value = next(iter(rule_condition.items()))
+
+        # Display extracted rule components
+        print("-")
+        print(f"Rule Type: {rule_type}")
+        print(f"Question: {rule_question}")
+        print(f"Answer: {rule_answer}")
+        print(f"Condition Operator: {rule_operator}")
+        print(f"Condition Value: {rule_condition_value}")
+        print(f"Location: {rule_location}")
+        print("-")
+        
+        # Map operator strings to functions
+        operator_mapping = {
+            '<': operator.lt,
+            '<=': operator.le,
+            '>': operator.gt,
+            '>=': operator.ge,
+            '==': operator.eq,
+            '!=': operator.ne
+        }
+
+        # Perform the condition check
+        if rule_operator in operator_mapping:
+            # Convert answers to numeric type if necessary
+            try:
+                answers = float(convert_to_number(answers))
+                rule_condition_value = float(rule_condition_value)
+            except ValueError:
+                print("Error: Non-numeric values encountered.")
+                return -2  # Error case
+            
+            # Evaluate the condition
+            condition_function = operator_mapping[rule_operator]
+            result = condition_function(answers, rule_condition_value)
+
+            # Print the actual expression and result
+            print(f"Evaluating: {answers} {rule_operator} {rule_condition_value}")
+            if result:
+                print("Condition met.")
+                return 1  # Condition met
+            else:
+                print("Condition not met.")
+                return 2  # Condition failed
+        else:
+            print(f"Error: Unsupported operator '{rule_operator}'.")
+            return -2  # Error case
+
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        return -2  # Error case
+
+def skip_logic(answer):
+    skip_answer = False
+    if answer == {}:
+        skip_answer = True
+    if answer == "":
+        skip_answer = True
+    if answer == "-":
+        skip_answer = True
+    return skip_answer
 
 def check_if_rule_in_data(rule, flattened_data):
+    print("=="*40)
     rule_type = rule.get("type")
+    print("rule_type:", rule_type)
+
     rule_question = rule.get("question")
+    print("rule_question:", rule_question)
+
     rule_answer = rule.get("answer")
+    print("rule_answer:", rule_answer)
+
     rule_condition = rule.get("condition")
+    print("rule_condition:", rule_condition)
+
+    condition_type = get_condition_type(rule_condition)
+    print("condition_type:", condition_type)
+
     rule_location = rule.get("location")
+    print("rule_location:", rule_location)
+    print("==")
 
     rule_data_confirmed = []
     rule_data_failed = []
     rule_data_does_not_exist = []
 
     for data in flattened_data:
+        if skip_logic(data.get("answers")):
+            continue   
+
         question = data.get("question")
         answers = data.get("answers")
         source = data.get("source")
 
-        if isinstance(answers, str):
-            answers = convert_to_number(answers)
-        elif isinstance(answers, dict):
-            answers = {k: convert_to_number(v) for k, v in answers.items()}
+        if rule_question.lower() == question.lower():
+            result = None
+            if condition_type == "boolean":
+                result = bool_condition_check(rule, answers)
+            elif condition_type == "numeric":
+                result = numeric_condition_check(rule, answers)
+            else:
+                result = string_condition_check(rule, answers)
 
-        if question.lower() == rule_question.lower() and source == rule_location:
-            if isinstance(answers, dict):
-                if rule_answer in answers and validate_condition(answers[rule_answer], rule_condition):
-                    rule_data_confirmed.append(rule)
-                else:
-                    rule_data_failed.append(rule)
+            if result == None:
+                continue
 
-            elif isinstance(answers, (list, str)):
-                if validate_condition(answers, rule_condition):
-                    rule_data_confirmed.append(rule)
-                else:
-                    rule_data_failed.append(rule)
-            break
-    else:
-        rule_data_does_not_exist.append(rule)
-
+            print("result", result)
+            if result == 1:
+                rule_data_confirmed.append(rule)
+            if result == 2:
+                rule_data_failed.append(rule)
+            if result == -1:
+                rule_data_does_not_exist.append(rule)  
     return {
         "confirmed": rule_data_confirmed,
         "failed": rule_data_failed,
@@ -452,29 +581,8 @@ def convert_to_number(value):
             return value
     return value
 
-
-def validate_condition(value, condition):
-    if isinstance(condition, dict):
-        for operator, target_value in condition.items():
-            if operator == "<" and not value < target_value:
-                return False
-            elif operator == ">" and not value > target_value:
-                return False
-            elif operator == "=" and not value == target_value:
-                return False
-            elif operator == "contains" and isinstance(value, str) and target_value not in value:
-                return False
-        return True
-    return value == condition
-
-
 def validation_rule_tool(current_data, selected_rule_set):
     flattened_data = flatten_test_data_to_questions(current_data)
-    for i in flattened_data:
-        print(i)
-        print("==")
-    exit()
-
 
     all_if_rules = get_if_rules(selected_rule_set)
     all_then_rules = get_then_rules(selected_rule_set)
@@ -510,17 +618,21 @@ def validation_rule_tool(current_data, selected_rule_set):
             print("WE CONFIRMED THIS IF RULE", all_if_rules_confirmed)
 
             for then_rule in all_then_rules:
-                print("=========")
+                hyperSel.colors_utilities.c_print(text="========="*4, color="red")
                 print("then_rule:", then_rule)
 
                 rule_result_dict = check_if_rule_in_data(then_rule, flattened_data)
-                
-
-
+                input("STOPPING HERE")
                 rule_confirmed = rule_result_dict['confirmed']
-                rule_failed = rule_result_dict['failed']
-                rule_not_found = rule_result_dict['not_found']
+                print("\n")
+                print("rule_confirmed:", rule_confirmed)
 
+                rule_failed = rule_result_dict['failed']
+                print("rule_failed   :", rule_failed)
+
+                rule_not_found = rule_result_dict['not_found']
+                print("rule_not_found:", rule_not_found)
+                
                 if rule_confirmed != []:
                     all_then_rules_confirmed.append(rule_confirmed[0])
 
@@ -530,7 +642,7 @@ def validation_rule_tool(current_data, selected_rule_set):
                 if rule_not_found != []:
                     all_then_rules_not_found.append(rule_not_found[0])
 
-                break
+                
 
             exit()
     else:
