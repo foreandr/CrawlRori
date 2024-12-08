@@ -268,7 +268,7 @@ example_validation_rule = [
             "type": "then",
             "question": "Is het een gebouw of een werk?",
             "answer": "Gebouw",
-            "condition": True,
+            "condition": False,
             "location": "gebouwen"
         },
         {
@@ -276,7 +276,7 @@ example_validation_rule = [
             "question": "Balkon aanwezig?",
             "answer": "hello world",
             "condition": {
-                "contains": "ell"
+                "contains": "ellx"
             },
             "location": "gebouwen"
         }
@@ -409,6 +409,9 @@ def get_condition_type(rule_condition):
         return "boolean"
 
     if type(rule_condition) == dict:
+        if "contains" in rule_condition:
+            return "string"
+
         return "numeric"
     
     else: return "string"
@@ -416,9 +419,11 @@ def get_condition_type(rule_condition):
 def string_condition_check(rule, answers):
     if type(answers) == str and type(rule['condition']) == bool:
         return None
-    
-    print("rule:", rule)
-    print("answers:", answers, type(answers))
+    inner_string = rule['condition']['contains']
+    if inner_string in answers:
+        return 1
+    else:
+        return 2
 
 def bool_condition_check(rule, answers):
     # hyperSel.colors_utilities.c_print("BOOLEAN", "blue")
@@ -437,12 +442,9 @@ def bool_condition_check(rule, answers):
     except Exception as e:
         return -1
 
-
-
 def numeric_condition_check(rule, answers):
     try:
-        hyperSel.colors_utilities.c_print("NUMERIC", "cyan")
-        print("===" * 10)
+        # hyperSel.colors_utilities.c_print("NUMERIC", "cyan")
         
         # Extract rule components
         rule_type = rule.get('type')
@@ -453,6 +455,7 @@ def numeric_condition_check(rule, answers):
         rule_operator, rule_condition_value = next(iter(rule_condition.items()))
 
         # Display extracted rule components
+        '''
         print("-")
         print(f"Rule Type: {rule_type}")
         print(f"Question: {rule_question}")
@@ -461,7 +464,8 @@ def numeric_condition_check(rule, answers):
         print(f"Condition Value: {rule_condition_value}")
         print(f"Location: {rule_location}")
         print("-")
-        
+        '''
+
         # Map operator strings to functions
         operator_mapping = {
             '<': operator.lt,
@@ -479,7 +483,7 @@ def numeric_condition_check(rule, answers):
                 answers = float(convert_to_number(answers))
                 rule_condition_value = float(rule_condition_value)
             except ValueError:
-                print("Error: Non-numeric values encountered.")
+                #print("Error: Non-numeric values encountered.")
                 return -2  # Error case
             
             # Evaluate the condition
@@ -487,19 +491,19 @@ def numeric_condition_check(rule, answers):
             result = condition_function(answers, rule_condition_value)
 
             # Print the actual expression and result
-            print(f"Evaluating: {answers} {rule_operator} {rule_condition_value}")
+            #print(f"Evaluating: {answers} {rule_operator} {rule_condition_value}")
             if result:
-                print("Condition met.")
+                #print("Condition met.")
                 return 1  # Condition met
             else:
-                print("Condition not met.")
+                #print("Condition not met.")
                 return 2  # Condition failed
         else:
-            print(f"Error: Unsupported operator '{rule_operator}'.")
+            #print(f"Error: Unsupported operator '{rule_operator}'.")
             return -2  # Error case
 
     except Exception as e:
-        print(f"Unexpected error: {e}")
+        #print(f"Unexpected error: {e}")
         return -2  # Error case
 
 def skip_logic(answer):
@@ -513,57 +517,75 @@ def skip_logic(answer):
     return skip_answer
 
 def check_if_rule_in_data(rule, flattened_data):
-    print("=="*40)
+    #print("=="*40)
     rule_type = rule.get("type")
-    print("rule_type:", rule_type)
+    #print("rule_type:", rule_type)
 
     rule_question = rule.get("question")
-    print("rule_question:", rule_question)
+    #print("rule_question:", rule_question)
 
     rule_answer = rule.get("answer")
-    print("rule_answer:", rule_answer)
+    #print("rule_answer:", rule_answer)
 
     rule_condition = rule.get("condition")
-    print("rule_condition:", rule_condition)
+    #print("rule_condition:", rule_condition)
 
     condition_type = get_condition_type(rule_condition)
-    print("condition_type:", condition_type)
+    #print("condition_type:", condition_type)
 
     rule_location = rule.get("location")
-    print("rule_location:", rule_location)
-    print("==")
+    #print("rule_location:", rule_location)
+    #print("==")
 
     rule_data_confirmed = []
     rule_data_failed = []
     rule_data_does_not_exist = []
-
+    rule_found = False
     for data in flattened_data:
         if skip_logic(data.get("answers")):
+            # print("THIS ONE BEING SKIPPED", data)
             continue   
 
         question = data.get("question")
         answers = data.get("answers")
         source = data.get("source")
-
+        
         if rule_question.lower() == question.lower():
+            rule_found = True
+
+            #print("data:", data)
             result = None
             if condition_type == "boolean":
+                #print("BOOLEAN CHECK?")
                 result = bool_condition_check(rule, answers)
             elif condition_type == "numeric":
                 result = numeric_condition_check(rule, answers)
             else:
                 result = string_condition_check(rule, answers)
 
+            #print("==")
+            #print("RESULT:", result)
+            #print("rule:", rule)
+            #print("")
+
             if result == None:
                 continue
 
-            print("result", result)
+            data_section =  {
+                "rule_demand":rule,
+                "data_answer":data
+            }
+            
             if result == 1:
-                rule_data_confirmed.append(rule)
+                rule_data_confirmed.append(data_section)
             if result == 2:
-                rule_data_failed.append(rule)
+                rule_data_failed.append(data_section)
             if result == -1:
-                rule_data_does_not_exist.append(rule)  
+                rule_data_does_not_exist.append(data_section)  
+
+    if rule_found == False:
+        rule_data_does_not_exist.append(rule)  
+
     return {
         "confirmed": rule_data_confirmed,
         "failed": rule_data_failed,
@@ -615,24 +637,21 @@ def validation_rule_tool(current_data, selected_rule_set):
                 all_if_rules_not_found.append(rule_not_found[0])
 
         if len(all_if_rules_confirmed) != 0:
-            print("WE CONFIRMED THIS IF RULE", all_if_rules_confirmed)
-
             for then_rule in all_then_rules:
-                hyperSel.colors_utilities.c_print(text="========="*4, color="red")
-                print("then_rule:", then_rule)
+                string = f"then_rule:{then_rule}"
+
+                # hyperSel.colors_utilities.c_print(f"{string}", "green")
 
                 rule_result_dict = check_if_rule_in_data(then_rule, flattened_data)
-                input("STOPPING HERE")
                 rule_confirmed = rule_result_dict['confirmed']
-                print("\n")
-                print("rule_confirmed:", rule_confirmed)
-
                 rule_failed = rule_result_dict['failed']
-                print("rule_failed   :", rule_failed)
-
                 rule_not_found = rule_result_dict['not_found']
-                print("rule_not_found:", rule_not_found)
                 
+
+                #if "Is het een gebouw".lower() in str(then_rule).lower():
+                #    print("rule_result_dict:", rule_result_dict)
+                #    input("STOP AND CHECK")
+
                 if rule_confirmed != []:
                     all_then_rules_confirmed.append(rule_confirmed[0])
 
@@ -641,10 +660,6 @@ def validation_rule_tool(current_data, selected_rule_set):
 
                 if rule_not_found != []:
                     all_then_rules_not_found.append(rule_not_found[0])
-
-                
-
-            exit()
     else:
         for then_rule in all_then_rules:
             rule_result_dict = check_if_rule_in_data(then_rule, flattened_data)
@@ -666,9 +681,9 @@ def validation_rule_tool(current_data, selected_rule_set):
         "all_then_rules_failed": all_then_rules_failed,
         "all_then_rules_not_found": all_then_rules_not_found,
 
-        "all_if_rules_confirmed": all_if_rules_confirmed,
-        "all_if_rules_failed": all_if_rules_failed,
-        "all_if_rules_not_found": all_if_rules_not_found,
+        #"all_if_rules_confirmed": all_if_rules_confirmed,
+        #"all_if_rules_failed": all_if_rules_failed,
+        #"all_if_rules_not_found": all_if_rules_not_found,
     }
 
     return final_rule_dict
@@ -679,4 +694,4 @@ if __name__ == '__main__':
     for key, value in final_rule_dict.items():
         print(key)
         print(value)
-        print("-")
+        print("--------"*4)
