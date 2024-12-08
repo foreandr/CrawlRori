@@ -187,5 +187,32 @@
             },
             "location": "gebouwen"
         }
+    ],
+    [
+        {
+            "type": "if",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
+            "answer": "Particulier",
+            "condition": false,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "question": "Wat is het bouwjaar?",
+            "answer": "1939.0",
+            "condition": {
+                ">": 2000.0
+            },
+            "location": "gebouwen"
+        }
+    ],
+    [
+        {
+            "type": "if",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
+            "answer": "Particulier",
+            "condition": false,
+            "location": "algemeen"
+        }
     ]
 ]

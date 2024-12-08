@@ -231,7 +231,7 @@ def create_check_validation_tab(check_tab):
         Handles the functionality of the 'Check' button to validate rules
         against the current data.
         """
-        print("Waiting for data...")
+        # print("Waiting for data...")
 
         # Load the current data from the file
         current_data = gui.load_current_data()
@@ -371,8 +371,29 @@ def create_validation_data_section(parent_frame):
         success_textbox.configure(state="normal")  # Enable editing
         success_textbox.delete("1.0", "end")  # Clear existing content
 
+        # Confirmed IF Rules (Displayed Before THEN Rules)
+        if_successes = final_rule_dict.get("all_if_rules_confirmed", [])
+        if if_successes:
+            success_textbox.insert("end", "CONFIRMED IF RULES:\n", "bold_green")
+            success_textbox.insert("end", "===============\n", "bold_green")
+            for idx, success in enumerate(if_successes, start=1):
+                rule = success.get('rule_demand', {})
+                data = success.get('data_answer', {})
+                success_text = (
+                    f"{idx}. Question: {rule.get('question', 'N/A')}\n"
+                    f"   Expected Answer: {rule.get('answer', 'N/A')}\n"
+                    f"   Condition: {rule.get('condition', 'N/A')}\n"
+                    f"   Actual Answer: {data.get('answers', 'N/A')}\n"
+                    f"   Source: {rule.get('location', 'N/A')}\n"
+                    f"   {'-' * 40}\n"
+                )
+                success_textbox.insert("end", success_text)
+
+        # Confirmed THEN Rules
         then_successes = final_rule_dict.get("all_then_rules_confirmed", [])
         if then_successes:
+            success_textbox.insert("end", "\nCONFIRMED THEN RULES:\n", "bold_green")
+            success_textbox.insert("end", "===============\n", "bold_green")
             for idx, success in enumerate(then_successes, start=1):
                 rule = success.get('rule_demand', {})
                 data = success.get('data_answer', {})
@@ -380,7 +401,7 @@ def create_validation_data_section(parent_frame):
                     f"{idx}. Question: {rule.get('question', 'N/A')}\n"
                     f"   Expected: {rule.get('answer', 'N/A')}\n"
                     f"   Rule: {rule.get('condition', 'N/A')}\n"
-                    f"   Actual: {data.get('answers', 'N/A')}\n"
+                    f"   Actual Answer:: {data.get('answers', 'N/A')}\n"
                     f"   Source: {data.get('source', 'N/A')}\n"
                     f"   {'-' * 40}\n"
                 )
@@ -392,8 +413,27 @@ def create_validation_data_section(parent_frame):
         failures_textbox.configure(state="normal")  # Enable editing
         failures_textbox.delete("1.0", "end")  # Clear existing content
 
+        # Failed IF Rules (Displayed Before THEN Rules)
+        if_failures = final_rule_dict.get("all_if_rules_failed", [])
+        if if_failures:
+            failures_textbox.insert("end", "FAILED IF RULE (won't bother checking other rules):\n", "bold_red")
+            for idx, failure in enumerate(if_failures, start=1):
+                rule = failure.get('rule_demand', {})
+                data = failure.get('data_answer', {})
+                failure_text = (
+                    f"{idx}. Question: {rule.get('question', 'N/A')}\n"
+                    f"   Expected Answer: {rule.get('answer', 'N/A')}\n"
+                    f"   Condition Not Met: {rule.get('condition', 'N/A')}\n"
+                    f"   Actual Answer: {data.get('answers', 'N/A')}\n"
+                    f"   Source: {rule.get('location', 'N/A')}\n"
+                    f"   {'-' * 40}\n"
+                )
+                failures_textbox.insert("end", failure_text)
+
+        # Failed THEN Rules
         then_failures = final_rule_dict.get("all_then_rules_failed", [])
         if then_failures:
+            failures_textbox.insert("end", "\nFAILED THEN RULES:\n", "bold_red")
             for idx, failure in enumerate(then_failures, start=1):
                 rule = failure.get('rule_demand', {})
                 data = failure.get('data_answer', {})
@@ -401,7 +441,7 @@ def create_validation_data_section(parent_frame):
                     f"{idx}. Question: {rule.get('question', 'N/A')}\n"
                     f"   Expected: {rule.get('answer', 'N/A')}\n"
                     f"   Rule: {rule.get('condition', 'N/A')}\n"
-                    f"   Actual: {data.get('answers', 'N/A')}\n"
+                    f"   Actual Answer:: {data.get('answers', 'N/A')}\n"
                     f"   Source: {data.get('source', 'N/A')}\n"
                     f"   {'-' * 40}\n"
                 )
