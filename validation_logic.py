@@ -1,6 +1,4 @@
-import re
-import hyperSel
-import hyperSel.colors_utilities
+
 test_data = {
     "recording_tool": [
         {
@@ -39,11 +37,124 @@ test_data = {
         },
         {
             "data": [
+                    {
+                        "building_title": "second building!!23984712983",
+                        "building_url": "https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/gebouwen/ccc056d9-0921-4fcd-907f-2cc4e1b70877/",
+                        "questions_data": [
+                            {
+                                "question": "Wat is het bouwjaar?",
+                                "answers": "19.0"
+                            },
+
+
+                            {
+                                "question": "Kenmerken bouwlaag 0",
+                                "answers": {
+                                    "Houten balkenvloer": True,
+                                    "Systeemvloer baksteen": False,
+                                    "Beton (i.w. / breedplaat)": False,
+                                    "Beton systeemvloer (kanaalplaat)": False
+                                }
+                            },
+                            {
+                                "question": "Zijn er meerdere gevelconstructies?",
+                                "answers": {
+                                    "Ja": False,
+                                    "Nee": True
+                                }
+                            },
+                            {
+                                "question": "Is er een aanbouw (niet zijnde een erker) aanwezig?",
+                                "answers": {
+                                    "Ja": False,
+                                    "Nee": True
+                                }
+                            },
+
+                            {
+                                "question": "Balkon aanwezig?",
+                                "answers": "hello world"
+                                
+                            },
+
+                            {
+                                "question": "Buiten afwerking van het dak?",
+                                "answers": {
+                                    "Pannen": True,
+                                    "Leien": False,
+                                    "Metaal": False,
+                                    "Bitumen (o.g.)": False,
+                                    "Riet": False,
+                                    "Golfplaat": False
+                                }
+                            }
+                        ],
+                        "images": [
+                        ]
+                    },                    
+                    {
+                        "building_title": "BUILDING NUMBER ONE",
+                        "building_url": "https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/gebouwen/ccc056d9-0921-4fcd-907f-2cc4e1b70877/",
+                        "questions_data": [
+                            {
+                                "question": "Wat is het bouwjaar?",
+                                "answers": "19.0"
+                            },
+
+
+                            {
+                                "question": "Kenmerken bouwlaag 0",
+                                "answers": {
+                                    "Houten balkenvloer": True,
+                                    "Systeemvloer baksteen": False,
+                                    "Beton (i.w. / breedplaat)": False,
+                                    "Beton systeemvloer (kanaalplaat)": False
+                                }
+                            },
+                            {
+                                "question": "Zijn er meerdere gevelconstructies?",
+                                "answers": {
+                                    "Ja": False,
+                                    "Nee": True
+                                }
+                            },
+                            {
+                                "question": "Is er een aanbouw (niet zijnde een erker) aanwezig?",
+                                "answers": {
+                                    "Ja": False,
+                                    "Nee": True
+                                }
+                            },
+
+                            {
+                                "question": "Balkon aanwezig?",
+                                "answers": "hello world"
+                                
+                            },
+
+                            {
+                                "question": "Buiten afwerking van het dak?",
+                                "answers": {
+                                    "Pannen": True,
+                                    "Leien": False,
+                                    "Metaal": False,
+                                    "Bitumen (o.g.)": False,
+                                    "Riet": False,
+                                    "Golfplaat": False
+                                }
+                            }
+                        ],
+                        "images": [
+                         ]
+                    }
+                ],
+                "url": "https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/gebouwen/",
+                "tab_type": "gebouwen"
+            },
+        {
+            "data": [
                 {
                     "images": [
-                        "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/9503e009-7714-4aa4-9475-95e88fc45d0c/img-logo.svg",
-                        "https://www.gravatar.com/avatar/e1537c6a2f81cf9aac64d1362b2a93b3?d=identicon&s=128",
-                        "https://deatabix-production-storage.s3.eu-central-1.amazonaws.com/media/f4361f34-153a-46d7-8e24-ffd450eb5f4b/conversions/image_picker_2461256f-thumbnail.jpg"
                     ],
                     "title": "G1.B1.R1. Overloop",
                     "questionaire_data": [
@@ -81,7 +192,7 @@ test_data = {
                 }
             ],
             "url": "https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/omgevingskenmerken",
-            "tab_type": "omgevingskenmerken"
+            "tab_type": "ruimtes"
         }
     ],
     "control_tool": {
@@ -142,63 +253,90 @@ test_data = {
     }
 }
 
-example_validation_rule =     [
+example_validation_rule = [
         {
             "type": "if",
-            "question": "Heeft de aanvrager voor zijn zakelijke prestaties recht op aftrek van de BTW?",
-            "answer": "Ja",
-            "condition": False,
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
+            "answer": "Particulier",
+            "condition": True,
             "location": "algemeen"
         },
         {
             "type": "then",
-            "question": "Welke situatie is van toepassing? De aanvrager is:",
-            "answer": "Gedeeltelijk particulier en gedeeltelijk zakelijk",
-            "condition": False,
-            "location": "algemeen"
+            "question": "Wat is het bouwjaar?",
+            "answer": "1939.0",
+            "condition": {
+                "<": 2000.0
+            },
+            "location": "gebouwen"
+        },
+        {
+            "type": "then",
+            "question": "Is het een gebouw of een werk?",
+            "answer": "Gebouw",
+            "condition": True,
+            "location": "gebouwen"
+        },
+        {
+            "type": "then",
+            "question": "Balkon aanwezig?",
+            "answer": "hello world",
+            "condition": {
+                "contains": "ell"
+            },
+            "location": "gebouwen"
         }
     ]
 
 
-def flatten_test_data_to_questions(data):
+import re
+import hyperSel
+import hyperSel.colors_utilities
+
+def process_recording_tool(recording_tool):
     flattened = []
+    for section in recording_tool[:]:
+        source = section.get("tab_type", "unknown")
 
+        all_data = section.get("data", [])
+        '''
+                               flattened.append({
+                        "question": question,
+                        "answers": answers,
+                        "source": source
+                    })
+        
+        '''
+        # print("all_data:", all_data)
+        for single_item in all_data:
+            question_data = single_item.get('questions_data', [])
+            if question_data == None or question_data == []:
+                question_data = single_item.get("questionaire_data", [])
+
+            if question_data == []:
+                hyperSel.colors_utilities.c_print(text="NO SUB DATA, DATA IS ALL IN REGULAR SECTIONS", color="green")
+                question = single_item.get("question")
+                answers = single_item.get("answers", {})
+                print("question:", question)
+                print("answers :", answers)
+                print(single_item)
+                print("===")
+            else:
+                print("INNER QUESTION DATA")
+                hyperSel.colors_utilities.c_print(text="INNER QUESTION DATA", color="red")
+                print("question_data:", question_data)
+                print("==")
+    
+    exit()
+    return flattened
+
+
+def process_control_tool(control_tool):
+    flattened = []
     try:
-        # Traverse recording_tool
-        if "recording_tool" in data:
-            for section in data["recording_tool"]:
-                try:
-                    source = section.get("tab_type", "unknown")
-                    for entry in section.get("data", []):
-                        try:
-                            question = entry.get("question")
-                            answers = entry.get("answers", {})
-                            if question:
-                                flattened.append({
-                                    "question": question,
-                                    "answers": answers,
-                                    "source": source
-                                })
-                        except Exception as e:
-                            hyperSel.colors_utilities.c_print(text=f"Error processing entry in 'data': {entry} - {e}", color="red")
-                    for sub_entry in section.get("questionaire_data", []):
-                        try:
-                            question = sub_entry.get("question")
-                            answers = sub_entry.get("answers", sub_entry.get("answer", {}))
-                            if question:
-                                flattened.append({
-                                    "question": question,
-                                    "answers": answers,
-                                    "source": source
-                                })
-                        except Exception as e:
-                            hyperSel.colors_utilities.c_print(text=f"Error processing sub_entry in 'questionaire_data': {sub_entry} - {e}", color="red")
-                except Exception as e:
-                    hyperSel.colors_utilities.c_print(text=f"Error processing section in 'recording_tool': {section} - {e}", color="red")
-
-        # Traverse control_tool - informatie
-        if "control_tool" in data and "informatie" in data["control_tool"]:
-            for entry in data["control_tool"]["informatie"]:
+        # Process 'informatie'
+        if "informatie" in control_tool:
+            for entry in control_tool["informatie"]:
                 try:
                     question = entry.get("question")
                     answers = entry.get("answer", {})
@@ -209,11 +347,13 @@ def flatten_test_data_to_questions(data):
                             "source": "informatie"
                         })
                 except Exception as e:
-                    hyperSel.colors_utilities.c_print(text=f"Error processing entry in 'informatie': {entry} - {e}", color="red")
+                    hyperSel.colors_utilities.c_print(
+                        text=f"Error processing entry in 'informatie': {entry} - {e}", color="red"
+                    )
 
-        # Traverse control_tool - calculation
-        if "control_tool" in data and "calculation" in data["control_tool"]:
-            for entry in data["control_tool"]["calculation"]:
+        # Process 'calculation'
+        if "calculation" in control_tool:
+            for entry in control_tool["calculation"]:
                 try:
                     question = entry.get("Naam")
                     answers = entry.get("Gebouw", "")
@@ -224,84 +364,75 @@ def flatten_test_data_to_questions(data):
                             "source": "calculation"
                         })
                 except Exception as e:
-                    hyperSel.colors_utilities.c_print(text=f"Error processing entry in 'calculation': {entry} - {e}", color="red")
+                    hyperSel.colors_utilities.c_print(
+                        text=f"Error processing entry in 'calculation': {entry} - {e}", color="red"
+                    )
+    except Exception as e:
+        hyperSel.colors_utilities.c_print(
+            text=f"Error processing 'control_tool': {control_tool} - {e}",
+            color="red"
+        )
+    return flattened
+
+def flatten_test_data_to_questions(data):
+    flattened = []
+    try:
+        if "recording_tool" in data:
+            flattened.extend(process_recording_tool(data["recording_tool"]))
+
+        if "control_tool" in data:
+            flattened.extend(process_control_tool(data["control_tool"]))
 
     except Exception as e:
-        hyperSel.colors_utilities.c_print(text=f"General error processing data: {data} - {e}", color="red")
+        hyperSel.colors_utilities.c_print(
+            text=f"General error processing data: {data} - {e}", color="red"
+        )
 
     return flattened
 
-
 def get_if_rules(selected_rule_set):
-    if_rules = [rule for rule in selected_rule_set if rule.get("type") == "if"]
-    return if_rules
+    return [rule for rule in selected_rule_set if rule.get("type") == "if"]
+
 
 def get_then_rules(selected_rule_set):
-    then_rules = [rule for rule in selected_rule_set if rule.get("type") == "then"]
-    return then_rules
+    return [rule for rule in selected_rule_set if rule.get("type") == "then"]
+
 
 def check_if_rule_in_data(rule, flattened_data):
-
-    # Extract rule details
     rule_type = rule.get("type")
     rule_question = rule.get("question")
     rule_answer = rule.get("answer")
     rule_condition = rule.get("condition")
     rule_location = rule.get("location")
 
-    #print("Rule Type:", rule_type)
-    #print("Rule Question:", rule_question)
-    #print("Rule Answer:", rule_answer)
-    #print("Rule Condition:", rule_condition)
-    #print("Rule Location:", rule_location)
-    #print("==")
-
     rule_data_confirmed = []
     rule_data_failed = []
     rule_data_does_not_exist = []
 
-    # Iterate through flattened data
     for data in flattened_data:
         question = data.get("question")
         answers = data.get("answers")
         source = data.get("source")
 
-        # Attempt to convert answers to numbers if applicable
         if isinstance(answers, str):
             answers = convert_to_number(answers)
         elif isinstance(answers, dict):
-            # Convert values in dict answers
             answers = {k: convert_to_number(v) for k, v in answers.items()}
 
-        # Check if the question matches
         if question.lower() == rule_question.lower() and source == rule_location:
-            #print("MATCH")
-            #print("question:", question)
-            #print("answers:", answers)
-            #print("source:", source)
-
-            # Check the type of `answers` and validate
             if isinstance(answers, dict):
-                # If answers is a dictionary, check if the rule's answer exists and matches condition
-                if rule_answer in answers and answers[rule_answer] == rule_condition:
-                    # print("Rule confirmed!")
+                if rule_answer in answers and validate_condition(answers[rule_answer], rule_condition):
                     rule_data_confirmed.append(rule)
                 else:
-                    # print("Rule failed.")
                     rule_data_failed.append(rule)
 
             elif isinstance(answers, (list, str)):
-                # Directly compare for lists or strings
-                if answers == rule_answer:
-                    #print("Rule confirmed!")
+                if validate_condition(answers, rule_condition):
                     rule_data_confirmed.append(rule)
                 else:
-                    #print("Rule failed.")
                     rule_data_failed.append(rule)
             break
     else:
-        # If no match is found in the data
-        # print("Rule does not exist in the data.")
         rule_data_does_not_exist.append(rule)
 
     return {
@@ -311,33 +442,46 @@ def check_if_rule_in_data(rule, flattened_data):
     }
 
 
-
-
 def convert_to_number(value):
-    """
-    Attempts to convert a string value with potential currency symbols or formatting
-    into a float. If conversion fails, returns the original value.
-    """
     if isinstance(value, str):
-        # Remove currency symbols and whitespace
         cleaned_value = re.sub(r'[^\d.,-]', '', value).strip()
         try:
-            # Replace comma with dot for decimal handling (common in European formats)
             cleaned_value = cleaned_value.replace(',', '.') if ',' in cleaned_value and '.' not in cleaned_value else cleaned_value
             return float(cleaned_value)
         except ValueError:
-            return value  # Return original value if conversion fails
+            return value
     return value
+
+
+def validate_condition(value, condition):
+    if isinstance(condition, dict):
+        for operator, target_value in condition.items():
+            if operator == "<" and not value < target_value:
+                return False
+            elif operator == ">" and not value > target_value:
+                return False
+            elif operator == "=" and not value == target_value:
+                return False
+            elif operator == "contains" and isinstance(value, str) and target_value not in value:
+                return False
+        return True
+    return value == condition
+
 
 def validation_rule_tool(current_data, selected_rule_set):
     flattened_data = flatten_test_data_to_questions(current_data)
-    
+    for i in flattened_data:
+        print(i)
+        print("==")
+    exit()
+
+
     all_if_rules = get_if_rules(selected_rule_set)
     all_then_rules = get_then_rules(selected_rule_set)
 
     if len(all_then_rules) == 0:
         return []
-    
+
     all_if_rules_confirmed = []
     all_if_rules_failed = []
     all_if_rules_not_found = []
@@ -346,10 +490,8 @@ def validation_rule_tool(current_data, selected_rule_set):
     all_then_rules_failed = []
     all_then_rules_not_found = []
 
-
     if len(all_if_rules) > 0:
         for if_rule in all_if_rules:
-
             rule_result_dict = check_if_rule_in_data(if_rule, flattened_data)
             rule_confirmed = rule_result_dict['confirmed']
             rule_failed = rule_result_dict['failed']
@@ -365,8 +507,16 @@ def validation_rule_tool(current_data, selected_rule_set):
                 all_if_rules_not_found.append(rule_not_found[0])
 
         if len(all_if_rules_confirmed) != 0:
+            print("WE CONFIRMED THIS IF RULE", all_if_rules_confirmed)
+
             for then_rule in all_then_rules:
+                print("=========")
+                print("then_rule:", then_rule)
+
                 rule_result_dict = check_if_rule_in_data(then_rule, flattened_data)
+                
+
+
                 rule_confirmed = rule_result_dict['confirmed']
                 rule_failed = rule_result_dict['failed']
                 rule_not_found = rule_result_dict['not_found']
@@ -380,6 +530,9 @@ def validation_rule_tool(current_data, selected_rule_set):
                 if rule_not_found != []:
                     all_then_rules_not_found.append(rule_not_found[0])
 
+                break
+
+            exit()
     else:
         for then_rule in all_then_rules:
             rule_result_dict = check_if_rule_in_data(then_rule, flattened_data)
@@ -397,17 +550,17 @@ def validation_rule_tool(current_data, selected_rule_set):
                 all_then_rules_not_found.append(rule_not_found[0])
 
     final_rule_dict = {
-        "all_then_rules_confirmed":all_then_rules_confirmed,
-        "all_then_rules_failed":all_then_rules_failed,
-        "all_then_rules_not_found":all_then_rules_not_found,
+        "all_then_rules_confirmed": all_then_rules_confirmed,
+        "all_then_rules_failed": all_then_rules_failed,
+        "all_then_rules_not_found": all_then_rules_not_found,
 
-        "all_if_rules_confirmed":all_if_rules_confirmed,
-        "all_if_rules_failed":all_if_rules_failed,
-        "all_if_rules_not_found":all_if_rules_not_found,
-
+        "all_if_rules_confirmed": all_if_rules_confirmed,
+        "all_if_rules_failed": all_if_rules_failed,
+        "all_if_rules_not_found": all_if_rules_not_found,
     }
 
     return final_rule_dict
+
 
 if __name__ == '__main__':
     final_rule_dict = validation_rule_tool(current_data=test_data, selected_rule_set=example_validation_rule)

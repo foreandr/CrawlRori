@@ -123,98 +123,62 @@ def create_question_display(parent, questions_data):
             if_rule_button.pack(side="right", padx=10)
             
 
-def set_rule(rule_type, question, answer, value, rules):
+def set_rule(rule_type, question, target, rules, value=None):
     """
-    Handles setting the "If" or "Then" rule with specific logic for strings, numbers, and booleans.
+    Handles setting the "If" or "Then" rule with specific logic for strings and numbers.
     """
-    # Fallback logic: Check value, then fallback to answer if value is None
-    target = value if value is not None else answer
-
-    # Determine the type of the target
-    if target is None or target == "":
-        value_type = "none"
-    elif isinstance(target, bool):
-        value_type = "boolean"
-    elif isinstance(target, (int, float)) and not isinstance(target, bool):
-        value_type = "number"
-    elif isinstance(target, str):
-        try:
-            # Check if the string can be converted to a number
-            float(target)
-            value_type = "number"
-        except ValueError:
-            value_type = "string"
-    else:
-        value_type = "unknown"
-
-    # Debug print to show the type
-    print(f"DEBUG: Answer = {answer}, Value = {value}, Target = {target}, Detected Type = {value_type}")
-
-    # Create the popup for rule selection
+    # Create a popup for rule selection
     popup = Toplevel()
     popup.title(f"Set {rule_type.capitalize()} Rule")
-    popup.geometry("300x200")
+    popup.geometry("350x350")
     popup.resizable(False, False)
 
+    # Label for the popup
     label = ctk.CTkLabel(
         popup,
         text=f"Set condition for '{target}' ({rule_type.upper()} Rule):",
         wraplength=280,
         anchor="center",
+        text_color="black"  # Set the text color to black
     )
-    label.pack(pady=20)
+    label.pack(pady=10)
 
-    # Handle logic based on type
-    if value_type == "number":
-        # Provide numeric comparison options
+    detected_type = detect_data_type(rule_type, question, target, value, rules)
+    print("detected_type:", detected_type)
+
+    if detected_type == "number":
+        # Input for numeric comparison
+        input_entry = ctk.CTkEntry(popup, placeholder_text="Enter a numeric value")
+        input_entry.pack(pady=10)
+
         greater_button = ctk.CTkButton(
             popup,
             text="Greater Than",
-            command=lambda: finalize_rule(rule_type, question, target, ">", rules, popup),
+            command=lambda: finalize_rule(
+                rule_type, question, target, {">": input_entry.get()}, rules, popup
+            ),
         )
-        greater_button.pack(side="top", pady=5)
+        greater_button.pack(pady=5)
 
         less_button = ctk.CTkButton(
             popup,
             text="Less Than",
-            command=lambda: finalize_rule(rule_type, question, target, "<", rules, popup),
+            command=lambda: finalize_rule(
+                rule_type, question, target, {"<": input_entry.get()}, rules, popup
+            ),
         )
-        less_button.pack(side="top", pady=5)
+        less_button.pack(pady=5)
 
         equal_button = ctk.CTkButton(
             popup,
             text="Equal To",
-            command=lambda: finalize_rule(rule_type, question, target, "=", rules, popup),
-        )
-        equal_button.pack(side="top", pady=5)
-
-    elif value_type == "string":
-        # Provide "contains" logic for strings
-        contains_label = ctk.CTkLabel(
-            popup,
-            text="Enter a value to check if the string contains:",
-        )
-        contains_label.pack(pady=10)
-
-        input_entry = ctk.CTkEntry(popup, placeholder_text="Enter substring")
-        input_entry.pack(pady=10)
-
-        confirm_button = ctk.CTkButton(
-            popup,
-            text="Confirm",
             command=lambda: finalize_rule(
-                rule_type,
-                question,
-                target,
-                {"operator": "contains", "value": input_entry.get()},
-                rules,
-                popup,
+                rule_type, question, target, {"=": input_entry.get()}, rules, popup
             ),
         )
-        confirm_button.pack(pady=10)
+        equal_button.pack(pady=5)
 
-    elif value_type == "boolean":
-        # Provide True/False options for booleans
+    elif detected_type == "boolean":
         true_button = ctk.CTkButton(
             popup,
             text="True",
@@ -231,20 +195,19 @@ def set_rule(rule_type, question, answer, value, rules):
         )
         false_button.pack(side="right", padx=20, pady=10)
 
-    else:
-        # If the type is unknown, show an error message
-        error_label = ctk.CTkLabel(
-            popup,
-            text="Unsupported or unknown type.",
-        )
-        error_label.pack(pady=20)
+    else:  # Detected type is string
+        input_entry = ctk.CTkEntry(popup, placeholder_text="Enter substring")
+        input_entry.pack(pady=10)
 
-        close_button = ctk.CTkButton(
+        contains_button = ctk.CTkButton(
             popup,
-            text="Close",
-            command=popup.destroy,
+            text="Contains",
+            command=lambda: finalize_rule(
+                rule_type, question, target, {"contains": input_entry.get()}, rules, popup
+            ),
         )
-        close_button.pack(pady=10)
+        contains_button.pack(pady=10)
+
 
 
 def is_numeric(value):
@@ -261,15 +224,55 @@ def finalize_rule(rule_type, question, answer, condition, rules, popup):
     """
     Finalizes the rule, stores it in the rules list, and closes the popup.
     """
+    # Ensure numeric input is valid
+    if isinstance(condition, dict) and list(condition.keys())[0] in [">", "<", "="]:
+        try:
+            operator = list(condition.keys())[0]
+            value = float(condition[operator])  # Convert to float
+            condition = {operator: value}  # Store as numeric
+        except ValueError:
+            print("Invalid numeric input")
+            popup.destroy()
+            return
+
+    # Create the rule
     rule = {
         "type": rule_type,
         "question": question,
         "answer": answer,
         "condition": condition,
-        "location": "gebouwen",  # Example of additional context
+        "location": "gebouwen",
     }
-    # Add the rule to your validation rules
     validation_rules.my_validation_rules.append(rule)
-    rules.append(rule)  # Store the rule locally for reference
+
+    # rules.append(rule)  # Store the rule locally
     print(f"Rule set: {rule}")
     popup.destroy()  # Close the popup
+
+
+def detect_data_type(rule_type, question, target, value, rules):
+    '''
+    print("=====")
+    print("rule_type:", rule_type)
+    print("question :", question)
+    print("target   :", target)
+    print("rules    :", rules)
+    print("value    :", value)
+    '''
+
+    item_to_check = None
+    if rules == None:
+        item_to_check = target
+    else:
+        item_to_check = rules
+        
+    # Check for boolean
+    if isinstance(item_to_check, bool):
+        return "boolean"
+
+    # Check if it's numeric (can be cast to float)
+    if is_numeric(item_to_check):
+        return "number"
+
+    # Default to string
+    return "string"
