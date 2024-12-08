@@ -176,5 +176,16 @@
             },
             "location": "gebouwen"
         }
+    ],
+    [
+        {
+            "type": "then",
+            "question": "Balkon aanwezig?",
+            "answer": "hello world",
+            "condition": {
+                "contains": "hello"
+            },
+            "location": "gebouwen"
+        }
     ]
 ]

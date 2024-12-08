@@ -329,7 +329,7 @@ def create_check_validation_tab(check_tab):
 def create_validation_data_section(parent_frame):
     """
     Creates the Validation Section on the right-hand side.
-    Displays a visually appealing report for validation results, including a detailed "Failures" section for THEN rules.
+    Splits the section into a green side for successes and a red side for failures.
     """
     validation_data_frame = ctk.CTkFrame(parent_frame)
     validation_data_frame.pack(side="left", fill="both", expand=True, padx=20, pady=20)
@@ -337,46 +337,25 @@ def create_validation_data_section(parent_frame):
     title_label = ctk.CTkLabel(validation_data_frame, text="Validation Section", font=("Arial", 20, "bold"))
     title_label.pack(pady=10)
 
-    # IF Rules Report
-    if_frame = ctk.CTkFrame(validation_data_frame, corner_radius=10, border_width=2, border_color="gray")
-    if_frame.pack(pady=10, padx=10, fill="x", expand=False)
+    # Success Frame (Green Side)
+    success_frame = ctk.CTkFrame(validation_data_frame, corner_radius=10, border_width=2, border_color="green")
+    success_frame.pack(side="left", fill="both", expand=True, padx=10, pady=10)
 
-    if_title_label = ctk.CTkLabel(if_frame, text="IF Rules Report", font=("Arial", 16, "bold"))
-    if_title_label.pack(pady=5, padx=10)
+    success_title_label = ctk.CTkLabel(success_frame, text="Validation Successes", font=("Arial", 16, "bold"), text_color="green")
+    success_title_label.pack(pady=5, padx=10)
 
-    if_success_label = ctk.CTkLabel(if_frame, text="Success: 0", font=("Arial", 14))
-    if_success_label.pack(pady=2, padx=10)
+    success_textbox = ctk.CTkTextbox(success_frame, wrap="word", font=("Arial", 12), fg_color="#111", text_color="#d4edda", border_color="#28a745", corner_radius=5)
+    success_textbox.pack(fill="both", expand=True, padx=10, pady=10)
+    success_textbox.configure(state="disabled")  # Make it read-only by default
 
-    if_fail_label = ctk.CTkLabel(if_frame, text="Fails: 0", font=("Arial", 14))
-    if_fail_label.pack(pady=2, padx=10)
-
-    if_not_found_label = ctk.CTkLabel(if_frame, text="Not Found: 0", font=("Arial", 14))
-    if_not_found_label.pack(pady=2, padx=10)
-
-    # THEN Rules Report
-    then_frame = ctk.CTkFrame(validation_data_frame, corner_radius=10, border_width=2, border_color="gray")
-    then_frame.pack(pady=10, padx=10, fill="x", expand=False)
-
-    then_title_label = ctk.CTkLabel(then_frame, text="THEN Rules Report", font=("Arial", 16, "bold"))
-    then_title_label.pack(pady=5, padx=10)
-
-    then_success_label = ctk.CTkLabel(then_frame, text="Success: 0", font=("Arial", 14))
-    then_success_label.pack(pady=2, padx=10)
-
-    then_fail_label = ctk.CTkLabel(then_frame, text="Fails: 0", font=("Arial", 14))
-    then_fail_label.pack(pady=2, padx=10)
-
-    then_not_found_label = ctk.CTkLabel(then_frame, text="Not Found: 0", font=("Arial", 14))
-    then_not_found_label.pack(pady=2, padx=10)
-
-    # Failures Frame (with CTkTextbox for clean display)
+    # Failures Frame (Red Side)
     failures_frame = ctk.CTkFrame(validation_data_frame, corner_radius=10, border_width=2, border_color="red")
-    failures_frame.pack(pady=10, padx=10, fill="both", expand=True)
+    failures_frame.pack(side="left", fill="both", expand=True, padx=10, pady=10)
 
-    failures_title_label = ctk.CTkLabel(failures_frame, text="FAILURES (THEN Rules)", font=("Arial", 16, "bold"), text_color="red")
+    failures_title_label = ctk.CTkLabel(failures_frame, text="Validation Failures", font=("Arial", 16, "bold"), text_color="red")
     failures_title_label.pack(pady=5, padx=10)
 
-    failures_textbox = ctk.CTkTextbox(failures_frame, wrap="word", font=("Arial", 12))
+    failures_textbox = ctk.CTkTextbox(failures_frame, wrap="word", font=("Arial", 12), fg_color="#111", text_color="#f8d7da", border_color="#dc3545", corner_radius=5)
     failures_textbox.pack(fill="both", expand=True, padx=10, pady=10)
     failures_textbox.configure(state="disabled")  # Make it read-only by default
 
@@ -388,22 +367,26 @@ def create_validation_data_section(parent_frame):
             current_data=current_data, selected_rule_set=selected_rule_set
         )
 
-        # Update IF Rules
-        if_success_count = len(final_rule_dict.get("all_if_rules_confirmed", []))
-        if_fail_count = len(final_rule_dict.get("all_if_rules_failed", []))
-        if_not_found_count = len(final_rule_dict.get("all_if_rules_not_found", []))
+        # Update Successes Textbox
+        success_textbox.configure(state="normal")  # Enable editing
+        success_textbox.delete("1.0", "end")  # Clear existing content
 
-        then_success_count = len(final_rule_dict.get("all_then_rules_confirmed", []))
-        then_fail_count = len(final_rule_dict.get("all_then_rules_failed", []))
-        then_not_found_count = len(final_rule_dict.get("all_then_rules_not_found", []))
+        then_successes = final_rule_dict.get("all_then_rules_confirmed", [])
+        if then_successes:
+            for idx, success in enumerate(then_successes, start=1):
+                rule = success.get('rule_demand', {})
+                data = success.get('data_answer', {})
+                success_text = (
+                    f"{idx}. Question: {rule.get('question', 'N/A')}\n"
+                    f"   Expected: {rule.get('answer', 'N/A')}\n"
+                    f"   Rule: {rule.get('condition', 'N/A')}\n"
+                    f"   Actual: {data.get('answers', 'N/A')}\n"
+                    f"   Source: {data.get('source', 'N/A')}\n"
+                    f"   {'-' * 40}\n"
+                )
+                success_textbox.insert("end", success_text)
 
-        if_success_label.configure(text=f"Success: {if_success_count}")
-        if_fail_label.configure(text=f"Fails: {if_fail_count}")
-        if_not_found_label.configure(text=f"Not Found: {if_not_found_count}")
-
-        then_success_label.configure(text=f"Success: {then_success_count}")
-        then_fail_label.configure(text=f"Fails: {then_fail_count}")
-        then_not_found_label.configure(text=f"Not Found: {then_not_found_count}")
+        success_textbox.configure(state="disabled")  # Make it read-only again
 
         # Update Failures Textbox
         failures_textbox.configure(state="normal")  # Enable editing
@@ -412,11 +395,15 @@ def create_validation_data_section(parent_frame):
         then_failures = final_rule_dict.get("all_then_rules_failed", [])
         if then_failures:
             for idx, failure in enumerate(then_failures, start=1):
+                rule = failure.get('rule_demand', {})
+                data = failure.get('data_answer', {})
                 failure_text = (
-                    f"{idx}. Question: {failure.get('question', 'N/A')}\n"
-                    f"   Answer: {failure.get('answer', 'N/A')}\n"
-                    f"   Condition: {failure.get('condition', 'N/A')}\n"
-                    f"   Location: {failure.get('location', 'N/A')}\n\n"
+                    f"{idx}. Question: {rule.get('question', 'N/A')}\n"
+                    f"   Expected: {rule.get('answer', 'N/A')}\n"
+                    f"   Rule: {rule.get('condition', 'N/A')}\n"
+                    f"   Actual: {data.get('answers', 'N/A')}\n"
+                    f"   Source: {data.get('source', 'N/A')}\n"
+                    f"   {'-' * 40}\n"
                 )
                 failures_textbox.insert("end", failure_text)
 

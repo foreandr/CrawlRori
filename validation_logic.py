@@ -248,39 +248,16 @@ test_data = {
 
 
 example_validation_rule = [
-        {
-            "type": "if",
-            "question": "Welke situatie is van toepassing? De aanvrager is:",
-            "answer": "Particulier",
-            "condition": True,
-            "location": "algemeen"
-        },
-        {
-            "type": "then",
-            "question": "Wat is het bouwjaar?",
-            "answer": "1939.0",
-            "condition": {
-                "<": 2000.0
-            },
-            "location": "gebouwen"
-        },
-        {
-            "type": "then",
-            "question": "Is het een gebouw of een werk?",
-            "answer": "Gebouw",
-            "condition": False,
-            "location": "gebouwen"
-        },
-        {
+    {
             "type": "then",
             "question": "Balkon aanwezig?",
             "answer": "hello world",
             "condition": {
-                "contains": "ellx"
+                "contains": "hello"
             },
             "location": "gebouwen"
-        }
-    ]
+    }
+]
 
 import re
 import hyperSel
@@ -610,7 +587,18 @@ def validation_rule_tool(current_data, selected_rule_set):
     all_then_rules = get_then_rules(selected_rule_set)
 
     if len(all_then_rules) == 0:
-        return []
+        final_rule_dict = {
+            "all_then_rules_confirmed": [],
+            "all_then_rules_failed": [],
+            "all_then_rules_not_found": [],
+
+            #"all_if_rules_confirmed": all_if_rules_confirmed,
+            #"all_if_rules_failed": all_if_rules_failed,
+            #"all_if_rules_not_found": all_if_rules_not_found,
+        }
+
+        return final_rule_dict
+
 
     all_if_rules_confirmed = []
     all_if_rules_failed = []
@@ -687,7 +675,6 @@ def validation_rule_tool(current_data, selected_rule_set):
     }
 
     return final_rule_dict
-
 
 if __name__ == '__main__':
     final_rule_dict = validation_rule_tool(current_data=test_data, selected_rule_set=example_validation_rule)
