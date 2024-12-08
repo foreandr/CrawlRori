@@ -16,7 +16,7 @@ my_validation_rules = []
 demo_validation_rules = [
     {
         "type": "if",
-        "question": "Welke situatie is van toepassing? De aanvrager is:",
+        "question": "Welke situatie is van toepassing? De aanvrager is (DEMO RULE, CANT BE DELETED):",
         "answer": "Particulier",
         "condition": True,
         "location": "algemeen",
@@ -84,6 +84,8 @@ def create_validation_tab(create_tab):
                 widget.destroy()
 
         for rule in my_validation_rules:
+            # print("rule:", rule)
+
             rule_text = (
                 f"{rule['location'].upper()} - {rule['question']}\n"
                 f"Answer: {rule['answer']} - Condition: {'True' if rule['condition'] else 'False'}"

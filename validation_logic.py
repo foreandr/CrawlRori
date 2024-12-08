@@ -142,7 +142,6 @@ test_data = {
 			"url":"https://productie.deatabix.nl/dossiers/9d78eecd-2f56-4ba3-a7b6-2482ed8ab37e/editors/deskundige/omgevingskenmerken",
 			"tab_type":"omgevingskenmerken"
 		},
-
 		{
 			"data":[
 				{
@@ -586,22 +585,6 @@ def validation_rule_tool(current_data, selected_rule_set):
     all_if_rules = get_if_rules(selected_rule_set)
     all_then_rules = get_then_rules(selected_rule_set)
 
-    '''
-    if len(all_then_rules) == 0:
-        final_rule_dict = {
-            "all_then_rules_confirmed": [],
-            "all_then_rules_failed": [],
-            "all_then_rules_not_found": [],
-
-            "all_if_rules_confirmed": all_if_rules_confirmed,
-            "all_if_rules_failed": [],
-            #"all_if_rules_not_found": all_if_rules_not_found,
-        }
-
-        return final_rule_dict
-    '''
-
-
     all_if_rules_confirmed = []
     all_if_rules_failed = []
     all_if_rules_not_found = []
@@ -650,9 +633,6 @@ def validation_rule_tool(current_data, selected_rule_set):
 
                 if rule_not_found != []:
                     all_then_rules_not_found.append(rule_not_found[0])
-
-        else:
-            print("WE FAILED IF RULES, SO WE ARENT EVEN CHECKING ANYTHING ELSE")
 
     else:
         for then_rule in all_then_rules:

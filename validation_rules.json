@@ -9,162 +9,18 @@
         },
         {
             "type": "then",
-            "question": "Welke situatie is van toepassing? De aanvrager is:",
-            "answer": "Zakelijk",
-            "condition": false,
-            "location": "algemeen"
-        },
-        {
-            "type": "then",
-            "question": "Welke situatie is van toepassing? De aanvrager is:",
-            "answer": "Gedeeltelijk particulier en gedeeltelijk zakelijk",
-            "condition": false,
-            "location": "algemeen"
-        }
-    ],
-    [
-        {
-            "type": "if",
-            "question": "Welke situatie is van toepassing? De aanvrager is:",
-            "answer": "Particulier",
-            "condition": true,
-            "location": "algemeen"
-        },
-        {
-            "type": "then",
-            "question": "Welke situatie is van toepassing? De aanvrager is:",
-            "answer": "Zakelijk",
-            "condition": true,
-            "location": "algemeen"
-        },
-        {
-            "type": "then",
-            "question": "Welke situatie is van toepassing? De aanvrager is:",
-            "answer": "Gedeeltelijk particulier en gedeeltelijk zakelijk",
-            "condition": false,
-            "location": "algemeen"
-        }
-    ],
-    [
-        {
-            "type": "if",
-            "question": "Heeft de aanvrager voor zijn zakelijke prestaties recht op aftrek van de BTW?",
-            "answer": "Ja",
-            "condition": false,
-            "location": "algemeen"
-        },
-        {
-            "type": "then",
-            "question": "Welke situatie is van toepassing? De aanvrager is:",
-            "answer": "Gedeeltelijk particulier en gedeeltelijk zakelijk",
-            "condition": false,
-            "location": "algemeen"
-        }
-    ],
-    [
-        {
-            "type": "then",
-            "question": "Heeft de aanvrager voor zijn zakelijke prestaties recht op aftrek van de BTW?",
-            "answer": "Ja",
-            "condition": true,
-            "location": "algemeen"
-        }
-    ],
-    [
-        {
-            "type": "then",
-            "question": "Heeft de aanvrager voor zijn zakelijke prestaties recht op aftrek van de BTW?",
-            "answer": "Ja",
-            "condition": true,
-            "location": "algemeen"
-        }
-    ],
-    [
-        {
-            "type": "if",
-            "question": "Welke situatie is van toepassing? De aanvrager is:",
-            "answer": "Particulier",
-            "condition": true,
-            "location": "algemeen"
-        },
-        {
-            "type": "then",
-            "question": "Welke situatie is van toepassing? De aanvrager is:",
-            "answer": "Zakelijk",
-            "condition": true,
-            "location": "algemeen"
-        },
-        {
-            "type": "then",
             "question": "Zijn met betrekking tot de ingevoerde schades \u00e9\u00e9n of meerdere kenmerken waargenomen waarbij mogelijk sprake is van ongelijke zetting?",
             "answer": "Ja",
-            "condition": true,
+            "condition": false,
             "location": "omgevingskenmerken"
-        },
-        {
-            "type": "then",
-            "question": "Zijn met betrekking tot de ingevoerde schades \u00e9\u00e9n of meerdere kenmerken waargenomen waarbij mogelijk sprake is van ongelijke zetting?",
-            "answer": "Nee",
-            "condition": true,
-            "location": "omgevingskenmerken"
-        }
-    ],
-    [
-        {
-            "type": "if",
-            "question": "Welke situatie is van toepassing? De aanvrager is:",
-            "answer": "Particulier",
-            "condition": true,
-            "location": "algemeen"
-        }
-    ],
-    [
-        {
-            "type": "if",
-            "question": "Welke situatie is van toepassing? De aanvrager is:",
-            "answer": "Particulier",
-            "condition": true,
-            "location": "algemeen"
         },
         {
             "type": "then",
             "question": "Wat is het bouwjaar?",
             "answer": "1939.0",
             "condition": {
-                "<": 2000.0
+                ">": 10.0
             },
-            "location": "gebouwen"
-        },
-        {
-            "type": "then",
-            "question": "Is het een gebouw of een werk?",
-            "answer": "Gebouw",
-            "condition": true,
-            "location": "gebouwen"
-        }
-    ],
-    [
-        {
-            "type": "if",
-            "question": "Welke situatie is van toepassing? De aanvrager is:",
-            "answer": "Particulier",
-            "condition": true,
-            "location": "algemeen"
-        },
-        {
-            "type": "then",
-            "question": "Wat is het bouwjaar?",
-            "answer": "1939.0",
-            "condition": {
-                "<": 2000.0
-            },
-            "location": "gebouwen"
-        },
-        {
-            "type": "then",
-            "question": "Is het een gebouw of een werk?",
-            "answer": "Gebouw",
-            "condition": true,
             "location": "gebouwen"
         },
         {
@@ -175,44 +31,15 @@
                 "contains": "ell"
             },
             "location": "gebouwen"
-        }
-    ],
-    [
-        {
-            "type": "then",
-            "question": "Balkon aanwezig?",
-            "answer": "hello world",
-            "condition": {
-                "contains": "hello"
-            },
-            "location": "gebouwen"
-        }
-    ],
-    [
-        {
-            "type": "if",
-            "question": "Welke situatie is van toepassing? De aanvrager is:",
-            "answer": "Particulier",
-            "condition": false,
-            "location": "algemeen"
         },
         {
             "type": "then",
-            "question": "Wat is het bouwjaar?",
-            "answer": "1939.0",
+            "question": "Wat is het oppervlakte (m2) van de vloer?",
+            "answer": "2.2",
             "condition": {
-                ">": 2000.0
+                ">": "1"
             },
-            "location": "gebouwen"
-        }
-    ],
-    [
-        {
-            "type": "if",
-            "question": "Welke situatie is van toepassing? De aanvrager is:",
-            "answer": "Particulier",
-            "condition": false,
-            "location": "algemeen"
+            "location": "ruimtes"
         }
     ]
 ]

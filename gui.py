@@ -21,6 +21,7 @@ from tkinter import Scrollbar
 import gui_omgevingskenmerken
 import gui_credenitals
 import gui_gebouwen
+import gui_ruimtes
 
 # Test mode flag to skip login
 test_mode = True
@@ -91,6 +92,10 @@ def display_data(data, parent):
     tab_gebouwen = recording_tool_sub_tabview.add("Gebouwen")
     gui_gebouwen.create_gebouwen_tab(tab_gebouwen, gebouwen_data)
 
+    tab_ruimtes = recording_tool_sub_tabview.add("Ruimtes")
+    gui_ruimtes.create_ruimtes_tab(tab_ruimtes, ruimtes_data)
+
+    # create_gebouwen_tab(tab_ruimtes, ruimtes_data)
 
 def FAKE_DATA_FUNC(url):
     """Simulate a long-running operation with a delay."""
