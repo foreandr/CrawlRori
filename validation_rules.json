@@ -5,17 +5,6 @@
             "question": "Wat is het oppervlakte (m2) van de vloer?",
             "answer": "2.2",
             "condition": {
-                "=": ""
-            },
-            "location": "ruimtes"
-        }
-    ],
-    [
-        {
-            "type": "if",
-            "question": "Wat is het oppervlakte (m2) van de vloer?",
-            "answer": "2.2",
-            "condition": {
                 "=": "2.2"
             },
             "location": "ruimtes"
@@ -56,6 +45,31 @@
             "answer": "Nee",
             "condition": true,
             "location": "algemeen"
+        }
+    ],
+    [
+        {
+            "type": "if",
+            "question": "Wil je een ruimte aan de binnenkant of buitenkant aanmaken?",
+            "answer": "Buitenkant gebouw",
+            "condition": true,
+            "location": "ruimtes"
+        },
+        {
+            "type": "then",
+            "question": "Is het een gebouw of een werk?",
+            "answer": "Gebouw",
+            "condition": true,
+            "location": "gebouwen"
+        }
+    ],
+    [
+        {
+            "type": "if",
+            "question": "Wil je een ruimte aan de binnenkant of buitenkant aanmaken?",
+            "answer": "Buitenkant gebouw",
+            "condition": false,
+            "location": "ruimtes"
         }
     ]
 ]

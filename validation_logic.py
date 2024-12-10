@@ -460,7 +460,8 @@ def numeric_condition_check(rule, answers):
                 answers = float(convert_to_number(answers))
                 rule_condition_value = float(rule_condition_value)
             except ValueError:
-                #print("Error: Non-numeric values encountered.")
+                print("Error: Non-numeric values encountered.")
+                print("rule:", rule)
                 return -4  # Error case
             
             # Evaluate the condition
