@@ -138,7 +138,10 @@ def set_rule(rule_type, question, target, value, rules):
     label = ctk.CTkLabel(popup, text=f"Set condition for '{target}' ({rule_type.upper()} Rule):", wraplength=280)
     label.pack(pady=10)
 
-    detected_type = detect_data_type(target)
+    detected_type = detect_data_type(rule_type, question, target, value, rules)
+    print("detected_type:", detected_type)
+
+
     if detected_type == "number":
         input_entry = ctk.CTkEntry(popup, placeholder_text="Enter a numeric value")
         input_entry.pack(pady=10)
@@ -171,15 +174,28 @@ def finalize_rule(rule_type, question, target, condition, rules, popup):
     print(f"Rule set: {rule}")
     popup.destroy()
 
-
-def detect_data_type(value):
+def is_numeric(value):
     """
-    Detects the data type of the value.
+    Determines if the provided value can be cast to a number (int or float).
     """
-    if isinstance(value, bool):
-        return "boolean"
     try:
-        float(value)
-        return "number"
+        float(value)  # Attempt to cast to a float
+        return True
     except (ValueError, TypeError):
-        return "string"
+        return False
+
+def detect_data_type(rule_type, question, target, value, rules):
+    
+    print("=====")
+    print("rule_type:", rule_type)
+    print("question :", question)
+    print("target   :", target)
+    print("rules    :", rules)
+    print("value    :", value)
+    
+    if type(value) == bool:
+        return "boolean"
+    if is_numeric(target):
+        return "number"
+
+    return "string"

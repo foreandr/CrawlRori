@@ -2,44 +2,60 @@
     [
         {
             "type": "if",
-            "question": "Welke situatie is van toepassing? De aanvrager is:",
-            "answer": "Particulier",
+            "question": "Wat is het oppervlakte (m2) van de vloer?",
+            "answer": "2.2",
+            "condition": {
+                "=": ""
+            },
+            "location": "ruimtes"
+        }
+    ],
+    [
+        {
+            "type": "if",
+            "question": "Wat is het oppervlakte (m2) van de vloer?",
+            "answer": "2.2",
+            "condition": {
+                "=": "2.2"
+            },
+            "location": "ruimtes"
+        },
+        {
+            "type": "then",
+            "question": "Is het een gebouw of een werk?",
+            "answer": "Werk",
+            "condition": false,
+            "location": "gebouwen"
+        }
+    ],
+    [
+        {
+            "type": "if",
+            "question": "Is het een gebouw of een werk?",
+            "answer": "Gebouw",
             "condition": true,
-            "location": "algemeen"
+            "location": "gebouwen"
+        },
+        {
+            "type": "then",
+            "question": "Soort gebouw:",
+            "answer": "2 onder 1 kap",
+            "condition": false,
+            "location": "gebouwen"
         },
         {
             "type": "then",
             "question": "Zijn met betrekking tot de ingevoerde schades \u00e9\u00e9n of meerdere kenmerken waargenomen waarbij mogelijk sprake is van ongelijke zetting?",
-            "answer": "Ja",
-            "condition": false,
+            "answer": "Nee",
+            "condition": true,
             "location": "omgevingskenmerken"
         },
         {
             "type": "then",
-            "question": "Wat is het bouwjaar?",
-            "answer": "1939.0",
-            "condition": {
-                ">": 10.0
-            },
-            "location": "gebouwen"
-        },
-        {
-            "type": "then",
-            "question": "Balkon aanwezig?",
-            "answer": "hello world",
-            "condition": {
-                "contains": "ell"
-            },
-            "location": "gebouwen"
-        },
-        {
-            "type": "then",
-            "question": "Wat is het oppervlakte (m2) van de vloer?",
-            "answer": "2.2",
-            "condition": {
-                ">": "1"
-            },
-            "location": "ruimtes"
+            "question": "Heeft de aanvrager voor zijn zakelijke prestaties recht op aftrek van de BTW?",
+            "answer": "Nee",
+            "condition": true,
+            "location": "algemeen"
         }
     ]
 ]

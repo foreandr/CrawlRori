@@ -408,6 +408,11 @@
                                 "answers": "2.2"
                             },
                             {
+                                "question": "Balkon aanwezig?222",
+                                "answers": "hello world"
+                                
+                            },
+                            {
                                 "question": "Gebouw (verplicht)",
                                 "answer": ""
                             },

@@ -449,6 +449,7 @@ def numeric_condition_check(rule, answers):
             '>': operator.gt,
             '>=': operator.ge,
             '==': operator.eq,
+            '=': operator.eq,
             '!=': operator.ne
         }
 
@@ -460,7 +461,7 @@ def numeric_condition_check(rule, answers):
                 rule_condition_value = float(rule_condition_value)
             except ValueError:
                 #print("Error: Non-numeric values encountered.")
-                return -2  # Error case
+                return -4  # Error case
             
             # Evaluate the condition
             condition_function = operator_mapping[rule_operator]
@@ -475,12 +476,16 @@ def numeric_condition_check(rule, answers):
                 #print("Condition not met.")
                 return 2  # Condition failed
         else:
-            #print(f"Error: Unsupported operator '{rule_operator}'.")
+            print("============================================")
+            print("rule:", rule)
+            print(f"Error: Unsupported operator '{rule_operator}'.")
+            print("answers", answers)
+            print("============================================")
             return -2  # Error case
 
     except Exception as e:
         #print(f"Unexpected error: {e}")
-        return -2  # Error case
+        return -3  # Error case
 
 def skip_logic(answer):
     skip_answer = False
@@ -495,50 +500,55 @@ def skip_logic(answer):
 def check_if_rule_in_data(rule, flattened_data):
     #print("=="*40)
     rule_type = rule.get("type")
-    #print("rule_type:", rule_type)
+    print("rule_type:", rule_type)
 
     rule_question = rule.get("question")
-    #print("rule_question:", rule_question)
+    print("rule_question:", rule_question)
 
     rule_answer = rule.get("answer")
-    #print("rule_answer:", rule_answer)
+    print("rule_answer:", rule_answer)
 
     rule_condition = rule.get("condition")
-    #print("rule_condition:", rule_condition)
+    print("rule_condition:", rule_condition)
 
     condition_type = get_condition_type(rule_condition)
-    #print("condition_type:", condition_type)
+    print("condition_type:", condition_type)
 
     rule_location = rule.get("location")
-    #print("rule_location:", rule_location)
-    #print("==")
+    print("rule_location:", rule_location)
+    print("==")
 
     rule_data_confirmed = []
     rule_data_failed = []
     rule_data_does_not_exist = []
     rule_found = False
+    print("len data", len(flattened_data))
     for data in flattened_data:
         if skip_logic(data.get("answers")):
             # print("THIS ONE BEING SKIPPED", data)
             continue   
-
+        # print(THERE IS AN ISSUE RIGHT NOW WITH RUMITES, TO REPRODUCE, CHECK THE VALIDATION IN THERE RN, U WILL SEE NTOHING SHOWS UP)
+        # input("--")
         question = data.get("question")
         answers = data.get("answers")
         source = data.get("source")
         
         if rule_question.lower() == question.lower():
+            print("A MATCH??????")
             rule_found = True
 
             #print("data:", data)
             result = None
             if condition_type == "boolean":
-                #print("BOOLEAN CHECK?")
                 result = bool_condition_check(rule, answers)
             elif condition_type == "numeric":
                 result = numeric_condition_check(rule, answers)
+                print("numeric")
             else:
                 result = string_condition_check(rule, answers)
 
+            print("result:", result)
+            print("----------------------------------------")
             #print("==")
             #print("RESULT:", result)
             #print("rule:", rule)
@@ -583,7 +593,9 @@ def validation_rule_tool(current_data, selected_rule_set):
     flattened_data = flatten_test_data_to_questions(current_data)
 
     all_if_rules = get_if_rules(selected_rule_set)
+    print("all_if_rules:", all_if_rules)
     all_then_rules = get_then_rules(selected_rule_set)
+    print("all_then_rules:", all_then_rules)
 
     all_if_rules_confirmed = []
     all_if_rules_failed = []
@@ -608,6 +620,10 @@ def validation_rule_tool(current_data, selected_rule_set):
 
             if rule_not_found != []:
                 all_if_rules_not_found.append(rule_not_found[0])
+
+        print("all_if_rules_confirmed:", all_if_rules_confirmed)
+        print("all_if_rules_failed:", all_if_rules_failed)
+        print("all_if_rules_not_found:", all_if_rules_not_found)
 
         if len(all_if_rules_confirmed) != 0:
             for then_rule in all_then_rules:
