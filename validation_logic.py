@@ -501,29 +501,29 @@ def skip_logic(answer):
 def check_if_rule_in_data(rule, flattened_data):
     #print("=="*40)
     rule_type = rule.get("type")
-    print("rule_type:", rule_type)
+    #print("rule_type:", rule_type)
 
     rule_question = rule.get("question")
-    print("rule_question:", rule_question)
+    #print("rule_question:", rule_question)
 
     rule_answer = rule.get("answers")
-    print("rule_answer:", rule_answer)
+    #print("rule_answer:", rule_answer)
 
     rule_condition = rule.get("condition")
-    print("rule_condition:", rule_condition)
+    #print("rule_condition:", rule_condition)
 
     condition_type = get_condition_type(rule_condition)
-    print("condition_type:", condition_type)
+    #print("condition_type:", condition_type)
 
     rule_location = rule.get("location")
-    print("rule_location:", rule_location)
-    print("==")
+    #print("rule_location:", rule_location)
+    #print("==")
 
     rule_data_confirmed = []
     rule_data_failed = []
     rule_data_does_not_exist = []
     rule_found = False
-    print("len data", len(flattened_data))
+    #print("len data", len(flattened_data))
     for data in flattened_data:
         if skip_logic(data.get("answers")):
             # print("THIS ONE BEING SKIPPED", data)
@@ -578,7 +578,6 @@ def check_if_rule_in_data(rule, flattened_data):
         "failed": rule_data_failed,
         "not_found": rule_data_does_not_exist,
     }
-
 
 def convert_to_number(value):
     if isinstance(value, str):

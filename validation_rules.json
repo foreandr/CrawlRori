@@ -132,5 +132,48 @@
             },
             "location": "schades"
         }
+    ],
+    [
+        {
+            "type": "if",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
+            "answer": "Zakelijk",
+            "condition": false,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "question": "Aantal schades",
+            "answer": "35",
+            "condition": {
+                "<": "50"
+            },
+            "location": "samenvatting"
+        },
+        {
+            "type": "then",
+            "question": "Zijn met betrekking tot de ingevoerde schades \u00e9\u00e9n of meerdere kenmerken waargenomen waarbij mogelijk sprake is van ongelijke zetting?",
+            "answer": "Ja",
+            "condition": true,
+            "location": "omgevingskenmerken"
+        },
+        {
+            "type": "then",
+            "question": "Balkon aanwezig?222",
+            "answer": "hello world",
+            "condition": {
+                "contains": "el"
+            },
+            "location": "ruimtes"
+        },
+        {
+            "type": "then",
+            "question": "Wat is het hoogste punt van de schade vanaf het maaiveld/vloer?",
+            "answer": "2.5",
+            "condition": {
+                ">": "3"
+            },
+            "location": "schades"
+        }
     ]
 ]

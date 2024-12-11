@@ -386,10 +386,10 @@ def create_validation_data_section(parent_frame):
 
         # Confirmed IF Rules (Displayed Before THEN Rules)
         if_successes = final_rule_dict.get("all_if_rules_confirmed", [])
-        print("11111 - if_successes:", if_successes)
+        # print("11111 - if_successes:", if_successes)
         if if_successes:
             success_textbox.insert("end", "CONFIRMED IF RULES:\n", "bold_green")
-            success_textbox.insert("end", "===============\n", "bold_green")
+            success_textbox.insert("end", "==============================\n", "bold_green")
             for idx, success in enumerate(if_successes, start=1):
                 rule = success.get('rule_demand', {})
                 # hyperSel.colors_utilities.c_print(f"rule: { rule}", "green")
@@ -412,7 +412,7 @@ def create_validation_data_section(parent_frame):
         then_successes = final_rule_dict.get("all_then_rules_confirmed", [])
         if then_successes:
             success_textbox.insert("end", "\nCONFIRMED THEN RULES:\n", "bold_green")
-            success_textbox.insert("end", "===============\n", "bold_green")
+            success_textbox.insert("end", "==============================\n", "bold_green")
             for idx, success in enumerate(then_successes, start=1):
                 rule = success.get('rule_demand', {})
                 # hyperSel.colors_utilities.c_print(f"rule: { rule}", "blue")
@@ -460,7 +460,8 @@ def create_validation_data_section(parent_frame):
         # Failed THEN Rules
         then_failures = final_rule_dict.get("all_then_rules_failed", [])
         if then_failures:
-            failures_textbox.insert("end", "\nFAILED THEN RULES:\n", "bold_red")
+            failures_textbox.insert("end", "FAILED THEN RULES:\n", "bold_red")
+            failures_textbox.insert("end", "==============================\n", "bold_red")
             for idx, failure in enumerate(then_failures, start=1):
                 rule = failure.get('rule_demand', {})
                 # hyperSel.colors_utilities.c_print(f"rule: { rule}", "cyan")

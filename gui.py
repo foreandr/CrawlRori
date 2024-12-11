@@ -23,6 +23,7 @@ import gui_credenitals
 import gui_gebouwen
 import gui_ruimtes
 import gui_schades
+import gui_samenvatting
 
 # Test mode flag to skip login
 test_mode = True
@@ -81,9 +82,12 @@ def display_data(data, parent):
     # Add sub-tabs for Recording Tool
     recording_tool_sub_tabview = ctk.CTkTabview(recording_tool_tab)
     recording_tool_sub_tabview.pack(pady=10, padx=10, fill="both", expand=True)
-    '''
+
     tab_algemeen = recording_tool_sub_tabview.add("Algemeen")
     gui_algemeen.create_algemeen_tab(tab_algemeen, algemeen_data)
+
+    tab_samenvatting = recording_tool_sub_tabview.add("Samenvatting")
+    gui_samenvatting.create_samenvatting_tab(tab_samenvatting, samenvatting_data)
 
     tab_omgevingskenmerken = recording_tool_sub_tabview.add("Omgevingskenmerken")
     gui_omgevingskenmerken.create_omgevingskenmerken_tab(tab_omgevingskenmerken, omgevingskenmerken_data)
@@ -96,9 +100,6 @@ def display_data(data, parent):
 
     tab_schades = recording_tool_sub_tabview.add("Schades")
     gui_schades.create_schades_tab(tab_schades, schades_data)
-    '''
-    
-    # create_gebouwen_tab(tab_ruimtes, ruimtes_data)
 
 def FAKE_DATA_FUNC(url):
     """Simulate a long-running operation with a delay."""

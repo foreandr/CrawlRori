@@ -298,13 +298,14 @@ def is_numeric(value):
         return False
 
 def detect_data_type(rule_type, question, target, value, rules):
-    
+    '''
     print("=====")
     print("rule_type:", rule_type)
     print("question :", question)
     print("target   :", target)
     print("rules    :", rules)
     print("value    :", value)
+    '''
     
     if type(value) == bool:
         return "boolean"

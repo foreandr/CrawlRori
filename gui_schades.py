@@ -246,7 +246,7 @@ def set_rule(rule_type, question, target, rules, value=None):
     label.pack(pady=10)
 
     detected_type = detect_data_type(rule_type, question, target, value, rules)
-    print("detected_type:", detected_type)
+    # print("detected_type:", detected_type)
 
     if detected_type == "number":
         # Input for numeric comparison
