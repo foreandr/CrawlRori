@@ -535,7 +535,7 @@ def check_if_rule_in_data(rule, flattened_data):
         source = data.get("source")
         
         if rule_question.lower() == question.lower():
-            print("A MATCH??????")
+            # print("A MATCH??????")
             rule_found = True
 
             #print("data:", data)
@@ -544,12 +544,12 @@ def check_if_rule_in_data(rule, flattened_data):
                 result = bool_condition_check(rule, answers)
             elif condition_type == "numeric":
                 result = numeric_condition_check(rule, answers)
-                print("numeric")
+                # print("numeric")
             else:
                 result = string_condition_check(rule, answers)
 
-            print("result:", result)
-            print("----------------------------------------")
+            #print("result:", result)
+            #print("----------------------------------------")
             #print("==")
             #print("RESULT:", result)
             #print("rule:", rule)
@@ -560,7 +560,7 @@ def check_if_rule_in_data(rule, flattened_data):
 
             data_section =  {
                 "rule_demand":rule,
-                "data_answers":data
+                "data":data
             }
             
             if result == 1:
@@ -594,9 +594,9 @@ def validation_rule_tool(current_data, selected_rule_set):
     flattened_data = flatten_test_data_to_questions(current_data)
 
     all_if_rules = get_if_rules(selected_rule_set)
-    print("all_if_rules:", all_if_rules)
+    #print("all_if_rules:", all_if_rules)
     all_then_rules = get_then_rules(selected_rule_set)
-    print("all_then_rules:", all_then_rules)
+    #print("all_then_rules:", all_then_rules)
 
     all_if_rules_confirmed = []
     all_if_rules_failed = []
@@ -622,9 +622,9 @@ def validation_rule_tool(current_data, selected_rule_set):
             if rule_not_found != []:
                 all_if_rules_not_found.append(rule_not_found[0])
 
-        print("all_if_rules_confirmed:", all_if_rules_confirmed)
-        print("all_if_rules_failed:", all_if_rules_failed)
-        print("all_if_rules_not_found:", all_if_rules_not_found)
+        #print("all_if_rules_confirmed:", all_if_rules_confirmed)
+        #print("all_if_rules_failed:", all_if_rules_failed)
+        #print("all_if_rules_not_found:", all_if_rules_not_found)
 
         if len(all_if_rules_confirmed) != 0:
             for then_rule in all_then_rules:
@@ -677,11 +677,8 @@ def validation_rule_tool(current_data, selected_rule_set):
         #"all_if_rules_not_found": all_if_rules_not_found,
     }
 
+
     return final_rule_dict
 
 if __name__ == '__main__':
-    final_rule_dict = validation_rule_tool(current_data=test_data, selected_rule_set=example_validation_rule)
-    for key, value in final_rule_dict.items():
-        print(key)
-        print(value)
-        print("--------"*4)
+    pass

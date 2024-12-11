@@ -89,5 +89,48 @@
             "condition": true,
             "location": "algemeen"
         }
+    ],
+    [
+        {
+            "type": "if",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
+            "answer": "Zakelijk",
+            "condition": false,
+            "location": "algemeen"
+        },
+        {
+            "type": "then",
+            "question": "Zijn met betrekking tot de ingevoerde schades \u00e9\u00e9n of meerdere kenmerken waargenomen waarbij mogelijk sprake is van ongelijke zetting?",
+            "answer": "Nee",
+            "condition": true,
+            "location": "omgevingskenmerken"
+        },
+        {
+            "type": "then",
+            "question": "Wat is het bouwjaar?",
+            "answer": "19.0",
+            "condition": {
+                "=": 19.0
+            },
+            "location": "gebouwen"
+        },
+        {
+            "type": "then",
+            "question": "Balkon aanwezig?222",
+            "answer": "hello world",
+            "condition": {
+                "contains": "ello"
+            },
+            "location": "ruimtes"
+        },
+        {
+            "type": "then",
+            "question": "Wat is het hoogste punt van de schade vanaf het maaiveld/vloer?",
+            "answer": "2.5",
+            "condition": {
+                "<": "100"
+            },
+            "location": "schades"
+        }
     ]
 ]

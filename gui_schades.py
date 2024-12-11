@@ -26,7 +26,7 @@ def create_schades_tab(tab, schades_data):
         main_tabview.pack(fill="both", expand=True, padx=10, pady=10)
 
         # Debug: Ensure we are working with the correct main_tabview
-        print("main_tabview initialized.")
+        #print("main_tabview initialized.")
 
         def load_page(page):
             """
@@ -36,7 +36,7 @@ def create_schades_tab(tab, schades_data):
             current_page[0] = page
 
             # Print the page being loaded
-            print(f"Loading page {page + 1} with tabs from index {page * items_per_page} to {min((page + 1) * items_per_page, total_items)}")
+            #print(f"Loading page {page + 1} with tabs from index {page * items_per_page} to {min((page + 1) * items_per_page, total_items)}")
 
             # Clear existing tabs
             for tab_name in tabs_list:
@@ -61,7 +61,7 @@ def create_schades_tab(tab, schades_data):
             Called whenever a new tab is clicked.
             """
             selected_tab = main_tabview.get()  # Get the currently selected tab
-            print(f"Tab clicked: {selected_tab}")  # Debug print to confirm the new tab
+            #print(f"Tab clicked: {selected_tab}")  # Debug print to confirm the new tab
             lazy_load_tab_content()  # Load content dynamically for the selected tab
 
         def lazy_load_tab_content():
@@ -73,7 +73,7 @@ def create_schades_tab(tab, schades_data):
                 return  # Skip if the tab isn't in the tracked list
 
             # Print the tab being loaded
-            print(f"Loading data for tab: {selected_tab}")
+            #print(f"Loading data for tab: {selected_tab}")
 
             # Find the corresponding schade data by title
             for schade_data in schades_data["data"]:
@@ -171,7 +171,7 @@ def create_questionnaire_display(parent, questions_data):
         question = question_data.get("question", "Unknown question")
         answers = question_data.get("answers", {})
 
-        print(f"Displaying question: {question}")
+        # print(f"Displaying question: {question}")
 
         # Question Section
         question_label = ctk.CTkLabel(parent, text=question, anchor="w", wraplength=800, font=("Arial", 14, "bold"))
@@ -309,7 +309,7 @@ def set_rule(rule_type, question, target, rules, value=None):
             ),
         )
         contains_button.pack(pady=10)
-        
+
 def finalize_rule(rule_type, question, target, condition, rules, popup):
     """
     Finalizes the rule and closes the popup.

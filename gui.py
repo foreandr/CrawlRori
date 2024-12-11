@@ -81,15 +81,10 @@ def display_data(data, parent):
     # Add sub-tabs for Recording Tool
     recording_tool_sub_tabview = ctk.CTkTabview(recording_tool_tab)
     recording_tool_sub_tabview.pack(pady=10, padx=10, fill="both", expand=True)
-
+    '''
     tab_algemeen = recording_tool_sub_tabview.add("Algemeen")
     gui_algemeen.create_algemeen_tab(tab_algemeen, algemeen_data)
 
-    '''
-    # Add "Algemeen" sub-tab
-
-
-    # Add "Omgevingskenmerken" sub-tab
     tab_omgevingskenmerken = recording_tool_sub_tabview.add("Omgevingskenmerken")
     gui_omgevingskenmerken.create_omgevingskenmerken_tab(tab_omgevingskenmerken, omgevingskenmerken_data)
 
@@ -98,11 +93,11 @@ def display_data(data, parent):
 
     tab_ruimtes = recording_tool_sub_tabview.add("Ruimtes")
     gui_ruimtes.create_ruimtes_tab(tab_ruimtes, ruimtes_data)
-    '''
-    
+
     tab_schades = recording_tool_sub_tabview.add("Schades")
     gui_schades.create_schades_tab(tab_schades, schades_data)
-
+    '''
+    
     # create_gebouwen_tab(tab_ruimtes, ruimtes_data)
 
 def FAKE_DATA_FUNC(url):

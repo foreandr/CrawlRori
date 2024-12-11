@@ -5,25 +5,141 @@ import validation_rules
 
 def create_gebouwen_tab(tab, gebouwen_data):
     """
-    Creates the Gebouwen tab content with dynamic tabs for each building.
+    Creates the Gebouwen tab content with dynamic tabs for each building, adding pagination.
     """
     if "data" in gebouwen_data and isinstance(gebouwen_data["data"], list):
-        # Create a TabView inside the main tab
-        main_tabview = ctk.CTkTabview(tab)  # Corrected capitalization
+        # Pagination variables
+        items_per_page = 5  # Number of buildings per page
+        total_items = len(gebouwen_data["data"])
+        total_pages = (total_items + items_per_page - 1) // items_per_page  # Ceiling division
+        current_page = [0]  # Use a mutable object to allow updates in nested functions
+
+        # Track tabs manually
+        tabs_list = []
+
+        # Create a frame for the pagination controls
+        pagination_frame = ctk.CTkFrame(tab)
+        pagination_frame.pack(fill="x", padx=10, pady=5)
+
+        # Create the main TabView for buildings
+        main_tabview = ctk.CTkTabview(tab)
         main_tabview.pack(fill="both", expand=True, padx=10, pady=10)
 
-        # Loop through each building in the data
-        for building_data in gebouwen_data["data"]:
-            building_title = building_data.get("building_title", "Unknown Building")
-            building_tab = main_tabview.add(building_title)
+        # Debug: Ensure we are working with the correct main_tabview
+        #print("main_tabview initialized for Gebouwen.")
 
-            # Populate each tab with building-specific content
-            create_building_display(building_tab, building_data)
+        def load_page(page):
+            """
+            Load a specific page of tabs, updating the displayed tabs and pagination controls.
+            """
+            nonlocal current_page, tabs_list
+            current_page[0] = page
+
+            # Print the page being loaded
+            #print(f"Loading page {page + 1} with tabs from index {page * items_per_page} to {min((page + 1) * items_per_page, total_items)}")
+
+            # Clear existing tabs
+            for tab_name in tabs_list:
+                main_tabview.delete(tab_name)
+            tabs_list = []  # Reset the tabs list
+
+            # Determine the range of items to display
+            start_idx = page * items_per_page
+            end_idx = min(start_idx + items_per_page, total_items)
+
+            for i in range(start_idx, end_idx):
+                try:
+                    building_data = gebouwen_data["data"][i]
+                    building_title = building_data.get("building_title", f"Building {i + 1}")
+                    tabs_list.append(building_title)  # Track the tab name
+                    main_tabview.add(building_title)
+                except Exception as e:
+                    print("BUILDING DOOP")
+
+            update_pagination_controls()
+
+        def on_tab_change():
+            """
+            Function to handle tab change.
+            Called whenever a new tab is clicked.
+            """
+            selected_tab = main_tabview.get()  # Get the currently selected tab
+            #print(f"Tab clicked: {selected_tab}")  # Debug print to confirm the new tab
+            lazy_load_tab_content()  # Load content dynamically for the selected tab
+
+        def lazy_load_tab_content():
+            """
+            Lazy-load content for the currently selected tab.
+            """
+            selected_tab = main_tabview.get()  # Get currently selected tab
+            if selected_tab not in tabs_list:
+                return  # Skip if the tab isn't in the tracked list
+
+            # Print the tab being loaded
+            #print(f"Loading data for tab: {selected_tab}")
+
+            # Find the corresponding building data by title
+            for building_data in gebouwen_data["data"]:
+                if building_data.get("building_title", "Unknown Building") == selected_tab:
+                    building_tab = main_tabview.tab(selected_tab)
+                    create_building_display(building_tab, building_data)
+                    break
+
+        def update_pagination_controls():
+            """
+            Update the pagination buttons based on the current page.
+            """
+            for widget in pagination_frame.winfo_children():
+                widget.destroy()
+
+            # Add "Previous" button
+            if current_page[0] > 0:
+                ctk.CTkButton(
+                    pagination_frame,
+                    text="Previous",
+                    command=lambda: load_page(current_page[0] - 1),
+                ).pack(side="left", padx=5)
+
+            # Add "Next" button
+            if current_page[0] < total_pages - 1:
+                ctk.CTkButton(
+                    pagination_frame,
+                    text="Next",
+                    command=lambda: load_page(current_page[0] + 1),
+                ).pack(side="right", padx=5)
+
+            # Add page info
+            ctk.CTkLabel(
+                pagination_frame,
+                text=f"Page {current_page[0] + 1} of {total_pages}",
+                anchor="center",
+            ).pack(side="left", expand=True)
+
+        def monitor_tab_selection():
+            """
+            Continuously monitor the selected tab and call `on_tab_change` if it changes.
+            """
+            previous_tab = [None]  # Mutable to track the last selected tab
+
+            def check_tab():
+                current_tab = main_tabview.get()
+                if current_tab != previous_tab[0]:  # Tab has changed
+                    previous_tab[0] = current_tab
+                    on_tab_change()  # Trigger the tab change handler
+                main_tabview.after(100, check_tab)  # Check again after 100ms
+
+            check_tab()  # Start monitoring
+
+        # Load the first page
+        load_page(0)
+
+        # Start monitoring for tab selection changes
+        monitor_tab_selection()
+
     else:
         label = ctk.CTkLabel(tab, text="No content available for Gebouwen.")
         label.pack(pady=20)
-
-
+        
 def create_building_display(parent, building_data):
     """
     Creates the UI for an individual building.

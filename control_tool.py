@@ -136,5 +136,3 @@ def get_the_informatie_data(driver, url):
         data.append(object)
 
     return data
-
-

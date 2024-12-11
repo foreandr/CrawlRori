@@ -369,18 +369,35 @@ def create_validation_data_section(parent_frame):
             current_data=current_data, selected_rule_set=selected_rule_set
         )
 
+        '''
+        print("final_rule_dict:")
+        print("============================================")
+        for key,value in final_rule_dict.items():
+            print("key:", key)
+            print("value:", value)
+            print("-")
+        print("============================================")
+        '''
+        # input("INPUIT WHAT IS IN THIS OBJECT")
+
         # Update Successes Textbox
         success_textbox.configure(state="normal")  # Enable editing
         success_textbox.delete("1.0", "end")  # Clear existing content
 
         # Confirmed IF Rules (Displayed Before THEN Rules)
         if_successes = final_rule_dict.get("all_if_rules_confirmed", [])
+        print("11111 - if_successes:", if_successes)
         if if_successes:
             success_textbox.insert("end", "CONFIRMED IF RULES:\n", "bold_green")
             success_textbox.insert("end", "===============\n", "bold_green")
             for idx, success in enumerate(if_successes, start=1):
                 rule = success.get('rule_demand', {})
-                data = success.get('data_answer', {})
+                # hyperSel.colors_utilities.c_print(f"rule: { rule}", "green")
+
+            
+                data = success.get('data', {})
+                # hyperSel.colors_utilities.c_print(f"data: { data}", "green")
+
                 success_text = (
                     f"{idx}. Question: {rule.get('question', 'N/A')}\n"
                     f"   Expected Answer: {rule.get('answer', 'N/A')}\n"
@@ -398,7 +415,11 @@ def create_validation_data_section(parent_frame):
             success_textbox.insert("end", "===============\n", "bold_green")
             for idx, success in enumerate(then_successes, start=1):
                 rule = success.get('rule_demand', {})
-                data = success.get('data_answer', {})
+                # hyperSel.colors_utilities.c_print(f"rule: { rule}", "blue")
+
+                data = success.get('data', {})
+                # hyperSel.colors_utilities.c_print(f"data: {data}", "blue")
+
                 success_text = (
                     f"{idx}. Question: {rule.get('question', 'N/A')}\n"
                     f"   Expected: {rule.get('answer', 'N/A')}\n"
@@ -421,7 +442,11 @@ def create_validation_data_section(parent_frame):
             failures_textbox.insert("end", "FAILED IF RULE (won't bother checking other rules):\n", "bold_red")
             for idx, failure in enumerate(if_failures, start=1):
                 rule = failure.get('rule_demand', {})
-                data = failure.get('data_answer', {})
+                # hyperSel.colors_utilities.c_print(f"rule: { rule}", "red")
+                
+                data = failure.get('data', {})
+                # hyperSel.colors_utilities.c_print(f"data: {data}", "red")
+
                 failure_text = (
                     f"{idx}. Question: {rule.get('question', 'N/A')}\n"
                     f"   Expected Answer: {rule.get('answer', 'N/A')}\n"
@@ -438,7 +463,9 @@ def create_validation_data_section(parent_frame):
             failures_textbox.insert("end", "\nFAILED THEN RULES:\n", "bold_red")
             for idx, failure in enumerate(then_failures, start=1):
                 rule = failure.get('rule_demand', {})
-                data = failure.get('data_answer', {})
+                # hyperSel.colors_utilities.c_print(f"rule: { rule}", "cyan")
+                data = failure.get('data', {})
+                # hyperSel.colors_utilities.c_print(f"data: { data}", "cyan")
                 failure_text = (
                     f"{idx}. Question: {rule.get('question', 'N/A')}\n"
                     f"   Expected: {rule.get('answer', 'N/A')}\n"
