@@ -171,6 +171,8 @@ def create_questionnaire_display(parent, questions_data):
         question = question_data.get("question", "Unknown question")
         answers = question_data.get("answers", {})
 
+        print(f"Displaying question: {question}")
+
         # Question Section
         question_label = ctk.CTkLabel(parent, text=question, anchor="w", wraplength=800, font=("Arial", 14, "bold"))
         question_label.pack(fill="x", pady=(10, 5))
@@ -223,54 +225,91 @@ def create_questionnaire_display(parent, questions_data):
             ).pack(side="right", padx=10)
 
 
-def set_rule(rule_type, question, target, value, rules):
+def set_rule(rule_type, question, target, rules, value=None):
     """
-    Handles setting the "If" or "Then" rule with specific logic.
+    Handles setting the "If" or "Then" rule with specific logic for strings and numbers.
     """
+    # Create a popup for rule selection
     popup = Toplevel()
     popup.title(f"Set {rule_type.capitalize()} Rule")
     popup.geometry("350x350")
     popup.resizable(False, False)
 
+    # Label for the popup
     label = ctk.CTkLabel(
         popup,
         text=f"Set condition for '{target}' ({rule_type.upper()} Rule):",
         wraplength=280,
+        anchor="center",
+        text_color="black"  # Set the text color to black
     )
     label.pack(pady=10)
 
-    data_type = detect_data_type(rule_type, question, target, value, rules)
-    if data_type == "boolean":
-        ctk.CTkButton(
+    detected_type = detect_data_type(rule_type, question, target, value, rules)
+    print("detected_type:", detected_type)
+
+    if detected_type == "number":
+        # Input for numeric comparison
+        input_entry = ctk.CTkEntry(popup, placeholder_text="Enter a numeric value")
+        input_entry.pack(pady=10)
+
+        greater_button = ctk.CTkButton(
+            popup,
+            text="Greater Than",
+            command=lambda: finalize_rule(
+                rule_type, question, target, {">": input_entry.get()}, rules, popup
+            ),
+        )
+        greater_button.pack(pady=5)
+
+        less_button = ctk.CTkButton(
+            popup,
+            text="Less Than",
+            command=lambda: finalize_rule(
+                rule_type, question, target, {"<": input_entry.get()}, rules, popup
+            ),
+        )
+        less_button.pack(pady=5)
+
+        equal_button = ctk.CTkButton(
+            popup,
+            text="Equal To",
+            command=lambda: finalize_rule(
+                rule_type, question, target, {"=": input_entry.get()}, rules, popup
+            ),
+        )
+        equal_button.pack(pady=5)
+
+    elif detected_type == "boolean":
+        true_button = ctk.CTkButton(
             popup,
             text="True",
             fg_color="green",
             command=lambda: finalize_rule(rule_type, question, target, True, rules, popup),
-        ).pack(side="left", padx=20, pady=10)
-        ctk.CTkButton(
+        )
+        true_button.pack(side="left", padx=20, pady=10)
+
+        false_button = ctk.CTkButton(
             popup,
             text="False",
             fg_color="red",
             command=lambda: finalize_rule(rule_type, question, target, False, rules, popup),
-        ).pack(side="right", padx=20)
-    elif data_type == "number":
-        input_entry = ctk.CTkEntry(popup, placeholder_text="Enter numeric condition")
-        input_entry.pack(pady=10)
-        ctk.CTkButton(
-            popup,
-            text="Set Condition",
-            command=lambda: finalize_rule(rule_type, question, target, float(input_entry.get()), rules, popup),
-        ).pack(pady=10)
-    else:
-        input_entry = ctk.CTkEntry(popup, placeholder_text="Enter condition")
-        input_entry.pack(pady=10)
-        ctk.CTkButton(
-            popup,
-            text="Set Condition",
-            command=lambda: finalize_rule(rule_type, question, target, input_entry.get(), rules, popup),
-        ).pack(pady=10)
+        )
+        false_button.pack(side="right", padx=20, pady=10)
 
+    else:  # Detected type is string
+        input_entry = ctk.CTkEntry(popup, placeholder_text="Enter substring")
+        input_entry.pack(pady=10)
 
+        contains_button = ctk.CTkButton(
+            popup,
+            text="Contains",
+            command=lambda: finalize_rule(
+                rule_type, question, target, {"contains": input_entry.get()}, rules, popup
+            ),
+        )
+        contains_button.pack(pady=10)
+        
 def finalize_rule(rule_type, question, target, condition, rules, popup):
     """
     Finalizes the rule and closes the popup.
@@ -288,16 +327,26 @@ def finalize_rule(rule_type, question, target, condition, rules, popup):
 
 
 def detect_data_type(rule_type, question, target, value, rules):
-    """
-    Detect the data type based on the input value.
-    """
-    item_to_check = target if rules is None else rules
+    '''
+    print("=====")
+    print("rule_type:", rule_type)
+    print("question :", question)
+    print("target   :", target)
+    print("rules    :", rules)
+    print("value    :", value)
+    '''
 
+    item_to_check = None
+    if rules == None or rules == []:
+        item_to_check = target
+    else:
+        item_to_check = rules
+        
     # Check for boolean
     if isinstance(item_to_check, bool):
         return "boolean"
 
-    # Check if it's numeric
+    # Check if it's numeric (can be cast to float)
     if is_numeric(item_to_check):
         return "number"
 

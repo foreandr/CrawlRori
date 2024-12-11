@@ -156,7 +156,7 @@ test_data = {
 						},
 						{
 							"question":"Gebouw (verplicht)",
-							"answer":""
+							"answers":""
 						},
 						{
 							"question":"Wil je een ruimte aan de binnenkant of buitenkant aanmaken?",
@@ -191,23 +191,23 @@ test_data = {
 		"informatie":[
 			{
 				"question":"Algemene opmerking van de aanvrager",
-				"answer":"-"
+				"answers":"-"
 			},
 			{
 				"question":"Algemene opmerking van de deskundige",
-				"answer":"Het gebouw betreft een appartement. Eventuele schade(s) aan de buitenmuren, het dak en/ of de fundering zijn niet meegenomen in de beoordeling van dit rapport, aangezien deze delen van het gebouw (totale complex) onder de verantwoordelijkheid van de Vereniging van Eigenaren vallen. In een aparte aanvraag kunnen deze schades (van het complex) worden aangevraagd."
+				"answers":"Het gebouw betreft een appartement. Eventuele schade(s) aan de buitenmuren, het dak en/ of de fundering zijn niet meegenomen in de beoordeling van dit rapport, aangezien deze delen van het gebouw (totale complex) onder de verantwoordelijkheid van de Vereniging van Eigenaren vallen. In een aparte aanvraag kunnen deze schades (van het complex) worden aangevraagd."
 			},
 			{
 				"question":"Welke situatie is van toepassing? De aanvrager is:",
-				"answer":"Particulier"
+				"answers":"Particulier"
 			},
 			{
 				"question":"Heeft de aanvrager voor zijn zakelijke prestaties recht op aftrek van de BTW?",
-				"answer":"Nee"
+				"answers":"Nee"
 			},
 			{
 				"question":"Gebied",
-				"answer":"Effectgebied"
+				"answers":"Effectgebied"
 			}
 		],
 		"calculation":[
@@ -250,7 +250,7 @@ example_validation_rule = [
     {
             "type": "then",
             "question": "Balkon aanwezig?",
-            "answer": "hello world",
+            "answers": "hello world",
             "condition": {
                 "contains": "hello"
             },
@@ -327,7 +327,7 @@ def process_control_tool(control_tool):
             for entry in control_tool["informatie"]:
                 try:
                     question = entry.get("question")
-                    answers = entry.get("answer", {})
+                    answers = entry.get("answers", {})
                     if question:
                         flattened.append({
                             "question": question,
@@ -506,7 +506,7 @@ def check_if_rule_in_data(rule, flattened_data):
     rule_question = rule.get("question")
     print("rule_question:", rule_question)
 
-    rule_answer = rule.get("answer")
+    rule_answer = rule.get("answers")
     print("rule_answer:", rule_answer)
 
     rule_condition = rule.get("condition")
@@ -560,7 +560,7 @@ def check_if_rule_in_data(rule, flattened_data):
 
             data_section =  {
                 "rule_demand":rule,
-                "data_answer":data
+                "data_answers":data
             }
             
             if result == 1:

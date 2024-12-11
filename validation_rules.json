@@ -71,5 +71,23 @@
             "condition": false,
             "location": "ruimtes"
         }
+    ],
+    [
+        {
+            "type": "if",
+            "question": "Schade lengte:",
+            "answer": "0.3",
+            "condition": {
+                "<": "10"
+            },
+            "location": "schades"
+        },
+        {
+            "type": "then",
+            "question": "Welke situatie is van toepassing? De aanvrager is:",
+            "answer": "Particulier",
+            "condition": true,
+            "location": "algemeen"
+        }
     ]
 ]

@@ -248,7 +248,7 @@ def extract_label_questions_with_answers(soup):
         answer_value = answer_div["value"] if answer_div and answer_div.get("value") else ""
         all_questions.append({
             "question": question_name,
-            "answer": answer_value,
+            "answers": answer_value,
         })
     return all_questions
 
@@ -259,7 +259,7 @@ def add_questions_without_answers(questions_without_data, numeric_answers, all_q
         if not any(question_name == num_answer['question'] for num_answer in numeric_answers):
             all_questions.append({
                 "question": question_name,
-                "answer": ""
+                "answers": ""
             })
     return all_questions
 
@@ -579,7 +579,7 @@ def transform_data_to_question_answer(data):
         for question, answer in data.items():
             transformed.append({
                 "question": question,
-                "answer": answer
+                "answers": answer
             })
     except Exception as e:
         print(f"Error transforming data: {data} - {e}")

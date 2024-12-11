@@ -131,7 +131,7 @@ def get_the_informatie_data(driver, url):
         #print("==")
         object = {
             "question":label_text,
-            "answer":value_text
+            "answers":value_text
         }
         data.append(object)
 

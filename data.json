@@ -1027,11 +1027,16 @@
                             },
                             {
                                 "question": "Ruimtes",
-                                "answer": ""
+                                "answers": ""
                             },
+                            
                             {
                                 "question": "Bouwdeel",
-                                "answer": "hello world"
+                                "answers": "hello world"
+                            },
+                            {
+                                "question": "Bouwdeel 2",
+                                "answers": "hello world"
                             },
                             {
                                 "question": "Wat is de positie van de schade?",
